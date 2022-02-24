@@ -1,9 +1,14 @@
-/*********************************************
-
-Here is a description of any special CSS used.
-By default that's nothing.
-
-**********************************************/
 body{
-font-family: sans-serif;
+  background-color: pink;
+}
+
+#haiku {
+font-family: Helvetica, sans-serif;
+font-size: 1rem;
+color: pink;
+padding: 5px;
+font-weight: bold;
+justify-content: center;
+position: absolute;
+background-color: red;
 }
