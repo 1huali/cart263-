@@ -1,0 +1,169 @@
+<!DOCTYPE HTML>
+<!-- This webite is a digital pet you can feed, wash, love and play with. It ages, has fundamental feelings like hunger, happiness and love  -->
+<html lang="en" dir="ltr">
+<meta charset="UTF-16" />
+
+<head>
+  <title>WAWAG♥TCHI</title>
+  <link rel="stylesheet" href="stylesheet.css">
+  <script src="Librairies/p5.min.js"></script>
+  <script src="Librairies/p5.sound.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/annyang/2.6.0/annyang.min.js"></script>
+
+
+  <!-- /Header -->
+  <script type="text/javascript" src="script.js">
+    // does that activates the js?
+  </script>
+
+  <!-- Header/ -->
+  <!-- /Body -->
+</head>
+
+<body>
+  <!-- Audio preloads -->
+  <audio id="helloSound" hidden>
+    <source src="Preloads/sounds/Hello test.m4a" type="audio/mp4">
+    <source src="Preloads/sounds/Hey koko test.m4a" type="audio/mp4">
+  </audio>
+
+  <audio id="showerSoundtrack" hidden>
+    <source src="Preloads/sounds/mixkit-shower-short-1880.wav" type="audio/wav">
+  </audio>
+
+  <audio id="ilySoundtrack" hidden>
+    <source src="Preloads/sounds/Ily test.m4a" type="audio/mp4">
+  </audio>
+
+  <!-- /intro State -->
+        <div id="introBox">
+    <h1>
+      <marquee border="0" bgcolor scrolldelay="60" width="90%" scrollamount="4">♥ WAWAGOTCHI ♥</marquee>
+    </h1>
+  </h2>
+  <div id = "theService">
+    <form id = "new">
+      The service : hello, got some secrets to protect?
+    <br>    <label for="inputName">Guardian Name:</label>  <input type="text" id="inputName" name="iName"><br><br>
+    <br>    <label for="inputPassword">Password:</label>  <input type="password" id="inputPassword" name="iPw"><br><br>
+      <input type="submit" value="Submit" id = "dataInputGuardian">
+    <br> -
+  </form>
+
+  <form id = "returning">
+    The service : hello again, got some secrets to protect?
+  <br>    <label for="inputPasswordReturn">Password:</label>  <input type="password" id="inputPasswordReturn" name="iPw"><br><br>
+    <input type="submit" value="Submit" id = "dataInputGuardianReturn">
+  <br> -
+</form>
+      </div>
+<h1>  <marquee border="0" bgcolor scrolldelay="60" width="90%" scrollamount="4">♥ WELCOME AND TAKE CARE ♥</marquee>            </h1>
+</div>
+<!-- /end intro State -->
+
+
+
+
+  <!-- /Diary State -->
+  <div id="parentBox">
+        <div id="pet-zone">
+    <h1>
+      <marquee border="0" bgcolor scrolldelay="60" width="90%" scrollamount="4">♥ WAWAGOTCHI ♥</marquee>
+    </h1>
+  </h2>
+  <div id = "outerBox">
+  <div id="infoBox">
+    <div id = "profileBox">
+    hello world
+  </div>
+  <br>
+<div id="animalThoughtsBox"> <h2>thought box :</h2></div>
+  </div>
+
+<div id = "petShop">
+    <div id="pet-zone">
+      <!-- <div class="varBoxes">
+        <div class="box" id="nameBox"></div>
+        <div class="box" id="birthBox"></div>
+        <div class="box" id="signBox"></div>
+      </div>
+
+        <div class="varBoxes">
+        <div class="box" id="coinsBox"></div>
+        <div class="box" id="moodBox"> <h2 id='moodText'></h2>
+        <div id ='lilhearts'></div>
+        </div>
+        <div class="box" id="hungerBox"> <h2 id='hungerText'></h2>
+        <div id ='hungerLilhearts'></div>
+        </div>
+      </div> -->
+      <!-- varBoxes/ -->
+<!-- /Pet -->
+      <div class="bigBox" id="petBox">
+        <img id="room" class = "bgImg" src="Preloads/Images/https-::www.tumbral.com:blog:anime-bedrooms.jpeg"></img>
+        <img id="pet" style="top:0;left:0;" src="Preloads/Images/cat_red-peach.gif"></img>
+<img id="rain" style="top:0;left:0; display:none" src="Preloads/Images/giphy-rain.gif"></img>
+
+      </div>
+      <!-- Pet/ -->
+
+
+      <!-- Buttons/ -->
+</div><!-- PetZone/ -->
+</div><!-- PetShop/ -->
+<div id="rightSideBox"> tell me to 'show' or 'hide' your secrets
+<div id="secretsBox">List of secrets :</div> <!-- secretBox/ -->
+</div> <!-- rightSideBox ends -->
+</div> <!-- outerBox -->
+<!-- /Buttons -->
+
+<!-- /characteristics -->
+<div id="characteristics" >
+<!-- <div class="varBoxes"> -->
+  <div class="box vl" id="nameBox"></div>
+  <div class="box vl" id="birthBox"></div>
+  <div class="box vl" id="signBox"></div>
+<!-- </div> -->
+
+  <!-- <div class="varBoxes"> -->
+  <div class="box vl" id="coinsBox"></div>
+  <div class="box vl" id="moodBox"> <h2 id='moodText'></h2>
+  <div id ='lilhearts'></div>
+  </div>
+  <div class="box" id="hungerBox"> <h2 id='hungerText'></h2>
+  <div id ='hungerLilhearts'></div>
+  </div>
+<!-- </div> -->
+</div>
+<!-- fin characteristics/ -->
+
+<div class="varBoxes">
+  <button id="eatButton">Eat (5c)</button>
+  <button style="margin-left:5px" id="washButton">Wash</button>
+  <button style="margin-left:5px" id="playButton">Play (5c)</button>
+  <button style="margin-left:5px" id="newKokoButton">New Fit</button>
+    <button style="margin-left:5px" id="meditateButton">Meditate</button>
+    <button style="margin-left:5px" id="newRoom">Change Room</button>
+    <button style="margin-left:5px" id="helloButton">Hello!</button>
+
+</div>
+  </div>
+  <!-- ParentBox/ -->
+
+  <!-- /journalBox -->
+  <div class="journalText" id="journalBox" style="display:none;">
+    <div class="center"><h2>
+      ♥  ♥           ♥     ♥ ♥   ♥ ♥         ♥       ♥             ♥ ♥          ♥         ♥       ♥             ♥ ♥         ♥ ♥       ♥      ♥
+           ♥      ♥  ♥     Hey U! I am here to watch over Wawa's website while she is away      ♥       ♥ ♥       ♥     ♥ ♥          ♥
+           ♥  ♥           ♥     ♥ ♥   ♥ ♥         ♥       ♥             ♥ ♥          ♥         ♥       ♥             ♥ ♥         ♥ ♥       ♥      ♥
+   ♥       ♥                   ♥       ♥         ♥ Relax and reflect as you need♥           ♥ ♥                    ♥   ♥       ♥         ♥ ♥       ♥
+   ♥  ♥           ♥     ♥ ♥   ♥ ♥         ♥       ♥              ♥          ♥         ♥       ♥             ♥ ♥         ♥ ♥       ♥      ♥
+                                                     PET SHOP UNDER CONSTRUCTION!
+   ♥   ♥       ♥  if you want your custom digital guardian, reach out to me on <a href="https://www.instagram.com/9.wanwan/">ig</a> or email ♥        ♥
+    ♥                 ♥       ♥ ♥     ♥       ♥          ♥ ♥ ♥            ♥          ♥ ♥ ♥                ♥             ♥                   ♥    ♥  ♥      ♥</h2>   </div>
+      <h1>  <marquee border="0" bgcolor scrolldelay="60" width="90%" scrollamount="4">♥ TAKE CARE ♥</marquee>            </h1>
+  </div>
+  <!-- JournalBox/ -->
+</body>
+<!-- Body/ -->
+</html>
