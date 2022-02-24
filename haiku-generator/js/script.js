@@ -37,9 +37,9 @@ printLine2.innerText = line2;
 printLine3.innerText = line3;
 
 //activates and associates the clicks to an event
-// printLine1.addEventListener('click', lineClicked);
-// printLine2.addEventListener('click', lineClicked);
-// printLine3.addEventListener('click', lineClicked);
+printLine1.addEventListener('click', lineClicked);
+ printLine2.addEventListener('click', lineClicked);
+printLine3.addEventListener('click', lineClicked);
 
 // function that generates a random line in five or seven lines depending on the verse
 function setNewLine(element){
@@ -52,7 +52,6 @@ function setNewLine(element){
 }
 
 //line is set when user clicks on the line
-// Q: what is event target
 function lineClicked(event){
 // setNewLine(event.target);
 fadeOut(event.target, 1);
@@ -60,24 +59,27 @@ fadeOut(event.target, 1);
 
 //adds fade-in and fade-out transition effect
 //i dont understand what happened here
-function fadeOut(element, opacity){
-  opacity -= 0.01;
-  element.style[`opacity`] = opacity;
-  if (opacity > 0){
-    requestAnimationframe (function (){
-      fadeOut(element, opacity);
-    });
+function fadeOut(element,opacity){
+    opacity -= 0.01;
+    element.style[`opacity`] = opacity;
+    if (opacity > 0){
+       requestAnimationFrame (function (){
+          fadeOut(element, opacity);
+          });
   }
-  // else {
-  //   //something else when faded out
-  // }
+}
+
+
+    element.target.style[`opacity`] = opacity;
+    if (opacity > 0){
+       requestAnimationFrame (function (){
+          fadeOut(element, opacity);
+          });
+
+  }
 }
 
 function random(array){
   let index = Math.floor(Math.random() * array.length);
   return array [index];
 }
-
-printLine1.addEventListener('click', fadeOut);
-printLine2.addEventListener('click', fadeOut);
-printLine3.addEventListener('click', fadeOut);

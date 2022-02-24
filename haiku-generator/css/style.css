@@ -7,6 +7,8 @@ font-family: Helvetica, sans-serif;
 font-size: 1rem;
 color: pink;
 padding: 5px;
+/* display: flex; */
+margin-left: 50%;
 font-weight: bold;
 justify-content: center;
 position: absolute;
