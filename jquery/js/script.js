@@ -7,16 +7,20 @@ author, and this description to match your project!
 */
 
 // modal doesnt work
+$(`#escape-tunnel`).hide();
 
 $(`#intro-dialog`).dialog({
   modal: true,
   resizable: false,
   buttons : {
-    "Go" : function (){
+    "Imagination" : function (){
       $(this).dialog(`close`);
     },
-    "Go" : function(){
+    "Escape tunnel" : function(){
       $(this).dialog(`close`);
+      $(`#escape-tunnel`).show({
+        effect: `blind`
+      });
     }
   }
 });
