@@ -17,6 +17,9 @@ $(`#prisoner`).draggable({
       }
   });
 
-  // setTimeout(() => {
-  //   $(`#theprisoner`).draggable(`disable`)
-  // }, 5000);
+$(`escape-tunnel`).droppable({
+  drop: function(event,ui){
+    console.log(`dropped successful`);
+    $(`#prisoner`).remove();
+  }
+})
