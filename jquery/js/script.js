@@ -17,6 +17,6 @@ $(`#prisoner`).draggable({
       }
   });
 
-  setTimeout(() => {
-    $(`#theprisoner`).draggable(`disable`)
-  }, 5000);
+  // setTimeout(() => {
+  //   $(`#theprisoner`).draggable(`disable`)
+  // }, 5000);
