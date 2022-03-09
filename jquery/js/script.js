@@ -6,6 +6,21 @@ This is a template. You must fill in the title,
 author, and this description to match your project!
 */
 
+// modal doesnt work
+
+$(`#intro-dialog`).dialog({
+  modal: true,
+  resizable: false,
+  buttons : {
+    "Go" : function (){
+      $(this).dialog(`close`);
+    },
+    "Go" : function(){
+      $(this).dialog(`close`);
+    }
+  }
+});
+
 $(`#prisoner`).effect({
   effect: `shake`,
   duration: 2000,
@@ -14,11 +29,10 @@ $(`#prisoner`).effect({
   complete: makePrisonerDraggable(),
 });
 
-// think jQuery doesnt work
 
 $(`#escape-tunnel`).droppable({
   drop: function(event,ui){
-    console.log(`dropped successful`);
+    console.log(`escaped successful`);
     $(`#prisoner`).remove();
     $(this).hide({
       effect: `blind`,
