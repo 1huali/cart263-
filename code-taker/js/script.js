@@ -9,4 +9,8 @@ jQuery exercice
 
 $(`.secret`).on(`mouseover`, function(event){
 $(this).addClass(`found`,500);
+$(this).draggable({
+    helper : 'clone'
+});
+$(this).droppable();
 });
