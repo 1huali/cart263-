@@ -10,11 +10,25 @@ $(`#prisoner`).effects({
   effect: `shake`,
   duration: 2000,
   times: 15,
-  distance: 7
+  distance: 7,
+  complete: makePrisonerDraggable();
 });
 
 // think jQuery doesnt work
-$(`#prisoner`).draggable({
+
+$(`escape-tunnel`).droppable({
+  drop: function(event,ui){
+    console.log(`dropped successful`);
+    $(`#prisoner`).remove();
+    $(this).hide({
+      effect: `blind`,
+      duration: 500,
+    });
+  }
+})
+
+function makePrisonerDraggable(){
+  $(`#prisoner`).draggable({
     containment: `#prison`,
     start: function(event,ui){
       $(this).css(`text-decoration`,`underline`);
@@ -29,10 +43,4 @@ $(`#prisoner`).draggable({
         },750);
       }
   });
-
-$(`escape-tunnel`).droppable({
-  drop: function(event,ui){
-    console.log(`dropped successful`);
-    $(`#prisoner`).remove();
-  }
-})
+}
