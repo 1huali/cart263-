@@ -1,12 +1,10 @@
 #poem{
-    font-size: 2rem;
-    /* display: flex; */
-    /* align-content: center; */
+    font-size: 1.5rem;
     text-align: center;
 }
 #part0{
     text-align: center;
-    font-size: 2.2rem;
+    font-size: 2rem;
 }
 
 #part1 , #part2, #part3, #part4, #part5, #part6, #part7,#part8, #part9, #part10, #part11, #part12 {
@@ -16,16 +14,14 @@ display: none;
 .read {
     color: pink;
 }
-/* .unread {
-    color: black;
-} */
 
 #buttons{
     text-align: center;
 }
 
-/* #answer {
-    height: 2rem;
-    width: 10rem;
-    border: 1px dashed black;
+.image{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 15%;
 }
