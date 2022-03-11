@@ -2,7 +2,7 @@
 Da Vinci
 Wawa Li
 
-Mulan poem
+Mulan poem : a "book-like" program where the user can flip verse of the poem.
 */
 
 "use strict";
