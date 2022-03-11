@@ -4,13 +4,24 @@
     /* align-content: center; */
     text-align: center;
 }
-#title{
+#part0{
     text-align: center;
     font-size: 2.2rem;
 }
 
-#partOne-poem , #partTwo-poem, #partThree-poem, #partFour-poem, #partFive-poem, #partSix-poem, #partSeven-poem,#partEight-poem, #partEight-poem, #partNine-poem, #partTen-poem, #partEleven-poem, #partTwelve-poem {
+#part1 , #part2, #partThree-poem, #partFour-poem, #partFive-poem, #partSix-poem, #partSeven-poem,#partEight-poem, #partEight-poem, #partNine-poem, #partTen-poem, #partEleven-poem, #partTwelve-poem {
 display: none;
+}
+
+.read {
+    color: pink;
+}
+.unread {
+    color: black;
+}
+
+.hover {
+
 }
 
 /* #answer {
@@ -18,7 +29,3 @@ display: none;
     width: 10rem;
     border: 1px dashed black;
 }
-
-.found{
-    color: red;
-} */

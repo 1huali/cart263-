@@ -5,10 +5,12 @@
     <meta name="viewport" width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0>
 
     <title>木兰诗 (Mulan)</title>
-    <audio controls hidden>
-      <source src="assets/sounds/창룡 - Eric Rigler.mp3" type="audio/mpeg" id="song">
+    <audio id="song" controls hidden>
+      <source src="assets/sounds/창룡 - Eric Rigler.mp3" type="audio/mpeg">
+    </audio>
+
+    <audio id="sound1" controls hidden>
       <source src="dagger.wav" type="audio/wav" id="sound1">
-    audio elements tbd
     </audio>
     <!-- CSS stylesheet(s) -->
     <link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
@@ -19,19 +21,19 @@
   </head>
 
   <body>
-<!-- The poem, secret letters are in spans with class "secret" -->
-<div id="title">
+<!-- The poem, dagger letters are in spans with class "hover" -->
+<div id="part0" class="poemSection" nextSection = "1">
 <h2>木兰诗</h2>
 </div>
   <section id="poem">    
- <div id="partOne-poem">
+ <div id="part1" class="poemSection" nextSection = "2">
     <br>
     <span class="hover">唧唧</span>复唧唧①，<br>
 木兰当户织②。<br>
 不闻机杼声③，<br>
 唯闻 <span class="hover">女叹息</span>④。<br>
   <br></div>
-<div id="partTwo-poem">
+<div id="part2" class="poemSection" nextSection = "3">
   <span class="hover">问女何所思，<br>
 问女<span class="hover">何所</span>忆⑤。<br>
 女亦无所思，<br>
@@ -107,18 +109,10 @@
   双兔傍地走，<br>
   安能辨我是雄雌㊳？<br>
 </div><br>
-
-  <div>
-    Forgive <span class="secret">m</span>e<br />
-    they were del<span class="secret">i</span>cious<br />
-    so sweet<br />
-    a<span class="secret">n</span>d so cold
-  </div>
-  <h4>William Carlos Williams</h4>
 </section>
 
-<!-- The secret answer area-->
-<section id="buttons">prev/next</section>
+<!-- The buttons area-->
+<section id="buttons"><span id ="prev">prev</span>/<span id ="next">next</span></section>
 
 <!-- Dialog box area-->
 <!-- <div id="solved-dialog" title="Da Vinci?">
