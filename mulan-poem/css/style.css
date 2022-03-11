@@ -9,19 +9,19 @@
     font-size: 2.2rem;
 }
 
-#part1 , #part2, #partThree-poem, #partFour-poem, #partFive-poem, #partSix-poem, #partSeven-poem,#partEight-poem, #partEight-poem, #partNine-poem, #partTen-poem, #partEleven-poem, #partTwelve-poem {
+#part1 , #part2, #part3, #part4, #part5, #part6, #part7,#part8, #part9, #part10, #part11, #part12 {
 display: none;
 }
 
 .read {
     color: pink;
 }
-.unread {
+/* .unread {
     color: black;
-}
+} */
 
-.hover {
-
+#buttons{
+    text-align: center;
 }
 
 /* #answer {

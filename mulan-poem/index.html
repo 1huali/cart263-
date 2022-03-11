@@ -10,7 +10,7 @@
     </audio>
 
     <audio id="sound1" controls hidden>
-      <source src="dagger.wav" type="audio/wav" id="sound1">
+      <source src="assets/sounds/dagger.wav" type="audio/wav" id="sound1">
     </audio>
     <!-- CSS stylesheet(s) -->
     <link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
@@ -26,31 +26,31 @@
 <h2>木兰诗</h2>
 </div>
   <section id="poem">    
- <div id="part1" class="poemSection" nextSection = "2">
+ <div id="part1" class="poemSection" nextSection = "2" previousSection="0">
     <br>
-    <span class="hover">唧唧</span>复唧唧①，<br>
+    <span class="hover">唧唧</span>复唧唧，<br>
 木兰当户织②。<br>
 不闻机杼声③，<br>
-唯闻 <span class="hover">女叹息</span>④。<br>
+唯闻 <span class="hover">女叹息</span>。<br>
   <br></div>
-<div id="part2" class="poemSection" nextSection = "3">
+<div id="part2" class="poemSection" nextSection = "3" previousSection="1">
   <span class="hover">问女何所思，<br>
-问女<span class="hover">何所</span>忆⑤。<br>
+问女<span class="hover">何所</span>忆。<br>
 女亦无所思，<br>
 女亦无<span class="hover">所忆</span>。<br>
 </div><br>
-<div id="partThree-poem">
+<div id="part3" nextSection = "4" previousSection="2">
 昨夜见<span class="hover">军帖</span>，<br>
 可汗<span class="hover">大点</span>兵。<br>
 军书十二卷，<br>
 卷卷有<span class="hover">爷名</span>。</div><br>
-  <div id="partFour-poem">
+  <div id="part4" class="poemSection" nextSection = "5" previousSection="3">
     阿爷无大儿，<br>
     木<span class="hover">兰无</span>长兄。<br>
     愿为<span class="hover">市鞍</span>马，<br>
     从此<span class="hover">替爷</span>征。<br>
   </div><br>
-  <div id="partFive-poem">
+  <div id="part5" class="poemSection" nextSection = "6" previousSection="4">
     <span class="hover">东市</span>买骏马，<br>
     西市买<span class="hover">鞍鞯</span>，<br>
     <span class="hover">南市</span>买辔头，<br>
@@ -58,66 +58,68 @@
     旦辞爷娘去，<br>
     暮宿<span class="hover">黄河边</span>。<br>
 </div><br>
-<div id="partSix-poem">
+<div id="part6" class="poemSection" nextSection = "7" previousSection="5">
   不闻爷娘唤女声，<br>
 但闻黄河流水鸣溅溅。<br>
 <span class="hover">旦辞</span>黄河去，暮至黑山头。<br>
-不闻爷娘唤女声，<br>
-但闻燕山胡骑<span class="hover">鸣啾啾。</span><br>
+不闻爷<span class="hover"></span>娘唤<span class="hover"></span>女声，<br>
+但闻<span class="hover"></span>燕山<span class="hover"></span>胡骑<span class="hover">鸣啾啾。</span><br>
 </div><br>
-<div id="partSeven-poem">
-  万里赴戎机⑰，<br>
-关山度若飞⑱。<br>
-朔气传金柝⑲，<br>
+<div id="part7" class="poemSection" nextSection = "8" previousSection="6">
+  万里<span class="hover"></span>赴戎<span class="hover"></span>机⑰，<br>
+关<span class="hover"></span>山度若飞⑱。<br>
+朔气传<span class="hover"></span>金柝⑲，<br>
 寒光照<span class="hover">铁衣</span>。<br>
 </div><br>
-<div id="partEight-poem">
-  将军百战死，<br>
-壮士十年归。<br>
-归来见天子，<br>
-天子坐明堂㉑。<br>
+<div id="part8" class="poemSection" nextSection = "9" previousSection="7">
+  将<span class="hover"></span>军百战<span class="hover"></span>死，<br>
+壮士<span class="hover"></span>十年归。<br>
+归<span class="hover"></span>来见天子，<br>
+天<span class="hover"></span>子坐明<span class="hover"></span>堂㉑。<br>
 </div><br>
-<div id="partNine-poem">
+<div id="part9" class="poemSection" nextSection = "10" previousSection="8">
   策勋十二转㉒，<br>
-赏赐百千强㉓。<br>
+赏<span class="hover">赐</span>百千<span class="hover">强</span>。<br>
 可汗问所欲㉔，<br>
-木兰不用尚书郎㉕，<br>
-愿驰千里足㉖，<br>
-送儿还故乡。<br>
+木兰<span class="hover">不</span>用尚书郎，<br>
+愿驰千里<span class="hover">足</span>，<br>
+<span class="hover">送</span>儿还<span class="hover">故</span>乡。<br>
 </div><br>
-<div id="partTen-poem">
-爷娘闻女来，<br>
-出郭相扶将㉗；<br>
-阿姊闻妹来㉘，<br>
-当户理红妆㉙；<br>
-小弟闻姊来，<br>
-磨刀霍霍向猪羊㉚。<br>
+<div id="part10" class="poemSection" nextSection = "11" previousSection="9">
+<span class="hover">爷</span>娘闻女<span class="hover">来</span>，<br>
+出郭<span class="hover">相</span>扶将；<br>
+<span class="hover">阿</span>姊闻<span class="hover">妹</span>来，<br>
+<span class="hover">当</span>户理<span class="hover">红</span>妆；<br>
+小弟闻<span class="hover">姊</span>来，<br>
+磨刀<span class="hover">霍</span>霍向<span class="hover">猪</span>羊。<br>
 </div><br>
-<div id="partEleven-poem">
-开我东阁门㉛，<br>
-坐我西阁床。<br>
+<div id="part11" class="poemSection" nextSection = "12" previousSection="10">
+<span class="hover">开</span>我东阁门，<br>
+坐我<span class="hover">西</span>阁床。<br>
 脱我战时袍，<br>
-著我旧时裳㉜。<br>
-当窗理云鬓㉝，<br>
-对镜帖花黄㉞。<br>
+著<span class="hover">我</span>旧时裳。<br>
+当窗理<span class="hover">云</span>鬓，<br>
+对<span class="hover">镜</span>帖花<span class="hover">黄</span>。<br>
 </div><br>
-<div id="partTwelve-poem">
-  出门看火伴㉟，<br>
-  火伴皆惊忙：同行十二年，不知木兰是女郎。<br>
-  雄兔脚扑朔㊱，<br>
-  雌兔眼迷离㊲；<br>
-  双兔傍地走，<br>
-  安能辨我是雄雌㊳？<br>
+<div id="part12" class="poemSection" nextSection = "13" previousSection="11">
+  <span class="hover">出</span>门看<span class="hover">火</span>伴，<br>
+  火伴<span class="hover">皆</span>惊忙：同行十二年，不知木兰是女郎。<br>
+  雄兔脚扑<span class="hover">朔</span>，<br>
+  雌<span class="hover">兔</span>眼迷离；<br>
+  双兔傍地<span class="hover">走</span>，<br>
+  安能<span class="hover">辨</span>我是雄<span class="hover">雌</span>？<br>
 </div><br>
+<div id="part13" class="poemSection" previousSection="12">
+</div>
 </section>
 
 <!-- The buttons area-->
-<section id="buttons"><span id ="prev">prev</span>/<span id ="next">next</span></section>
+<section id="buttons" class="hover"><br><br><br><br><span id ="prev">prev</span>/<span id ="next">next</span><br></section>
 
 <!-- Dialog box area-->
-<!-- <div id="solved-dialog" title="Da Vinci?">
+<!-- <div id="context-dialog" title="Context">
   <p>
-    Smart congrats
+    End of Song Dynasty, Mongolian invasion.
   </p>
 </div> -->
 
