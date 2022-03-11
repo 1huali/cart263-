@@ -2,15 +2,41 @@
 Da Vinci
 Wawa Li
 
-jQuery UI exercice
+Mulan poem
 */
 
 "use strict";
-let state = `part1`;
+let state = `title`;
+let song;
+let daggerSound;
 changingState();
 
+// doesnt get the song
+song = document.getElementById("song").innerHTML;
+daggerSound = document.getElementById("sound1");
+setTimeout(openPoem,1000);
+
+// dagger sounds when hover over some random letters
+$(`.hover`).on(`mouseover`, function(event){
+    // $(this).addClass(`found`,500);
+    daggerSound.play();
+    });
+
+function openPoem(){
+    state = `part1`;
+    song.play();
+    //song doesnt play
+}
 
 function changingState(){
+    // if (state === `title`){
+    //     $(`#poem`).children().hide();
+    //     $(`#title`).on(`click`, function(event){
+    //         state = `part1`;
+    //         changingState();
+    //         console.log(state);
+    //         });
+    // }
 if (state === `part1`){
     $(`#poem`).children().hide();
     $(`#partOne-poem`).show(`blind`);
@@ -126,6 +152,7 @@ else if (state === `part12`){
 
 }
 
+// previous / next button
 // $(`#buttons`).button({`<`: value1, `>`: value2 });
 
   

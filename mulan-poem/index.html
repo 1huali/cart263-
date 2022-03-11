@@ -4,10 +4,10 @@
     <meta charset="utf-8">
     <meta name="viewport" width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0>
 
-    <title>Code taker</title>
-    <audio controls>
-      <source src="assets/sounds/창룡 - Eric Rigler.mp3" type="audio/mpeg">
-      <source src="dagger.wav" type="audio/wav">
+    <title>木兰诗 (Mulan)</title>
+    <audio controls hidden>
+      <source src="assets/sounds/창룡 - Eric Rigler.mp3" type="audio/mpeg" id="song">
+      <source src="dagger.wav" type="audio/wav" id="sound1">
     audio elements tbd
     </audio>
     <!-- CSS stylesheet(s) -->
@@ -20,53 +20,54 @@
 
   <body>
 <!-- The poem, secret letters are in spans with class "secret" -->
-  <h2>木兰诗</h2>
-  
-  <section id="poem">
+<div id="title">
+<h2>木兰诗</h2>
+</div>
+  <section id="poem">    
  <div id="partOne-poem">
     <br>
-唧唧复唧唧①，<br>
+    <span class="hover">唧唧</span>复唧唧①，<br>
 木兰当户织②。<br>
 不闻机杼声③，<br>
-唯闻女叹息④。<br>
+唯闻 <span class="hover">女叹息</span>④。<br>
   <br></div>
 <div id="partTwo-poem">
-问女何所思，<br>
-问女何所忆⑤。<br>
+  <span class="hover">问女何所思，<br>
+问女<span class="hover">何所</span>忆⑤。<br>
 女亦无所思，<br>
-女亦无所忆。<br>
+女亦无<span class="hover">所忆</span>。<br>
 </div><br>
 <div id="partThree-poem">
-昨夜见军帖⑥，<br>
-可汗大点兵⑦。<br>
-军书十二卷⑧，<br>
-卷卷有爷名⑨。</div><br>
+昨夜见<span class="hover">军帖</span>，<br>
+可汗<span class="hover">大点</span>兵。<br>
+军书十二卷，<br>
+卷卷有<span class="hover">爷名</span>。</div><br>
   <div id="partFour-poem">
     阿爷无大儿，<br>
-    木兰无长兄。<br>
-    愿为市鞍马⑩，<br>
-    从此替爷征。<br>
+    木<span class="hover">兰无</span>长兄。<br>
+    愿为<span class="hover">市鞍</span>马，<br>
+    从此<span class="hover">替爷</span>征。<br>
   </div><br>
   <div id="partFive-poem">
-    东市买骏马，<br>
-    西市买鞍鞯⑪，<br>
-    南市买辔头⑫，<br>
-    北市买长鞭。<br>
-    旦辞爷娘去⑬，<br>
-    暮宿黄河边。<br>
+    <span class="hover">东市</span>买骏马，<br>
+    西市买<span class="hover">鞍鞯</span>，<br>
+    <span class="hover">南市</span>买辔头，<br>
+    北市<span class="hover">买长</span>鞭。<br>
+    旦辞爷娘去，<br>
+    暮宿<span class="hover">黄河边</span>。<br>
 </div><br>
 <div id="partSix-poem">
   不闻爷娘唤女声，<br>
-但闻黄河流水鸣溅溅⑭。<br>
-旦辞黄河去，暮至黑山头⑮。<br>
+但闻黄河流水鸣溅溅。<br>
+<span class="hover">旦辞</span>黄河去，暮至黑山头。<br>
 不闻爷娘唤女声，<br>
-但闻燕山胡骑鸣啾啾⑯。<br>
+但闻燕山胡骑<span class="hover">鸣啾啾。</span><br>
 </div><br>
 <div id="partSeven-poem">
   万里赴戎机⑰，<br>
 关山度若飞⑱。<br>
 朔气传金柝⑲，<br>
-寒光照铁衣⑳。<br>
+寒光照<span class="hover">铁衣</span>。<br>
 </div><br>
 <div id="partEight-poem">
   将军百战死，<br>
