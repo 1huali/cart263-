@@ -16,7 +16,6 @@ song = document.getElementById("song");
 daggerSound = document.getElementById("sound1");
 openPoem();
 
-// $(`title`).style.cursor = "crosshair"; 
 
 $(`#context-dialog`).dialog({
     // autoOpen : false,
