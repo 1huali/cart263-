@@ -1,9 +1,10 @@
 /**
-Title of Project
-Author Name
+Raving redactionist
+Wawa Li
 
-This is a template. You must fill in the title,
-author, and this description to match your project!
+Webpage of text with some passages “redacted” (covered in black bars). Over time the redactions will disappear, 
+revealing the shocking secret text beneath them. The user is in charge of keeping the information secret, 
+so they click the secret text to restore the redaction
 */
 
 "use strict";
