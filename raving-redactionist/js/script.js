@@ -9,4 +9,15 @@ so they click the secret text to restore the redaction
 
 "use strict";
 
-// Code goes here
+setInterval (revelation,500);
+
+function revelation(){
+    $(`#redacted`).each(function(){
+        let number = Math.random(0,1);
+        console.log(number);
+        if (number < 0.1){
+        $(this).removeClass(`.redacted`);
+        $(this).addClass(`.revealed`);
+        }
+    });
+}
