@@ -12,10 +12,10 @@ so they click the secret text to restore the redaction
 setInterval (revelation,500);
 
 function revelation(){
-    $(`#redacted`).each(function(){
+    $(`.redacted`).each(function(){
         let number = Math.random(0,1);
         console.log(number);
-        if (number < 0.1){
+        if (number < 0.2){
         $(this).removeClass(`.redacted`);
         $(this).addClass(`.revealed`);
         }
