@@ -11,22 +11,31 @@ so they click the secret text to restore the redaction
 let bank=0;
 // gain/point counter
 
-//when clicked, money becomes a gain
+//when clicked, money becomes a +1 in bank and .gain class
 $(`.liquidity`).on(`click`, function(event){
     $(this).addClass(`gain`);
     $(this).removeClass(`untouched`);
     bank +=1;
+    plusOneSign();
+    console.log("+1!!")
     console.log(bank);
 });
 
-// +1 everytime user clicks
+// Q: how to display DOESNT WORK
+function displayBank (){
+        $(`.liquidity`).click(function() {
+          $(`#moneyGain`).text($(bank));
+        });
+    // $(`#moneyGain`).text(`blind`);
+}
 
-// function plusOne(){
-//     setTimeout(function() {
-//         // hideSecret = true;
-//         $(`.revealed`).
-//       }, 3000)
-// }
+// +1 text replaces the flying dollar icon for 1 second when user clicks 
+function plusOneSign(){
+    setTimeout(function() {
+$(`.revealed`).text("+1");
+        }, 600);
+      };
+
 
 // money reveals and hide randomly
 setInterval (revelation, 500);

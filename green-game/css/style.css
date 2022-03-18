@@ -32,6 +32,8 @@ margin: auto;
 
 .revealed{
     opacity: 1;
+    font-size: smaller;
+
 }
 
 .untouched{
@@ -47,4 +49,9 @@ margin: auto;
     box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
 
     /* add black filter */
+}
+
+#moneyGain{
+    font-size: smaller;
+    text-decoration: underline;
 }
