@@ -29,10 +29,12 @@ function displayBank (){
     // $(`#moneyGain`).text(`blind`);
 }
 
-// +1 text replaces the flying dollar icon for 1 second when user clicks 
+// +1 text replaces the flying dollar icon for 1 second when user clicks (gratification feature) 
+//DOESNT WORK
 function plusOneSign(){
     setTimeout(function() {
 $(`.revealed`).text("+1");
+$(`img`).text("+1");
         }, 600);
       };
 
