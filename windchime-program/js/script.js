@@ -1,11 +1,9 @@
 /**
-Title of Project
-Author Name
+A wind chime
+Wawa Li
 
-This is a template. You must fill in the title,
-author, and this description to match your project!
+Program incarnating a wind chime : initial state, disturbed state. Input disturbances, interval disturbance, voice responsive disturbance?
 */
 
 "use strict";
 
-// Code goes here
