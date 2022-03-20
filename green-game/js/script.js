@@ -9,8 +9,11 @@ so they click the secret text to restore the redaction
 
 "use strict";
 let state= `intro`;
+let song;
 let bank=0;
 // gain/point counter
+
+song = document.getElementById(`song`);
 
 //intro box dialog
 //Q: how to center button
@@ -19,6 +22,7 @@ $(`#intro-dialog`).dialog({
     buttons: {
         "green" : function(){
             $(this).dialog(`close`);
+            song.play();
             state= `game`;
         }
     }
