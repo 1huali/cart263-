@@ -2,9 +2,8 @@
 Raving redactionist
 Wawa Li
 
-Webpage of text with some passages “redacted” (covered in black bars). Over time the redactions will disappear, 
-revealing the shocking secret text beneath them. The user is in charge of keeping the information secret, 
-so they click the secret text to restore the redaction
+Game where the user tries to catch as much money (by clicking) as it can in 30 seconds. Money is randomized and every money caught is +1$.
+A perfect cure for a heartbreak and down to earth reminder.
 */
 
 "use strict";
@@ -68,21 +67,15 @@ displayBank();
 scoreIncrease();
 }
 
+//when clicked, money becomes a +1 in bank and adds .gain class
 function scoreIncrease(){
-//when clicked, money becomes a +1 in bank and .gain class
 let liquidityList = $(`.liquidity`);
-//console.log(liquidityList);
 for(let i = 0; i< liquidityList.length; i++){
-   // console.log(liquidityList[i])
 $(liquidityList[i]).on(`click`, function(event){
-   // console.log(event.target);
     $(this).addClass(`gain`);
-   // console.log(this);
     $(this).removeClass(`untouched`);
     bank +=1;
     plusOneSign(this);
-    // console.log("+1!!")
-    // console.log(bank);
 });
 }
 }
@@ -94,12 +87,9 @@ function displayBank (){
 }
 
 // +1 text replaces the flying dollar icon for 1 second when user clicks (gratification feature) 
-//DOESNT WORK
 function plusOneSign(imageClicked){
     imageClicked.textContent = "+1";
 setTimeout(function() {
-    // console.log(imageClicked);
-//$(`.revealed`).text("+1");
 imageClicked.textContent = "";
     }, 1000);
   };
@@ -108,12 +98,10 @@ imageClicked.textContent = "";
 function revelation(){
     $(`.hidden`).each(function(){
         let number = Math.random();
-        // console.log(number);
         if (number < 0.2){
         $(this).removeClass(`hidden`);
         $(this).addClass(`revealed`);
-            // console.log(`removes class`)
-            // console.log(`add new class`)
+
 }
     });
 }
@@ -121,12 +109,9 @@ function revelation(){
 function hide(){
     $(`.revealed`).each(function(){
         let number = Math.random();
-        // console.log(number);
         if (number < 0.2){
         $(this).removeClass(`revealed`);
-        $(this).addClass(`hidden`);
-            // console.log(`removes class`)
-            // console.log(`add new class`)
+        $(this).addClass(`hidden`); 
 }
     });
 }
