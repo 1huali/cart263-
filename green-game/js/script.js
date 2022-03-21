@@ -16,24 +16,21 @@ let bank=0;
 song = document.getElementById(`song`);
 
 //intro box dialog
+//triggers a 30 second game
+
 //Q: how to center button
 $(`#intro-dialog`).dialog({
     modal: true,
     buttons: {
         "green" : function(){
             $(this).dialog(`close`);
-            song.play();
-            state= `game`;
+            // song.play();
+            // setTimeout (game, 30000);
+            game();
         }
     }
 });
 
-//30 second game
-if (state === `game`){
-setTimeout (game, 30000);
-// } else {
-//     state = `end`;
-}
 
 //decide wtv happens at the end
 // if (state=== `end`){
@@ -67,12 +64,10 @@ $(`.liquidity`).on(`click`, function(event){
 });
 }
 
-// Q: how to display DOESNT WORK
 function displayBank (){
     $(`.liquidity`).click(function() {
-      $(`#moneyGain`).text($(bank));
+      $(`#moneyGain`).text("$"+bank);
     });
-// $(`#moneyGain`).text(`blind`);
 }
 
 // +1 text replaces the flying dollar icon for 1 second when user clicks (gratification feature) 

@@ -7,9 +7,7 @@ margin: auto;
 }
 body {
     /* DOESNT WORK */
-    background-image:url('assets/images/sky1.gif');
-    /* background-image:url('green-game/assets/images/sky1.gif'); */
-
+    background-image:url('../assets/images/sky1.gif');
     background-size:100%;
     background-repeat: repeat-y;
     background-attachment: fixed;
