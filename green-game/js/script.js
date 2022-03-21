@@ -12,7 +12,7 @@ let state= `intro`;
 let song;
 let bank=0;
 // gain/point counter
-
+$(document).ready(function(){
 song = document.getElementById(`song`);
 
 //intro box dialog
@@ -54,14 +54,21 @@ scoreIncrease();
 
 function scoreIncrease(){
 //when clicked, money becomes a +1 in bank and .gain class
-$(`.liquidity`).on(`click`, function(event){
+let liquidityList = $(`.liquidity`);
+//console.log(liquidityList);
+for(let i = 0; i< liquidityList.length; i++){
+   // console.log(liquidityList[i])
+$(liquidityList[i]).on(`click`, function(event){
+   // console.log(event.target);
     $(this).addClass(`gain`);
+   // console.log(this);
     $(this).removeClass(`untouched`);
     bank +=1;
-    plusOneSign();
-    console.log("+1!!")
-    console.log(bank);
+    plusOneSign(this);
+    // console.log("+1!!")
+    // console.log(bank);
 });
+}
 }
 
 function displayBank (){
@@ -72,11 +79,13 @@ function displayBank (){
 
 // +1 text replaces the flying dollar icon for 1 second when user clicks (gratification feature) 
 //DOESNT WORK
-function plusOneSign(){
+function plusOneSign(imageClicked){
+    imageClicked.textContent = "+1";
 setTimeout(function() {
-$(`.revealed`).text("+1");
-$(`img`).text("+1");
-    }, 600);
+    // console.log(imageClicked);
+//$(`.revealed`).text("+1");
+imageClicked.textContent = "";
+    }, 1000);
   };
 
 
@@ -105,3 +114,4 @@ function hide(){
 }
     });
 }
+});
