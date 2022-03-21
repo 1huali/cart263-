@@ -10,40 +10,56 @@ so they click the secret text to restore the redaction
 "use strict";
 let state= `intro`;
 let song;
-let bank=0;
+let bank=1;
+
 // gain/point counter
 $(document).ready(function(){
 song = document.getElementById(`song`);
+go();
 
 //intro box dialog
-//triggers a 30 second game
-
+function go(){
+    bank =1;
+    $(`#moneyGain`).text("$"+bank);
 //Q: how to center button
 $(`#intro-dialog`).dialog({
     modal: true,
     buttons: {
         "green" : function(){
             $(this).dialog(`close`);
-            // song.play();
-            // setTimeout (game, 30000);
+            song.play();
+            // song.volume(0.5);
             game();
         }
     }
 });
+}
 
 
-//decide wtv happens at the end
-// if (state=== `end`){
-// $(`#end-dialog`).dialog({
-//     buttons: {
-//         "good night" : function(){
-//             $(this).dialog(`close`);
-//         }
-//     }
-// });
-// }
 
+//game stops
+function end(){
+    song.pause();
+    song.currentTime = 0;
+$(`#end-dialog`).dialog({
+    modal: true,
+    resizable: false,
+    buttons: {
+        "more" : function(){
+            $(this).dialog(`close`);
+            go();
+        },
+        "enough labour" : function (){
+            $(this).window(`close`)
+        }
+    }
+        // $(`#score`).text("$"+ bank);
+});
+}
+
+//triggers a 30 second game
 function game(){
+    setTimeout(end,30000);
     state= `game`;
 // money reveals and hide randomly
 setInterval (revelation, 500);
