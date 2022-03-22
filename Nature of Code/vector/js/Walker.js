@@ -1,27 +1,14 @@
 class Walker {
-    constructor(x, y) {
-      this.pos = createVector(x, y);
-      //adding velocity vector
-    //   this.vel = createVector(200,100);
+  constructor(x, y) {
+    this.pos = createVector(x, y);
+    // this.vel = createVector(1, -1);
+    this.vel = p5.Vector.random2D();
+    this.vel.mult(random(3));
+  }
 
-    //   randomized velocity vector
-      this.vel = p5.Vector.random2D();
-      
-    
-    }
-  
-    update() {
-    //   this.pos.x = this.pos.x + random(-1, 1);
-    //   this.pos.y = this.pos.y + random(-1, 1);
-
-    //replacing velocity vector as a direction
-          this.pos.add(this.vel);
-
-    //random vector
-    translate(width/2,height/2);
-
-        // this.vel =  createVector(random(-100,100),random(-100,100));
-    } 
+  update() {
+    this.pos.add(this.vel);
+  }
   
     show() {
       stroke(255);
