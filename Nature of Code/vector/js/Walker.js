@@ -2,7 +2,9 @@ class Walker {
     constructor(x, y) {
       this.pos = createVector(x, y);
       //adding velocity vector
-      this.vel = createVector(1,-1);
+      this.vel = p5.Vector.random2D();
+      
+    
     }
   
     update() {
@@ -11,6 +13,12 @@ class Walker {
 
     //replacing velocity vector as a direction
           this.pos.add(this.vel);
+
+    //random vector
+    translate(width/2,height/2);
+
+        // this.randomV =  createVector(random(-100,100),random(-100,100));
+
     } 
   
     show() {
@@ -21,6 +29,7 @@ class Walker {
     //   diff form
       ellipse(this.pos.x,this.pos.y,32);
     //   point(this.pos.x, this.pos.y);
+    // line(0,0,this.pos.x, this.pos.y);
     }
   }
 
