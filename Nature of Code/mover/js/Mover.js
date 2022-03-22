@@ -1,4 +1,4 @@
-class Walker {
+class Mover {
     constructor(x, y) {
       this.pos = createVector(x, y);
       //adding velocity vector
