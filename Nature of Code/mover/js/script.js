@@ -2,7 +2,7 @@
 Vector study
 Wawa Li
 // What is a Vector
-// The Nature of Code
+// The Nature of Code : friction
 // The Coding Train / Daniel Shiffman
 // https://thecodingtrain.com/learning/nature-of-code/1.1-what-is-a-vector.html
 // https://editor.p5js.org/codingtrain/sketches/JmEToUfk
