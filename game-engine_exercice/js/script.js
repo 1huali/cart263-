@@ -1,9 +1,8 @@
 /**
-Title of Project
-Author Name
+Game Engine
+Wawa Li
 
-This is a template. You must fill in the title,
-author, and this description to match your project!
+Game Engine theory with Phaser
 */
 
 "use strict";
