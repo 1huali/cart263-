@@ -6,7 +6,15 @@ class Boot extends Phaser.Scene{
     }
     
     preload(){
-this.load.image(`wall`,`assets/images/wall.png`)
+this.load.image(`wall`,`assets/images/wall.png`);
+this.load.spritesheet(`avatar`, `assets/images/avatar.png`, {
+    // Our animation uses 32x32 pixel frames
+    frameWidth: 32,
+    frameHeight: 32,
+    // Our animation has 4 frames, so the final frame number is 3, counting from 0
+    endFrame: 13
+  });
+
     }
 
     create(){
