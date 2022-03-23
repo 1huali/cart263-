@@ -1,4 +1,4 @@
-class Chimes{
+class Core extends Chimes{
 
     constructor(el,x,y){
         this.pos = new p5.Vector(x,y);
@@ -7,8 +7,8 @@ class Chimes{
         this.topSpeed = 10;
 
         this.element = el;
-        this.mass = 1;
-        this.r = 0;
+        this.mass = 3;
+        // this.r = 0;
 
     }
 
