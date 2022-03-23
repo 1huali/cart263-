@@ -12,6 +12,10 @@ class Chimes{
 
     }
 
+
+
+
+
     update(){
         this.vel.add(this.acc);
         this.vel.limit(this.topSpeed);
@@ -21,9 +25,18 @@ class Chimes{
         this.acc.mult(0);
     }
 
+
+
+
+
     applyForce(force){
-        this.acc.add(force);
+        let f = p5.Vector.div(force,this.mass);
+        this.acc.add(f);    
     }
+
+
+
+
 
     //element remains in the canvas
     checkEdges(){
@@ -39,4 +52,5 @@ class Chimes{
 
 
 
+    
 } //end of class

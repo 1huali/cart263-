@@ -22,7 +22,8 @@ class Core extends Chimes{
     }
 
     applyForce(force){
-        this.acc.add(force);
+        let f = p5.Vector.div(force,this.mass);
+        this.acc.add(f);
     }
 
     //element remains in the canvas

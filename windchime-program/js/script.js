@@ -12,16 +12,34 @@ window.onload = function (){
 let chime1 = new Chimes (document.getElementById(`chime1`),200,200);
 // let core = new Core(document.getElementById(`chime0`),300,100);
 
+let mx =0;
+let my =0;
+
 //only use Vector from p5 librairies
 let wind = new p5.Vector(0,0);
 let windButton;
+
+
+
 
 //animation called thru html
 window.requestAnimationFrame(animate)
 //new properties adapted to diff events and contexts
 
-windButton = document.getElementById(`triggerButton`)
+//button triggers a bigger velocity motion
+windButton = document.getElementById(`triggerButton`);
+windButton.on("click", function(){
+    
+    wind = new p5.Vector(0.1,0);
 
+    chime1.vel = new p5.Vector(0,0);
+    chime1.pos  = new p5.Vector(200,200);
+
+    core.vel = new p5.Vector(0,0);
+    core.pos  = new p5.Vector(200,200);
+    });
+
+//click implementing wind
 window.addEventListener("click", function(){
     
     wind = new p5.Vector(0.05,0);
@@ -31,9 +49,10 @@ window.addEventListener("click", function(){
 
     core.vel = new p5.Vector(0,0);
     core.pos  = new p5.Vector(200,200);
-   
+    });
 
-    })
+
+
 
 function animate (){
     //applications of the properties adapted to diff events and contexts
@@ -48,4 +67,8 @@ function animate (){
  
      window.requestAnimationFrame(animate)
      }
+
+
+     
+
     }
