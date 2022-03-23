@@ -10,7 +10,7 @@ window.onload = function (){
 
     //el is the getElementbyId thing visual
 let chime1 = new Chimes (document.getElementById(`chime1`),200,200);
-// let core = new Core(document.getElementById(`chime0`),300,100);
+let core = new Core(document.getElementById(`chime0`),300,100);
 
 let mx =0;
 let my =0;
@@ -19,6 +19,12 @@ let my =0;
 let wind = new p5.Vector(0,0);
 let windButton;
 
+window.addEventListener("mousemove", function(event){
+    // console.log("move");
+     mx = event.clientX;
+     my = event.clientY;
+
+ })
 
 
 
@@ -27,28 +33,29 @@ window.requestAnimationFrame(animate)
 //new properties adapted to diff events and contexts
 
 //button triggers a bigger velocity motion
-windButton = document.getElementById(`triggerButton`);
-windButton.on("click", function(){
+// windButton = document.getElementById(`triggerButton`);
+// windButton.addEventListener("click", function(){
     
-    wind = new p5.Vector(0.1,0);
+//     wind = new p5.Vector(0.1,0);
 
-    chime1.vel = new p5.Vector(0,0);
-    chime1.pos  = new p5.Vector(200,200);
+//     chime1.vel = new p5.Vector(0,0);
+//     chime1.pos  = new p5.Vector(200,200);
 
-    core.vel = new p5.Vector(0,0);
-    core.pos  = new p5.Vector(200,200);
-    });
+//     core.vel = new p5.Vector(0,0);
+//     core.pos  = new p5.Vector(200,200);
+//     });
 
 //click implementing wind
 window.addEventListener("click", function(){
     
-    wind = new p5.Vector(0.05,0);
+    wind = new p5.Vector(-0.05,0);
 
-    chime1.vel = new p5.Vector(0,0);
-    chime1.pos  = new p5.Vector(200,200);
 
-    core.vel = new p5.Vector(0,0);
-    core.pos  = new p5.Vector(200,200);
+    // chime1.vel = new p5.Vector(0,0);
+    // chime1.pos  = new p5.Vector(chime1.initialPos.x,chime1.initialPos.y);
+
+    // core.vel = new p5.Vector(0,0);
+    // core.pos  = new p5.Vector(200,200);
     });
 
 
@@ -60,10 +67,15 @@ function animate (){
     //a vertical vectorial movement
      let gravity = new p5.Vector(0, .009);
       
-    //  chime1.applyForce(wind);
+     chime1.applyForce(wind);
      chime1.applyForce(gravity);
      chime1.update();
      chime1.checkEdges();
+ 
+     core.applyForce(wind);
+     core.applyForce(gravity);
+     core.update();
+     core.checkEdges();
  
      window.requestAnimationFrame(animate)
      }

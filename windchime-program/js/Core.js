@@ -1,12 +1,10 @@
 class Core extends Chimes{
 
     constructor(el,x,y){
-        this.pos = new p5.Vector(x,y);
-        this.vel = new p5.Vector(0,0);
-        this.acc = new p5.Vector(0,0);
-        this.topSpeed = 10;
 
-        this.element = el;
+        super (el,x,y);
+
+        this.topSpeed = 10;
         this.mass = 3;
         // this.r = 0;
 
@@ -35,6 +33,10 @@ class Core extends Chimes{
         if(this.pos.y > 500){
             this.pos.y =500;
             this.vel.y *=-1;
+        }
+        if(this.pos.y < 0){
+            this.pos.y =0;
+            this.vel.y *=+1;
         }
     }
 
