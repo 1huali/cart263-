@@ -7,6 +7,7 @@ class Chimes{
         this.topSpeed = 10;
 
         this.initialPos = new p5.Vector(x,y);
+        console.log(this.initialPos);
 
         this.element = el;
         this.mass = 1;
@@ -23,6 +24,7 @@ class Chimes{
         this.vel.add(this.acc);
         this.vel.limit(this.topSpeed);
         this.pos.add(this.vel);
+        // console.log(this.pos);
         this.element.style.left = `${this.pos.x}px`;
         this.element.style.top = `${this.pos.y}px`;
         this.acc.mult(0);
@@ -40,41 +42,44 @@ class Chimes{
 
     }
 
+drag(c){
+    //direction of drag
+    let drag = this.vel.copy();
+    drag.normalize();
+    drag.mult(-1);
 
+    let speedSq = this.vel.magSq();
+    drag.setMag(c*speedSq);
+
+    this.applyForce(drag);
+}
 
 
 
     //element remains in the canvas
     checkEdges(){
 
-        //canvas size
-        //top-down
-        if(this.pos.x > 500){
-            this.pos.x =500;
-            this.vel.x *=-1;
-        }
-
         //left-right
-        if(this.pos.y > 500){
-            this.pos.y =500;
-            this.vel.y *=-1;
+        if(this.pos.x > this.initialPos.x+400){
+            this.pos.x =this.initialPos.x+400;
+            this.vel.x *=-0.5;
         }
-        //DOESNT WORK
+        else if(this.pos.x < (this.initialPos.x-400)){
+            this.pos.x = this.initialPos.x-400;
+            this.vel.x*=-0.5;
+            console.log("test left boundary");
+
+        }
+     //top-bottom
+        if(this.pos.y > 200){
+            this.pos.y =200;
+            // this.vel.y *=-1;
+        }
         if(this.pos.y < 0){
             this.pos.y =0;
-            this.vel.y *=-1;
-                        console.log(this.pos)
+            // this.vel.y *=-1;
         }
 
-        //   //chime zone
-        //   if(this.pos.x > 500){
-        //     this.pos.x =500;
-        //     this.vel.x *=-1;
-        // }
-        // if(this.pos.y > 500){
-        //     this.pos.y =500;
-        //     this.vel.y *=-1;
-        // }
 
     }
 
