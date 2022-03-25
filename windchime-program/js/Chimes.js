@@ -4,7 +4,7 @@ class Chimes{
         this.pos = new p5.Vector(x,y);
         this.vel = new p5.Vector(0,0);
         this.acc = new p5.Vector(0,0);
-        this.topSpeed = 10;
+        this.topSpeed = 20;
 
         this.initialPos = new p5.Vector(x,y);
 
@@ -42,7 +42,7 @@ class Chimes{
     applyForce(force){
 
         let f = p5.Vector.div(force,this.mass);
-        this.acc.add(f);    
+        this.acc.add(f);
 
     }
 
@@ -68,7 +68,7 @@ drag(c){
 // // console.log(userForce);
 // this.applyForce(userForce);
 
-     
+
 // }
 
 
@@ -79,7 +79,10 @@ drag(c){
         if(this.pos.x > this.initialPos.x+150){
             this.pos.x =this.initialPos.x+150;
             this.vel.x *=-1;
+            console.log("test right boundary");
+
         }
+
         else if(this.pos.x < (this.initialPos.x-150)){
             this.pos.x = this.initialPos.x-150;
             this.vel.x*=-1;
@@ -99,5 +102,5 @@ drag(c){
 
 
     }
-    
+
 } //end of class

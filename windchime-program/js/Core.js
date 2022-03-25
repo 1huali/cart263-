@@ -52,19 +52,21 @@ class Core extends Chimes{
 update(){
 
 
-    this.angleVel += this.angleAcc;
-    this.angle += this.angleVel;
+    // this.angleVel += this.angleAcc;
+    // this.angle += this.angleVel;
 
-    this.pos.x = this.stringLength * Math.sin (this.angle);
-    this.pos.y = this.stringLength * Math.cos (this.angle);
-    this.pos.add(this.initialPos);
-
+//variation of the force regarding lenght of string
     let force = this.gravity * Math.sin(this.angle);
+
     this.angleAcc = (-1 * force);
     this.angleVel += this.angleAcc;
     this.angle += this.angleVel;
 
     this.angleVel *= 0.99;
+
+    this.pos.x = this.stringLength * Math.sin (this.angle);
+    this.pos.y = this.stringLength * Math.cos (this.angle);
+    this.pos.add(this.initialPos);
 }
 
 show(){
@@ -74,18 +76,6 @@ show(){
     this.element.style.left = `${this.pos.x}px`;
     this.element.style.top = `${this.pos.y}px`;
 }
-// Doesn't work here but needs an air resistance force
-// drag(c){
-//     //direction of drag
-//     let drag = this.vel.copy();
-//     drag.normalize();
-//     drag.mult(-1);
-//     //magnitude
-//     let speedSq = this.vel.magSq();
-//     drag.setMag(c*speedSq);
-
-//     this.applyForce(drag);
-// }
 
 
 } //end of class

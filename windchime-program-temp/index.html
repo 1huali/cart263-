@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0>
+
+    <title>A wind chime behavioural system</title>
+
+<style>
+    .mass{
+        background-color: rgb(166, 225, 240);
+        position:absolute;
+    }
+
+    .strings{
+      position: absolute;
+    }
+h2{
+  text-align: center;
+}
+
+#plate{
+  text-align: center;
+}
+
+
+</style>
+    <!-- CSS stylesheet(s) -->
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <!-- Library script(s) go here -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script> 
+    <script src="js/libraries/jquery-ui.js"></script> 
+    <script src="js/libraries/p5.min.js"></script>
+    <script src="js/libraries/p5.sound.min.js"></script>
+  </head>
+
+  <body>
+    <h2>A windchime case study : The prototype</h2>
+<section id="windchime">
+<p id="plate">--------------------------------------------------------the plate--------------------------------------------------------</p>
+<br>
+<p id="string1" class="strings">string</p>
+<br>
+<p id="chime1" class="mass">chime1</p>
+<br>
+<p id="string0" class="strings">string</p>
+<br>
+<h2><p id="chime0" class="mass">the core</h2></p>
+<br>
+<!-- <p id="chime2" class="mass">chime2</p> -->
+
+<!-- <p id="strings">the string</p> -->
+<button title="disturb" id="triggerButton">turbulence</button>
+</section>
+    <!-- My script(s) -->
+    <script src="js/Chimes.js"> </script>
+    <script src="js/Core.js"> </script>
+    <script src="js/script.js"></script>
+
+  </body>
+
+</html>
