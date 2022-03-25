@@ -1,5 +1,6 @@
 class Core extends Chimes{
-//pendulum trajectory
+//pendulum trajectory class. eventually, will classify regarding motion
+//https://thecodingtrain.com/CodingChallenges/159-simple-pendulum-simulation.html
 
     constructor(stringChime,el,x,y){
 
@@ -8,10 +9,9 @@ class Core extends Chimes{
         this.pos = new p5.Vector(0,0);
         this.vel = 0;
         this.acc = 0;
-        this.topSpeed = 10;
+        this.topSpeed = 8;
 
         this.initialPos = new p5.Vector(x,y);
-        console.log(this.initialPos);
 
         this.angle = Math.PI/4;
         this.angleVel = 0;
@@ -21,20 +21,12 @@ class Core extends Chimes{
         this.stringLength = 100;
         this.stringChime = stringChime;
         this.mass = 1;
-        this.radius = 90;
+        this.r = 90;
 
         this.gravity= 0.01;
 
     }
 
-    update(){
-        this.vel.add(this.acc);
-        this.vel.limit(this.topSpeed);
-        this.pos.add(this.vel);
-        this.element.style.left = `${this.pos.x}px`;
-        this.element.style.top = `${this.pos.y}px`;
-        this.acc.mult(0);
-    }
 
     applyForce(force){
         let f = p5.Vector.div(force,this.mass);
@@ -57,7 +49,7 @@ class Core extends Chimes{
         }
     }
 
-pendulum(){
+update(){
 
 
     this.angleVel += this.angleAcc;
@@ -67,14 +59,6 @@ pendulum(){
     this.pos.y = this.stringLength * Math.cos (this.angle);
     this.pos.add(this.initialPos);
 
-    
-
-    this.stringChime.style.left= `${this.pos.x}px`;
-    this.stringChime.style.top = `${this.pos.y-100}px`;
-
-    this.element.style.left = `${this.pos.x}px`;
-    this.element.style.top = `${this.pos.y}px`;
-
     let force = this.gravity * Math.sin(this.angle);
     this.angleAcc = (-1 * force);
     this.angleVel += this.angleAcc;
@@ -82,5 +66,26 @@ pendulum(){
 
     this.angleVel *= 0.99;
 }
+
+show(){
+    this.stringChime.style.left= `${this.pos.x}px`;
+    this.stringChime.style.top = `${this.pos.y-100}px`;
+
+    this.element.style.left = `${this.pos.x}px`;
+    this.element.style.top = `${this.pos.y}px`;
+}
+// Doesn't work here but needs an air resistance force
+// drag(c){
+//     //direction of drag
+//     let drag = this.vel.copy();
+//     drag.normalize();
+//     drag.mult(-1);
+//     //magnitude
+//     let speedSq = this.vel.magSq();
+//     drag.setMag(c*speedSq);
+
+//     this.applyForce(drag);
+// }
+
 
 } //end of class

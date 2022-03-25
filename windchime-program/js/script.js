@@ -1,8 +1,11 @@
-/**
-A wind chime
+/***  
+ * A wind chime study
 Wawa Li
 
+
 Program incarnating a wind chime : initial state, disturbed state. Input disturbances, interval disturbance, voice responsive disturbance?
+Eventually think of an impact consequence (visual noise? audio sound?)
+
 */
 window.onload = function (){
 
@@ -13,7 +16,7 @@ window.onload = function (){
     let stringchime1 = document.getElementById(`string1`);
 
 let chime1 = new Chimes (stringchime1, document.getElementById(`chime1`),500,200);
-let chime0 = new Core (stringchime0, document.getElementById(`chime0`),700,200);
+let chime0 = new Core (stringchime0, document.getElementById(`chime0`), window.outerWidth/2,400);
 
 
 
@@ -37,29 +40,25 @@ let windButton;
 
 
 
-//animation called thru html
 window.requestAnimationFrame(animate)
-//new properties adapted to diff events and contexts
+//new properties adapted to diff events and contexts. 
+//eventually : implement different events
 
 window.addEventListener("mouseup", function(){
-//click implementing wind
-
-
+//click implementing wind. still flimsy needs raffinment.
     
     wind = new p5.Vector(-0.05,0);
-
-
 
 
     });
 
 
 window.addEventListener("mousedown", function(){
-//why is it attracted to left side?
+//Q: why is it attracted to left side?
 
 
 chime1.drag(repelWindForce);
-
+// chime0.drag(repelWindForce);
 
 
 });
@@ -67,9 +66,8 @@ chime1.drag(repelWindForce);
 
 
 function animate (){
-    //applications of the properties adapted to diff events and contexts
-
-
+//applications of the properties adapted to diff events and contexts
+//eventually : implement different type of forces
 
 
     //a vertical vectorial movement
@@ -82,11 +80,13 @@ function animate (){
     //  chime1.userMotionTrigger(userWind);
      chime1.update(false);
 
-    chime0.pendulum();
+    chime0.update();
+    chime0.show();
+    // chime0.drag(repelWindForce)
+
 
      window.requestAnimationFrame(animate)
-     }
-
+    }
 
 
     }

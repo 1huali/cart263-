@@ -7,9 +7,6 @@ class Chimes{
         this.topSpeed = 10;
 
         this.initialPos = new p5.Vector(x,y);
-        console.log(this.initialPos);
-                this.angle = Math.PI/4;
-
 
         this.element = el;
         this.stringLength = 100;
@@ -54,7 +51,7 @@ drag(c){
     let drag = this.vel.copy();
     drag.normalize();
     drag.mult(-1);
-
+    //magnitude
     let speedSq = this.vel.magSq();
     drag.setMag(c*speedSq);
 
