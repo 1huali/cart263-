@@ -10,10 +10,10 @@ window.onload = function (){
 
     //el is the getElementbyId thing visual
     let stringchime0 = document.getElementById(`string0`);
-let chime1 = new Chimes (document.getElementById(`chime1`),500,200);
+    let stringchime1 = document.getElementById(`string1`);
 
+let chime1 = new Chimes (stringchime1, document.getElementById(`chime1`),500,200);
 let chime0 = new Core (stringchime0, document.getElementById(`chime0`),700,200);
-// let core = new Core(document.getElementById(`chime0`),300,100);
 
 
 
@@ -47,7 +47,6 @@ window.addEventListener("mouseup", function(){
 
     
     wind = new p5.Vector(-0.05,0);
-    console.log("test down");
 
 
 
@@ -65,9 +64,6 @@ chime1.drag(repelWindForce);
 
 });
 
-// window.addEventListener("mouseover", function(){
-
-// }
 
 
 function animate (){
@@ -77,16 +73,16 @@ function animate (){
 
 
     //a vertical vectorial movement
-     let gravity = new p5.Vector(0, .009);
+     let gravity = new p5.Vector(0, 0.009);
       
-    //  chime1.applyForce(wind);
-    //  chime1.applyForce(gravity);
+     chime1.applyForce(wind);
+     chime1.applyForce(gravity);
      chime1.update(true);
      chime1.checkEdges();
     //  chime1.userMotionTrigger(userWind);
      chime1.update(false);
 
- chime0.pendulum();
+    chime0.pendulum();
 
      window.requestAnimationFrame(animate)
      }

@@ -70,15 +70,17 @@ pendulum(){
     
 
     this.stringChime.style.left= `${this.pos.x}px`;
-    this.stringChime.style.top = `${this.pos.y}px`;
+    this.stringChime.style.top = `${this.pos.y-100}px`;
 
     this.element.style.left = `${this.pos.x}px`;
     this.element.style.top = `${this.pos.y}px`;
 
     let force = this.gravity * Math.sin(this.angle);
-    this.angleAcc = (-1*force);
+    this.angleAcc = (-1 * force);
     this.angleVel += this.angleAcc;
     this.angle += this.angleVel;
+
+    this.angleVel *= 0.99;
 }
 
 } //end of class

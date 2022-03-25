@@ -1,6 +1,6 @@
 class Chimes{
 
-    constructor(el,x,y){
+    constructor(stringChime,el,x,y){
         this.pos = new p5.Vector(x,y);
         this.vel = new p5.Vector(0,0);
         this.acc = new p5.Vector(0,0);
@@ -13,6 +13,7 @@ class Chimes{
 
         this.element = el;
         this.stringLength = 100;
+        this.stringChime = stringChime;
         this.mass = 1;
         this.r = 0;
 
@@ -21,15 +22,17 @@ class Chimes{
 
 
 
-//calculate acc, add acc to vel, limit vel is necessary and apply to pos
+//calculate acc, add acc to vel, limit vel when it's necessary and apply to pos
     update(resetAcc){
 
         this.vel.add(this.acc);
         this.vel.limit(this.topSpeed);
         this.pos.add(this.vel);
-        // console.log(this.pos);
+        this.stringChime.style.left= `${this.pos.x}px`;
+        this.stringChime.style.top = `${this.pos.y-100}px`;
         this.element.style.left = `${this.pos.x}px`;
         this.element.style.top = `${this.pos.y}px`;
+
         if (resetAcc === true){
             this.acc.mult(0);
     }
@@ -73,20 +76,20 @@ drag(c){
 
 
 
-    //element remains in the canvas
     checkEdges(){
 
         //left-right
-        if(this.pos.x > this.initialPos.x+400){
-            this.pos.x =this.initialPos.x+400;
-            this.vel.x *=-0.5;
+        if(this.pos.x > this.initialPos.x+150){
+            this.pos.x =this.initialPos.x+150;
+            this.vel.x *=-1;
         }
-        else if(this.pos.x < (this.initialPos.x-400)){
-            this.pos.x = this.initialPos.x-400;
-            this.vel.x*=-0.5;
+        else if(this.pos.x < (this.initialPos.x-150)){
+            this.pos.x = this.initialPos.x-150;
+            this.vel.x*=-1;
             console.log("test left boundary");
 
         }
+
      //top-bottom
         if(this.pos.y > 200){
             this.pos.y =200;
