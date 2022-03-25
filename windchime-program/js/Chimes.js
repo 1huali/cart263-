@@ -8,8 +8,11 @@ class Chimes{
 
         this.initialPos = new p5.Vector(x,y);
         console.log(this.initialPos);
+                this.angle = Math.PI/4;
+
 
         this.element = el;
+        this.stringLength = 100;
         this.mass = 1;
         this.r = 0;
 
@@ -19,7 +22,7 @@ class Chimes{
 
 
 //calculate acc, add acc to vel, limit vel is necessary and apply to pos
-    update(){
+    update(resetAcc){
 
         this.vel.add(this.acc);
         this.vel.limit(this.topSpeed);
@@ -27,8 +30,9 @@ class Chimes{
         // console.log(this.pos);
         this.element.style.left = `${this.pos.x}px`;
         this.element.style.top = `${this.pos.y}px`;
-        this.acc.mult(0);
-
+        if (resetAcc === true){
+            this.acc.mult(0);
+    }
     }
 
 
@@ -53,6 +57,19 @@ drag(c){
 
     this.applyForce(drag);
 }
+
+
+
+// userMotionTrigger(mx,my){
+//     //pos = mouse
+//     let mouse = new p5.Vector(mx,my);
+//     let userForce = p5.Vector.add(mouse,this.vel);
+//     this.acc = userForce;
+// // console.log(userForce);
+// this.applyForce(userForce);
+
+     
+// }
 
 
 
@@ -82,8 +99,5 @@ drag(c){
 
 
     }
-
-
-
     
 } //end of class

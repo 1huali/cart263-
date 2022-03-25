@@ -1,12 +1,29 @@
 class Core extends Chimes{
+//pendulum trajectory
 
-    constructor(el,x,y){
+    constructor(stringChime,el,x,y){
 
         super (el,x,y);
 
+        this.pos = new p5.Vector(0,0);
+        this.vel = 0;
+        this.acc = 0;
         this.topSpeed = 10;
-        this.mass = 3;
-        // this.r = 0;
+
+        this.initialPos = new p5.Vector(x,y);
+        console.log(this.initialPos);
+
+        this.angle = Math.PI/4;
+        this.angleVel = 0;
+        this.angleAcc = 0.001;
+
+        this.element = el;
+        this.stringLength = 100;
+        this.stringChime = stringChime;
+        this.mass = 1;
+        this.radius = 90;
+
+        this.gravity= 0.01;
 
     }
 
@@ -40,6 +57,28 @@ class Core extends Chimes{
         }
     }
 
+pendulum(){
 
+
+    this.angleVel += this.angleAcc;
+    this.angle += this.angleVel;
+
+    this.pos.x = this.stringLength * Math.sin (this.angle);
+    this.pos.y = this.stringLength * Math.cos (this.angle);
+    this.pos.add(this.initialPos);
+
+    
+
+    this.stringChime.style.left= `${this.pos.x}px`;
+    this.stringChime.style.top = `${this.pos.y}px`;
+
+    this.element.style.left = `${this.pos.x}px`;
+    this.element.style.top = `${this.pos.y}px`;
+
+    let force = this.gravity * Math.sin(this.angle);
+    this.angleAcc = (-1*force);
+    this.angleVel += this.angleAcc;
+    this.angle += this.angleVel;
+}
 
 } //end of class
