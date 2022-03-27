@@ -14,10 +14,11 @@ window.onload = function (){
     //el is the getElementbyId thing visual
     let stringchime0 = document.getElementById(`string0`);
     let stringchime1 = document.getElementById(`string1`);
+    let stringchime2 = document.getElementById(`string2`)
 
 let chime1 = new Chimes (stringchime1, document.getElementById(`chime1`),500,200);
 let chime0 = new Core (stringchime0, document.getElementById(`chime0`), window.outerWidth/2,400);
-
+let chime2 = new Pendulum (stringchime2, document.getElementById(`chime2`), window.outerWidth/2+200,200);
 
 let startDrag= false;
 let mx =0;
@@ -99,6 +100,9 @@ function animate (){
     chime0.show();
     // chime0.drag(repelWindForce)
 
+    chime2.update();
+    chime2.show();
+    
 
      window.requestAnimationFrame(animate)
     }

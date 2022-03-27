@@ -33,9 +33,8 @@ class Chimes{
         if (resetAcc === true){
             this.acc.mult(0);
     }
+
     }
-
-
 
 
 
