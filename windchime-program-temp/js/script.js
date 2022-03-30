@@ -18,6 +18,7 @@ let chimesArray=[];
 
     //el is the getElementbyId thing visual
     let stringchime0 = document.getElementById(`string0`);
+    //howdo I change the lenght of core lenght?
     let stringchime1 = document.getElementById(`string1`);
     let stringchime2 = document.getElementById(`string2`)
     let stringchime3 = document.getElementById(`string3`)
@@ -62,7 +63,6 @@ window.addEventListener("mousedown", function(event){
 //click implementing wind. still flimsy needs raffinment.
 
      mx = event.clientX;
-// console.log(mx)
 if (mx > window.innerWidth/2){
     wind = new p5.Vector(-0.2,0);
     console.log(wind)
@@ -75,6 +75,20 @@ this.setTimeout(function(){
 startDrag = true;
 },2000);
 };
+
+// need to change relative to the position of the windchime
+// if (mx > chimes0.pos.x){
+//     wind = new p5.Vector(-0.2,0);
+//     console.log(wind)
+// this.setTimeout(function(){
+// startDrag = true;
+// },2000);
+// } else if (mx < chimes0.pos.x){
+//     wind = new p5.Vector(0.2,0);
+// this.setTimeout(function(){
+// startDrag = true;
+// },2000);
+// };
 
 // additional clicks to set additonal force?
 // clicks +=1;
@@ -94,12 +108,19 @@ function animate (){
     //a vertical vectorial movement
      let gravity = new p5.Vector(0, 0.009);
 
-    chime2.update(true,wind);
     chime0.show();
     chime1.show();
     chime2.show();
     chime3.show();
-        chime4.show();
+        chime4.show(); 
+
+        chime0.update(true,wind);
+        chime1.update(true,wind);
+        chime2.update(true,wind);
+        chime3.update(true,wind);
+        chime4.update(true,wind);
+
+
 
 //marche PO
 for (let i=0; i < chimesArray.lenght; i++){
