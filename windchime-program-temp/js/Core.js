@@ -51,10 +51,6 @@ class Core extends Chimes{
 
 update(){
 
-
-    // this.angleVel += this.angleAcc;
-    // this.angle += this.angleVel;
-
 //variation of the force regarding lenght of string
     let force = this.gravity * Math.sin(this.angle);
 

@@ -58,7 +58,7 @@ Description of setup
 function setup() {
   createCanvas(windowWidth, windowHeight);
 
-  // localStorage.removeItem('guardianData');
+  localStorage.removeItem('guardianData');
 
   // user enters the name he they have chosen for their animal before, if not it generates a new profile
   // Will save profile when the page is loaded
