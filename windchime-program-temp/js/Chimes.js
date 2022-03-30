@@ -64,7 +64,7 @@ class Chimes{
             this.angleAcc += (wind.x/100);            
             this.angleVel += this.angleAcc;
             this.angle += this.angleVel;
-console.log(wind.x);          
+// console.log(wind.x);          
             this.angleVel *= 0.99;
         
             this.pos.x = this.stringLength * Math.sin (this.angle);
