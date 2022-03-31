@@ -118,11 +118,17 @@ function animate (){
     //a vertical vectorial movement
      let gravity = new p5.Vector(0, 0.009);
 
-    chime0.show();
-    chime1.show();
-    chime2.show();
-    chime3.show();
-        chime4.show(); 
+    // chime0.show();
+    // chime1.show();
+    // chime2.show();
+    // chime3.show();
+    //     chime4.show(); 
+        
+//marche PO
+for (let i=0; i < chimesArray.length; i++){
+  chimesArray[i].show();
+  console.log(`chimes show!`)
+}    
 
         chime0.update(true,wind);
         chime1.update(true,wind);
@@ -131,11 +137,6 @@ function animate (){
         chime4.update(true,wind);
 
 
-//marche PO
-for (let i=0; i < chimesArray.lenght; i++){
-    chime[i].show();
-    console.log(`chimes show!`)
-}    
 
 
 micInput();

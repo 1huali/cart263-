@@ -60,7 +60,8 @@ class Chimes{
         //variation of the force regarding lenght of string
             let force = this.gravity * Math.sin(this.angle);
             
-            this.angleAcc = (-1 * force);
+            this.angleAcc = (-1 * force);à
+            //relative to mass
             this.angleAcc += (wind.x/100);            
             this.angleVel += this.angleAcc;
             this.angle += this.angleVel;
@@ -71,7 +72,7 @@ class Chimes{
             this.pos.y = this.stringLength * Math.cos (this.angle);
             this.pos.add(this.initialPos);
 
-               
+
             if (this.angleAcc > this.topSpeed){
                             force = 0;
                         }

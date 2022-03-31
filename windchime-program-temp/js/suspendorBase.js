@@ -18,7 +18,6 @@ class suspendorBase{
 
 
 
-
 //calculate acc, add acc to vel, limit vel when it's necessary and apply to pos
     update(resetAcc){
 
@@ -27,10 +26,10 @@ class suspendorBase{
         this.pos.add(this.vel);
         
 // represent the origin of the string eventually maybe
-        // this.stringChime.style.left= `${this.pos.x}px`;
-        // this.stringChime.style.top = `${this.pos.y-100}px`;
-        // this.element.style.left = `${this.pos.x}px`;
-        // this.element.style.top = `${this.pos.y}px`;
+        this.stringChime.style.left= `${this.pos.x}px`;
+        this.stringChime.style.top = `${this.pos.y-100}px`;
+        this.element.style.left = `${this.pos.x}px`;
+        this.element.style.top = `${this.pos.y}px`;
 
         if (resetAcc === true){
             this.acc.mult(0);
