@@ -23,7 +23,7 @@ let chimesArray=[];
 let userModeSwitch= document.getElementById(`triggerButton`);
 let toggle= true;
 let currentForceModeTextZone = document.getElementById(`currentForceMode`);
-let forceMode = `undefined`;
+let forceMode = `mouse input mode`;
 
 // attempts to print force mode
 // currentForceModeTextZone = element.innerHTML.${`forceMode`};
@@ -69,6 +69,7 @@ let wind = new p5.Vector(0,0);
 let repelWindForce = 0.01;
 let windButton;
 
+micInput();
 
 window.requestAnimationFrame(animate)
 //new properties adapted to diff events and contexts. 
@@ -136,7 +137,7 @@ for (let i=0; i < chimesArray.length; i++){
 
 if (toggle === false){
 forceMode = `mic force input`;
-  micInput();
+  // micInput();
   printForceMode();
 
   console.log(`mic input rn`);
@@ -155,7 +156,6 @@ forceMode = `mic force input`;
      window.requestAnimationFrame(animate)
     }
 
-//doesnt print
 function printForceMode(){
   currentForceModeTextZone.innerHTML = forceMode;
 
