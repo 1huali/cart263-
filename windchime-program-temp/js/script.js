@@ -24,7 +24,7 @@ let chimesXpositionsArray = [];
 
     let stringchime0 = document.getElementById(`string0`);
     //how do I change the lenght of core lenght?
-    // let stringBase = document.getElementById(`stringBase`);
+    let stringBase = document.getElementById(`stringBase`);
     let stringchime1 = document.getElementById(`string1`);
     let stringchime2 = document.getElementById(`string2`);
     let stringchime3 = document.getElementById(`string3`);
@@ -49,7 +49,7 @@ chimesArray.push(chime2);
 chimesArray.push(chime3);
 console.log(chimesArray);
 
-// let topPlate = new suspendorBase (stringBase, document.getElementById(`plate`),window.outerWidth/2,100);
+let topPlate = new suspendorBase (stringBase, document.getElementById(`plate`),window.outerWidth/2,100);
 
 // chimesXpositionsArray.push(chime0.pos.x);
 
@@ -84,7 +84,6 @@ this.setTimeout(function(){
 startDrag = true;
 },2000);
 };
-
 
 
 // need to change relative to the position of the windchime
