@@ -11,16 +11,17 @@ window.onload = function (){
 
 "use strict";
 
-// let clicks=0;
+let clicks=0;
+let windForce;
 
 let stringChimeArray=[];
 let chimesArray=[];
 
-//map mx position, pass thru update and calculate the distance between mx and chime.pos and vary force fx
-let chimesXpositionsArray = [];
 
 
     //el is the getElementbyId thing visual
+let userModeSwitch= document.getElementById(`triggerButton`);
+let toggle= true;
 
     let stringchime0 = document.getElementById(`string0`);
     //how do I change the lenght of core lenght?
@@ -52,7 +53,6 @@ console.log(chimesArray);
 
 let topPlate = new suspendorBase (stringBase, document.getElementById(`plate`),window.outerWidth/2,100);
 
-// chimesXpositionsArray.push(chime0.pos.x);
 
 let startDrag= false;
 let mx =0;
@@ -70,7 +70,18 @@ window.requestAnimationFrame(animate)
 //eventually : implement different events
 
 window.addEventListener("mousedown", function(event){
-//click implementing wind. still flimsy needs raffinment.
+
+  if (toggle=== true){
+
+clicks +=1;
+//windForce set here :
+windForce = clicks * 0.3;
+//
+if (windForce > 0.9){
+  windForce = 0;
+  clicks = 0;
+}
+
 
 for (let i =0; i < chimesArray.length; i++){
        mx = event.clientX;
@@ -79,14 +90,14 @@ let difference = mx - chimeX;
 console.log(difference);
 
 if (difference > 0){
-      wind = new p5.Vector(-0.5,0);
+      wind = new p5.Vector(-windForce,0);
       console.log(wind)
       chimesArray[i].windX = wind.x;
   this.setTimeout(function(){
   startDrag = true;
   },2000);
   } else if (difference < 0){
-      wind = new p5.Vector(0.5,0);
+      wind = new p5.Vector(windForce,0);
       chimesArray[i].windX = wind.x;
   this.setTimeout(function(){
   startDrag = true;
@@ -94,54 +105,13 @@ if (difference > 0){
   };
   
 }
-
-
-
-
-//      mx = event.clientX;
-// if (mx > window.innerWidth/2){
-//     wind = new p5.Vector(-0.2,0);
-//     console.log(wind)
-// this.setTimeout(function(){
-// startDrag = true;
-// },2000);
-// } else if (mx < window.innerWidth/2){
-//     wind = new p5.Vector(0.2,0);
-// this.setTimeout(function(){
-// startDrag = true;
-// },2000);
-// };
-
-
-
-
-// need to change relative to the position of the windchime
-// if (mx > chime2.pos.x){
-//     wind = new p5.Vector(-0.2,0);
-//     console.log(wind)
-// this.setTimeout(function(){
-// startDrag = true;
-// },2000);
-// } else if (mx < chime0.pos.x){
-//     wind = new p5.Vector(0.2,0);
-// this.setTimeout(function(){
-// startDrag = true;
-// },2000);
-// };
-
-
-
-
-// additional clicks to set additonal force?
-// clicks +=1;
-// if clicks > 5 {
-//     wind = new p5.Vector(0,0);
-//     clicks = 0;
-// }
-
-
+}
     });
 
+    userModeSwitch.addEventListener("click", function(event){
+// switch state to voiceInput or mouseInput
+toggle= !toggle;
+    });
 
 function animate (){
 //applications of the properties adapted to diff events and contexts
@@ -158,7 +128,13 @@ for (let i=0; i < chimesArray.length; i++){
   console.log(`chimes show!`)
 }    
 
-micInput();
+if (toggle === false){
+  micInput();
+  userForce = windForce;
+
+  //copy mouseDown userforce thing here // random position
+} 
+
 
      window.requestAnimationFrame(animate)
     }
