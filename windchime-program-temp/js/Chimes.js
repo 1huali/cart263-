@@ -8,6 +8,7 @@ class Chimes{
                 this.vel = 0;
                 this.acc = 0;
                 this.topSpeed = 8;
+                this.windX= 0;
        
                 this.velVec = new p5.Vector(0,0);
                 this.accVec = new p5.Vector(0,0);
@@ -55,14 +56,14 @@ class Chimes{
                 }
             }
         
-        update(resetAcc,wind){
+        update(resetAcc){
         
         //variation of the force regarding lenght of string
             let force = this.gravity * Math.sin(this.angle);
             
-            this.angleAcc = (-1 * force);à
+            this.angleAcc = (-1 * force);
             //relative to mass
-            this.angleAcc += (wind.x/100);            
+            this.angleAcc += (this.windX/100);            
             this.angleVel += this.angleAcc;
             this.angle += this.angleVel;
 // console.log(wind.x);          

@@ -47,6 +47,7 @@ chimesArray.push(chime0);
 chimesArray.push(chime1);
 chimesArray.push(chime2);
 chimesArray.push(chime3);
+chimesArray.push(chime4);
 console.log(chimesArray);
 
 let topPlate = new suspendorBase (stringBase, document.getElementById(`plate`),window.outerWidth/2,100);
@@ -71,34 +72,65 @@ window.requestAnimationFrame(animate)
 window.addEventListener("mousedown", function(event){
 //click implementing wind. still flimsy needs raffinment.
 
-     mx = event.clientX;
-if (mx > window.innerWidth/2){
-    wind = new p5.Vector(-0.2,0);
-    console.log(wind)
-this.setTimeout(function(){
-startDrag = true;
-},2000);
-} else if (mx < window.innerWidth/2){
-    wind = new p5.Vector(0.2,0);
-this.setTimeout(function(){
-startDrag = true;
-},2000);
-};
+for (let i =0; i < chimesArray.length; i++){
+       mx = event.clientX;
+let chimeX= chimesArray[i].pos.x;
+let difference = mx - chimeX;
+console.log(difference);
+
+if (difference > 0){
+      wind = new p5.Vector(-0.5,0);
+      console.log(wind)
+      chimesArray[i].windX = wind.x;
+  this.setTimeout(function(){
+  startDrag = true;
+  },2000);
+  } else if (difference < 0){
+      wind = new p5.Vector(0.5,0);
+      chimesArray[i].windX = wind.x;
+  this.setTimeout(function(){
+  startDrag = true;
+  },2000);
+  };
+  
+}
+
+
+
+
+//      mx = event.clientX;
+// if (mx > window.innerWidth/2){
+//     wind = new p5.Vector(-0.2,0);
+//     console.log(wind)
+// this.setTimeout(function(){
+// startDrag = true;
+// },2000);
+// } else if (mx < window.innerWidth/2){
+//     wind = new p5.Vector(0.2,0);
+// this.setTimeout(function(){
+// startDrag = true;
+// },2000);
+// };
+
+
 
 
 // need to change relative to the position of the windchime
-if (mx > chime2.pos.x){
-    wind = new p5.Vector(-0.2,0);
-    console.log(wind)
-this.setTimeout(function(){
-startDrag = true;
-},2000);
-} else if (mx < chime0.pos.x){
-    wind = new p5.Vector(0.2,0);
-this.setTimeout(function(){
-startDrag = true;
-},2000);
-};
+// if (mx > chime2.pos.x){
+//     wind = new p5.Vector(-0.2,0);
+//     console.log(wind)
+// this.setTimeout(function(){
+// startDrag = true;
+// },2000);
+// } else if (mx < chime0.pos.x){
+//     wind = new p5.Vector(0.2,0);
+// this.setTimeout(function(){
+// startDrag = true;
+// },2000);
+// };
+
+
+
 
 // additional clicks to set additonal force?
 // clicks +=1;
@@ -118,31 +150,21 @@ function animate (){
     //a vertical vectorial movement
      let gravity = new p5.Vector(0, 0.009);
 
-    // chime0.show();
-    // chime1.show();
-    // chime2.show();
-    // chime3.show();
-    //     chime4.show(); 
-        
-//marche PO
+  
 for (let i=0; i < chimesArray.length; i++){
   chimesArray[i].show();
+  chimesArray[i].update(true);
+
   console.log(`chimes show!`)
 }    
-
-        chime0.update(true,wind);
-        chime1.update(true,wind);
-        chime2.update(true,wind);
-        chime3.update(true,wind);
-        chime4.update(true,wind);
-
-
-
 
 micInput();
 
      window.requestAnimationFrame(animate)
     }
+
+
+
 
     function micInput(){
         //reference link!!!!!
