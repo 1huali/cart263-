@@ -1,5 +1,5 @@
 class Chimes{
-    //change to Chime
+    //https://www.youtube.com/watch?v=NBWMtlbbOag
 
             constructor(stringChime,el,x,y){
                 
@@ -7,7 +7,8 @@ class Chimes{
                 this.pos = new p5.Vector(x,y);
                 this.vel = 0;
                 this.acc = 0;
-                this.topSpeed = 8;
+                this.minSpeed = -0.1;
+                this.maxSpeed = 0.1;
                 this.windX= 0;
        
                 this.velVec = new p5.Vector(0,0);
@@ -65,18 +66,23 @@ class Chimes{
             //relative to mass
             this.angleAcc += (this.windX/100);            
             this.angleVel += this.angleAcc;
+            // console.log(this.angleAcc);          
+
             this.angle += this.angleVel;
 // console.log(wind.x);          
             this.angleVel *= 0.99;
-        
             this.pos.x = this.stringLength * Math.sin (this.angle);
             this.pos.y = this.stringLength * Math.cos (this.angle);
             this.pos.add(this.initialPos);
 
-
-            if (this.angleAcc > this.topSpeed){
-                            force = 0;
+// max and min so that they dont flip
+            if (this.angleAcc > this.maxSpeed){
+                console.log(`max speed reached`);
+                this.angleAcc = this.maxSpeed;
                         }
+                        if (this.angleAcc < this.minSpeed){
+                            this.angleAcc = this.minSpeed;
+                                    }
 
         }
 

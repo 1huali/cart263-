@@ -2,6 +2,7 @@
 Pet Shop - adoption center
 Wawa Li
 
+json exercice
 this uncanny pet shop generates a guardian for your secrets. The user can store multiple secrets with its guardian.
 */
 

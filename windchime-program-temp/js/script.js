@@ -22,6 +22,12 @@ let chimesArray=[];
     //el is the getElementbyId thing visual
 let userModeSwitch= document.getElementById(`triggerButton`);
 let toggle= true;
+let currentForceModeTextZone = document.getElementById(`currentForceMode`);
+let forceMode = `undefined`;
+
+// attempts to print force mode
+// currentForceModeTextZone = element.innerHTML.${`forceMode`};
+// currentForceModeTextZone.element.write.(`forceMode`);
 
     let stringchime0 = document.getElementById(`string0`);
     //how do I change the lenght of core lenght?
@@ -53,7 +59,6 @@ console.log(chimesArray);
 
 let topPlate = new suspendorBase (stringBase, document.getElementById(`plate`),window.outerWidth/2,100);
 
-
 let startDrag= false;
 let mx =0;
 let my =0;
@@ -71,27 +76,30 @@ window.requestAnimationFrame(animate)
 
 window.addEventListener("mousedown", function(event){
 
+  //switch for user input
   if (toggle=== true){
-
+    forceMode = `mouse force input`;
+    printForceMode();
+console.log(`mouse input rn`);
 clicks +=1;
 //windForce set here :
 windForce = clicks * 0.3;
 //
-if (windForce > 0.9){
+if (windForce > 0.7){
   windForce = 0;
   clicks = 0;
 }
 
-
+// reaches X position of each chimes
 for (let i =0; i < chimesArray.length; i++){
        mx = event.clientX;
 let chimeX= chimesArray[i].pos.x;
 let difference = mx - chimeX;
-console.log(difference);
+// console.log(difference);
 
 if (difference > 0){
       wind = new p5.Vector(-windForce,0);
-      console.log(wind)
+      // console.log(wind)
       chimesArray[i].windX = wind.x;
   this.setTimeout(function(){
   startDrag = true;
@@ -124,13 +132,21 @@ function animate (){
 for (let i=0; i < chimesArray.length; i++){
   chimesArray[i].show();
   chimesArray[i].update(true);
-
-  console.log(`chimes show!`)
 }    
 
 if (toggle === false){
+forceMode = `mic force input`;
   micInput();
-  userForce = windForce;
+  printForceMode();
+
+  console.log(`mic input rn`);
+//why is my userF not implementing in windF
+  windForce = userForce;
+    // userForce/100;
+  // console.log(userForce);
+
+  
+// if (windForce > )
 
   //copy mouseDown userforce thing here // random position
 } 
@@ -139,11 +155,14 @@ if (toggle === false){
      window.requestAnimationFrame(animate)
     }
 
+//doesnt print
+function printForceMode(){
+  currentForceModeTextZone.innerHTML = forceMode;
 
-
+}
 
     function micInput(){
-        //reference link!!!!!
+        //https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API/Visualizations_with_Web_Audio_API and Sabine's help
       //librairy web audio
       
           window.AudioContext = window.AudioContext || window.webkitAudioContext;
@@ -182,7 +201,7 @@ if (toggle === false){
                  sum+=frequencyData[i];
                }
                userForce = sum/frequencyData.length;
-            //    console.log(userForce);
+              //  console.log(userForce);
       
                requestAnimationFrame(callBackLoop);
              }

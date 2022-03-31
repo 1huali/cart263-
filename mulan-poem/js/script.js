@@ -2,6 +2,7 @@
 Da Vinci
 Wawa Li
 
+jQuery
 Mulan poem : a "book-like" program where the user can flip verse of the poem.
 */
 
@@ -97,4 +98,3 @@ $(`#${currentPart}`).on(`click`, function(event){
         });
     })
 }
-
