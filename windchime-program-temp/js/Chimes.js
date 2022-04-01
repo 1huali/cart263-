@@ -96,6 +96,10 @@ class Chimes{
 
         }
 
+        // micUpdate(){
+
+        // }
+
         show(){
             this.stringChime.style.left= `${this.pos.x}px`;
             this.stringChime.style.top = `${this.pos.y-100}px`;
