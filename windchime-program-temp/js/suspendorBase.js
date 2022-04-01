@@ -60,18 +60,6 @@ drag(c){
 
 
 
-// userMotionTrigger(mx,my){
-//     //pos = mouse
-//     let mouse = new p5.Vector(mx,my);
-//     let userForce = p5.Vector.add(mouse,this.vel);
-//     this.acc = userForce;
-// // console.log(userForce);
-// this.applyForce(userForce);
-
-     
-// }
-
-
 
     checkEdges(){
 
@@ -102,5 +90,18 @@ drag(c){
 
 
     }
+
+    show(){
+
+
+        this.stringChime.style.left= `${this.pos.x}px`;
+        this.stringChime.style.top = `${this.pos.y+30}px`;
+    
+        this.element.style.left = `${this.pos.x}px`;
+        this.element.style.top = `${this.pos.y}px`;
+    
+    
+    }
+    
     
 } //end of class

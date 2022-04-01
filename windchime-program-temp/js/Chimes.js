@@ -1,7 +1,7 @@
 class Chimes{
     //https://www.youtube.com/watch?v=NBWMtlbbOag
 
-            constructor(stringChime,el,x,y){
+            constructor(stringChime,el,x,y,impactSound){
                 
                 //needs to be in vector, not a unidimensional parameter
                 this.pos = new p5.Vector(x,y);
@@ -27,7 +27,15 @@ class Chimes{
                 this.r = 90;
         
                 this.gravity= 0.01;
-                // this.impact= false;
+                this.impact= false;
+                this.impactSound= impactSound;
+                this.isColliding= false;
+
+                let self = this;
+                //triggers the function if the sound is playing
+                // this.impactSound.addEventListener('playing',function() { 
+                //     console.log(`is playing`);
+                //  },false);
 
         
             }
@@ -96,8 +104,8 @@ class Chimes{
             this.element.style.top = `${this.pos.y}px`;
         }
         
-        // bang(){
-
-        // }
+        isChiming(){
+           this.impactSound.play();
+        }
 
         } //end of class
