@@ -27,6 +27,8 @@ window.onload = function () {
 
   //el is the getElementbyId thing visual
   let userModeSwitch = document.getElementById(`triggerButton`);
+  let impactSound = document.getElementById(`impactSound`);
+  console.log(`sound loaded`)
   let toggle = true;
   console.log("Toggle true")
   let currentForceModeTextZone = document.getElementById(`currentForceMode`);
@@ -52,11 +54,11 @@ window.onload = function () {
   stringChimeArray.push(stringchime3);
   console.log(stringChimeArray);
 
-  let chime1 = new Chimes(stringchime1, document.getElementById(`chime1`), window.outerWidth / 2 - 400, 400);
+  let chime1 = new Chimes(stringchime1, document.getElementById(`chime1`), window.outerWidth / 2 - 200, 400);
   let chime0 = new Chimes(stringchime0, document.getElementById(`chime0`), window.outerWidth / 2, 200);
-  let chime2 = new Chimes(stringchime2, document.getElementById(`chime2`), window.outerWidth / 2 + 200, 250);
-  let chime3 = new Chimes(stringchime3, document.getElementById(`chime3`), window.outerWidth / 2 - 200, 250);
-  let chime4 = new Chimes(stringchime4, document.getElementById(`chime4`), window.outerWidth / 2 + 400, 400);
+  let chime2 = new Chimes(stringchime2, document.getElementById(`chime2`), window.outerWidth / 2 + 100, 250);
+  let chime3 = new Chimes(stringchime3, document.getElementById(`chime3`), window.outerWidth / 2 - 100, 250);
+  let chime4 = new Chimes(stringchime4, document.getElementById(`chime4`), window.outerWidth / 2 + 200, 400);
 
   chimesArray.push(chime0);
   chimesArray.push(chime1);
@@ -160,7 +162,7 @@ window.onload = function () {
 
     }
 
-
+bang();
     window.requestAnimationFrame(animate)
   }
 
@@ -221,5 +223,36 @@ window.onload = function () {
         console.log("NO SOUND DETECTED");
       });
   }
+let impact = false;
+
+  function bang(){
+
+    for (let i = 0; i < chimesArray.length; i++) {
+    // for (let j =0;j < chimesArray.length-1;j++) {
+          for (let j =0;j < chimesArray.length;j++) {
+
+      let chimeX = chimesArray[i].pos.x;
+      // console.log(chimeX);
+      // how to get an other X position of chime?
+                  // let otherChimeX = (chimesArray[i].pos.x) && != (chimeX);
+      let otherChimeX = (chimesArray[j].pos.x);
+      chimeX != otherChimeX;
+
+      // think they sometimes choose the same chime
+      // console.log(i);
+      //       console.log(j);
+
+      let difference = otherChimeX - chimeX;
+      if (difference > 0) {
+        impact= true;
+        console.log(impact);
+
+        // impactSound.play();
+    } else{
+      impact= false;
+    }
+  }
+}
+}
 
 } //end window on load

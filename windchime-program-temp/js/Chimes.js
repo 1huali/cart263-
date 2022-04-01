@@ -10,7 +10,7 @@ class Chimes{
                 this.minSpeed = -0.1;
                 this.maxSpeed = 0.1;
                 this.windX= 0;
-       
+
                 this.velVec = new p5.Vector(0,0);
                 this.accVec = new p5.Vector(0,0);
                 
@@ -27,6 +27,8 @@ class Chimes{
                 this.r = 90;
         
                 this.gravity= 0.01;
+                // this.impact= false;
+
         
             }
         
@@ -94,5 +96,8 @@ class Chimes{
             this.element.style.top = `${this.pos.y}px`;
         }
         
-        
+        // bang(){
+
+        // }
+
         } //end of class
