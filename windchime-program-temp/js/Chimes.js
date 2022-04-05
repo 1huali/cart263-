@@ -20,6 +20,7 @@ class Chimes{
                 this.angle = Math.PI/4;
                 this.angleVel = 0;
                 this.angleAcc = 0.001;
+                this.currentAngleVel=120;
         
                 this.element = el;
                 this.stringLength = 100;
@@ -79,8 +80,16 @@ class Chimes{
             this.angleAcc += (this.windX/100);            
             this.angleVel += this.angleAcc;
             // console.log(this.angleAcc);          
+            // console.log(this.angle);
 
             this.angle += this.angleVel;
+            console.log(this.currentAngleVel);
+
+            if (this.angle > this.currentAngleVel/100){
+                this.angle = this.currentAngleVel/100;
+
+            }
+
 // console.log(wind.x);          
             this.angleVel *= 0.99;
             this.pos.x = this.stringLength * Math.sin (this.angle);
@@ -88,13 +97,13 @@ class Chimes{
             this.pos.add(this.initialPos);
 
 // max and min so that they dont flip
-            if (this.angleAcc > this.maxSpeed){
-                console.log(`max speed reached`);
-                this.angleAcc = this.maxSpeed;
-                        }
-                        if (this.angleAcc < this.minSpeed){
-                            this.angleAcc = this.minSpeed;
-                                    }
+            // if (this.angleAcc > this.maxSpeed){
+            //     console.log(`max speed reached`);
+            //     this.angleAcc = this.maxSpeed;
+            //             }
+            //             if (this.angleAcc < this.minSpeed){
+            //                 this.angleAcc = this.minSpeed;
+            //                         }
 
         }
 

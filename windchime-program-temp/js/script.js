@@ -29,6 +29,7 @@ resistanceSlider.max = 1.2 *100;
 resistanceSlider.min= -1.2*100 ;
 resistanceSlider.steps=1;
 
+
   //el is the getElementbyId thing visual
   let userModeSwitch = document.getElementById(`triggerButton`);
   // let impactSound = document.getElementById(`impactSound0`);
@@ -133,6 +134,8 @@ resistanceSlider.steps=1;
   });
 
   resistanceSlider.addEventListener("change", function (event) {
+    resistanceLevel= this.value;
+    slider();
 console.log(this.value);
   });
 
@@ -165,8 +168,8 @@ console.log(this.value);
       }
    // }
 
-    // for (let i = 0; i < chimesArray.length; i++) {
-      for (let i = 0; i < 1 ; i++) {
+    for (let i = 0; i < chimesArray.length; i++) {
+      // for (let i = 0; i < 1 ; i++) {
 
       chimesArray[i].show();
       chimesArray[i].update(true);
@@ -287,7 +290,9 @@ bang();
   }
 
   function slider(){
-
+for (let i=0;i< chimesArray.length; i++){
+  chimesArray[i].currentAngleVel= resistanceLevel;
+}
   }
 
   function bang(){
