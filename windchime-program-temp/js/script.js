@@ -163,12 +163,7 @@ window.onload = function () {
     }
 
     topPlate.show();
-    // topPlate.update(true);
-    // topPlate.applyForce(wind);
-   
-    // topPlate.applyForce(gravity);
     topPlate.checkEdges();
-    // topPlate.drag(c);
 
 
 
