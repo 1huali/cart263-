@@ -68,14 +68,14 @@ drag(c){
         if(this.pos.x > this.initialPos.x+50){
             this.pos.x =this.initialPos.x+50;
             this.vel.x *=-1;
-            console.log("test right boundary");
+            // console.log("test right boundary");
 
         }
 
         else if(this.pos.x < (this.initialPos.x-50)){
             this.pos.x = this.initialPos.x-50;
             this.vel.x*=-1;
-            console.log("test left boundary");
+            // console.log("test left boundary");
 
         }
 

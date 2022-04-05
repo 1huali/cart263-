@@ -29,7 +29,18 @@
     }
 
     #windchimeBox{
+      border: 4px;
+      border-style: dotted;
       stroke: black; 
+      /* position: absolute; */
+    }
+
+    #dataBox{
+      border: 4px;
+      border-style: dotted;
+      stroke: black; 
+      position: absolute;
+
     }
 
     .strings{
@@ -71,6 +82,21 @@ h2{
 
   <body>
     <h2>A windchime case study : The prototype</h2>
+    <section>
+      <div id="dataBox">
+        <button title="user wind input" id="triggerButton">User force</button>
+        <p>Level : <span id="forceLevelBox"></span></p>
+        <br>
+        <p>Force mode : <span id="currentForceMode"></span></p>
+        <p> Instruction: <span id="forceInstruction"></span></p>
+        <br>
+        <p> Sensitivity : 
+          <input type="range" min="1" max="100" value="50" class="slider" id="angleVelSlider">
+        <p>level: <span id="sensitivityLevel"></span></p>
+        <br>
+        </div>
+    </section>
+
 <section id="windchime">
   <div id="windchimeBox">
 <p id="plate" class="mass">--------------------the plate--------------------</p>
@@ -98,17 +124,6 @@ h2{
 <p id="string4" class="strings">string</p>
 <br>
 <p id="chime4" class="mass">chime4</p>
-<br>
-</div>
-
-<div id="dataBar">
-<button title="user wind input" id="triggerButton">User force</button>
-<br>
-<p>Force mode : <span id="currentForceMode"></span></p>
-<p> Instruction: <span id="forceInstruction"></span></p>
-<p> Dynamism : 
-  <input type="range" min="1" max="100" value="50" class="slider" id="angleVelSlider">
-<p>level: <span id="dynamismLevel"></span></p>
 <br>
 </div>
 </section>

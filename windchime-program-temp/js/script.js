@@ -27,9 +27,11 @@ window.onload = function () {
 
   let forceInstructionText = document.getElementById("forceInstruction");
   let currentForceInstructionText = `You can implement the wind by clicking on the windchime.`;
-  let angleVelLevelText = document.getElementById(`dynamismLevel`)
+  let angleVelLevelText = document.getElementById(`sensitivityLevel`)
+  let currentAngleVelText = ``;
   let angleVelSlider = document.getElementById(`angleVelSlider`);
 let angleVelLevel;
+console.log(angleVelLevel);
 angleVelSlider.max = 1.2 *100;
 angleVelSlider.min= 0.1*100 ;
 angleVelSlider.steps=1;
@@ -43,7 +45,10 @@ angleVelSlider.steps=1;
   console.log("Toggle true")
   let currentForceModeTextZone = document.getElementById(`currentForceMode`);
   let forceMode = `mouse input`;
-  printForceMode();
+
+  let forceLevelTextZone = document.getElementById(`forceLevelBox`);
+  let currentForceLevelText= `0`;
+  print();
 
 
   let stringchime0 = document.getElementById(`string0`);
@@ -139,7 +144,7 @@ angleVelSlider.steps=1;
   angleVelSlider.addEventListener("change", function (event) {
     angleVelLevel= this.value;
     slider();
-console.log(this.value);
+print();
   });
 
   userModeSwitch.addEventListener("click", function (event) {
@@ -148,12 +153,15 @@ console.log(this.value);
     if (toggle) {
       forceMode = `mouse force input`;
       currentForceInstructionText = `You can implement the wind by clicking on the windchime.`;
-      printForceMode();
+      currentAngleVelText = ``;
+      currentForceLevelText = `0`;
+      print();
     } else {
       forceMode = `mic input`;
       currentForceInstructionText = `You can implement the wind by blowing in your mic.`;
-
-      printForceMode();
+      currentForceLevelText = `0`;
+      //value should change with the wind force
+      print();
     }
   });
 
@@ -235,11 +243,16 @@ bang();
     window.requestAnimationFrame(animate)
   }
 
-  function printForceMode() {
+  //change to print instruction?
+  function print() {
 
     currentForceModeTextZone.innerHTML = forceMode;
     angleVelLevelText.innerHTML = angleVelLevel;
+    // angleVelLevelText.innerHTML = ${`angleVelLevel`};
     forceInstructionText.innerHTML = currentForceInstructionText;
+    angleVelLevelText.innerHTML = angleVelLevel;
+    forceLevelTextZone.innerHTML = windForce;
+
 
   }
 
