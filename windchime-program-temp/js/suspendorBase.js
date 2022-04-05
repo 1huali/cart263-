@@ -24,6 +24,7 @@ class suspendorBase{
         this.vel.add(this.acc);
         this.vel.limit(this.topSpeed);
         this.pos.add(this.vel);
+        console.log(this.pos);
         
 // represent the origin of the string eventually maybe
         this.stringChime.style.left= `${this.pos.x}px`;
@@ -64,15 +65,15 @@ drag(c){
     checkEdges(){
 
         //left-right
-        if(this.pos.x > this.initialPos.x+150){
-            this.pos.x =this.initialPos.x+150;
+        if(this.pos.x > this.initialPos.x+50){
+            this.pos.x =this.initialPos.x+50;
             this.vel.x *=-1;
             console.log("test right boundary");
 
         }
 
-        else if(this.pos.x < (this.initialPos.x-150)){
-            this.pos.x = this.initialPos.x-150;
+        else if(this.pos.x < (this.initialPos.x-50)){
+            this.pos.x = this.initialPos.x-50;
             this.vel.x*=-1;
             console.log("test left boundary");
 

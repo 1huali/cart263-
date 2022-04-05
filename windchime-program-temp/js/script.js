@@ -37,9 +37,6 @@ window.onload = function () {
   let forceMode = `mouse input`;
   printForceMode();
 
-  // attempts to print force mode
-  // currentForceModeTextZone = element.innerHTML.${`forceMode`};
-  // currentForceModeTextZone.element.write.(`forceMode`);
 
   let stringchime0 = document.getElementById(`string0`);
   //how do I change the lenght of core lenght?
@@ -105,6 +102,7 @@ window.onload = function () {
         let difference = mx - chimeX;
         // console.log(difference);
 
+        // 
         if (difference > 0) {
           wind = new p5.Vector(-windForce, 0);
           // console.log(wind)
@@ -112,7 +110,9 @@ window.onload = function () {
           this.setTimeout(function () {
             startDrag = true;
           }, 2000);
-        } else if (difference < 0) {
+
+        //
+      } else if (difference < 0) {
           wind = new p5.Vector(windForce, 0);
           chimesArray[i].windX = wind.x;
           this.setTimeout(function () {
@@ -142,7 +142,16 @@ window.onload = function () {
 
     //a vertical vectorial movement
     let gravity = new p5.Vector(0, 0.009);
-
+    
+    //for (let i=0; i < 1; i++){
+      if (chimesArray[0].angleVel > 0){
+           topPlate.applyForce(wind);
+          //  console.log(wind);
+        topPlate.update(true);
+     
+       //console.log("test");
+      }
+   // }
 
     for (let i = 0; i < chimesArray.length; i++) {
       chimesArray[i].show();
@@ -150,20 +159,60 @@ window.onload = function () {
     }
 
     topPlate.show();
+    // topPlate.update(true);
+    // topPlate.applyForce(wind);
+   
+    // topPlate.applyForce(gravity);
+    topPlate.checkEdges();
     // topPlate.drag(c);
-    topPlate.update(true);
+
+
+
+              //1. threshold ; 2. avec mx et userForce comme windX ; afficher userForce et donner un lvl 
 
     //mode button
     if (toggle === false) {
-      windForce = userForce;
-      userForce/10;
-      console.log(userForce);
 
+
+      windForce = userForce;
+      // userForce/10;
+
+
+//user input force becomes the wind
       for (let i = 0; i < chimesArray.length; i++) {
+
+
+      //userForce applied to wind X position
         wind = new p5.Vector(userForce, 0);
           chimesArray[i].windX = wind.x;
-          console.log(this.windX)
-      }
+          console.log(wind.x)
+        // mx = event.clientX;
+
+
+        //sets the wind effect relative for each chime to the mouse position (rather than global pos)
+        let chimeX = chimesArray[i].pos.x;
+        let difference = mx - chimeX;
+        // console.log(difference);
+
+        if (difference > 0) {
+          wind = new p5.Vector(-windForce, 0);
+          // console.log(wind)
+          chimesArray[i].windX = wind.x;
+          setTimeout(function () {
+            startDrag = true;
+          }, 2000);
+
+        //
+      } else if (difference < 0) {
+          wind = new p5.Vector(windForce, 0);
+          chimesArray[i].windX = wind.x;
+          setTimeout(function () {
+            startDrag = true;
+          }, 2000);
+        };
+
+      
+        }
 
       //copy mouseDown userforce thing here // random position
 
@@ -218,7 +267,9 @@ bang();
             for (let i = 0; i < frequencyData.length; i++) {
               sum += frequencyData[i];
             }
-            userForce = (sum / frequencyData.length) * 0.0001;
+            userForce = (sum / frequencyData.length) * 0.001;
+            // userForce = (sum / frequencyData.length);
+
             // console.log(userForce);
 
             requestAnimationFrame(callBackLoop);
