@@ -16,6 +16,8 @@ window.onload = function () {
   // NEW! Start mic input at the beginning only ONCE
   micInput();
 
+  let windchimeBox = document.getElementById(`windchimeBox`)
+// console.log(windchimeBox.width);
   let clicks = 0;
   let windForce;
 
@@ -23,18 +25,19 @@ window.onload = function () {
   let chimesArray = [];
   let userForce = 0;
 
-let resistanceSlider = document.getElementById(`resistanceSlider`);
-let resistanceLevel;
-resistanceSlider.max = 1.2 *100;
-resistanceSlider.min= -1.2*100 ;
-resistanceSlider.steps=1;
+  let forceInstructionText = document.getElementById("forceInstruction");
+  let currentForceInstructionText = `You can implement the wind by clicking on the windchime.`;
+  let angleVelLevelText = document.getElementById(`dynamismLevel`)
+  let angleVelSlider = document.getElementById(`angleVelSlider`);
+let angleVelLevel;
+angleVelSlider.max = 1.2 *100;
+angleVelSlider.min= 0.1*100 ;
+angleVelSlider.steps=1;
 
 
   //el is the getElementbyId thing visual
   let userModeSwitch = document.getElementById(`triggerButton`);
-  // let impactSound = document.getElementById(`impactSound0`);
-  console.log(`sound loaded`)
-  // let impact = false;
+
 
   let toggle = true;
   console.log("Toggle true")
@@ -133,8 +136,8 @@ resistanceSlider.steps=1;
     }
   });
 
-  resistanceSlider.addEventListener("change", function (event) {
-    resistanceLevel= this.value;
+  angleVelSlider.addEventListener("change", function (event) {
+    angleVelLevel= this.value;
     slider();
 console.log(this.value);
   });
@@ -144,9 +147,12 @@ console.log(this.value);
     toggle = !toggle;
     if (toggle) {
       forceMode = `mouse force input`;
+      currentForceInstructionText = `You can implement the wind by clicking on the windchime.`;
       printForceMode();
     } else {
       forceMode = `mic input`;
+      currentForceInstructionText = `You can implement the wind by blowing in your mic.`;
+
       printForceMode();
     }
   });
@@ -230,7 +236,10 @@ bang();
   }
 
   function printForceMode() {
+
     currentForceModeTextZone.innerHTML = forceMode;
+    angleVelLevelText.innerHTML = angleVelLevel;
+    forceInstructionText.innerHTML = currentForceInstructionText;
 
   }
 
@@ -291,7 +300,7 @@ bang();
 
   function slider(){
 for (let i=0;i< chimesArray.length; i++){
-  chimesArray[i].currentAngleVel= resistanceLevel;
+  chimesArray[i].currentAngleVel= angleVelLevel;
 }
   }
 

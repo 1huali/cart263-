@@ -28,6 +28,10 @@
         position:absolute;
     }
 
+    #windchimeBox{
+      stroke: black; 
+    }
+
     .strings{
       position: absolute;
     }
@@ -68,6 +72,7 @@ h2{
   <body>
     <h2>A windchime case study : The prototype</h2>
 <section id="windchime">
+  <div id="windchimeBox">
 <p id="plate" class="mass">--------------------the plate--------------------</p>
 <br>
 <p id="stringBase" class="strings">string</p>
@@ -94,16 +99,18 @@ h2{
 <br>
 <p id="chime4" class="mass">chime4</p>
 <br>
+</div>
+
+<div id="dataBar">
 <button title="user wind input" id="triggerButton">User force</button>
 <br>
-<p>force mode : <span id="currentForceMode"></span></p>
+<p>Force mode : <span id="currentForceMode"></span></p>
+<p> Instruction: <span id="forceInstruction"></span></p>
+<p> Dynamism : 
+  <input type="range" min="1" max="100" value="50" class="slider" id="angleVelSlider">
+<p>level: <span id="dynamismLevel"></span></p>
 <br>
-<br>
-<p>resilience
-  <input type="range" min="1" max="100" value="50" class="slider" id="resistanceSlider">
-</p>
-<p>level: </p>
-<br>
+</div>
 </section>
     <!-- My script(s) -->
     <script src="js/Chimes.js"> </script>
