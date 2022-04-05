@@ -72,6 +72,7 @@ class Chimes{
         
         //variation of the force regarding lenght of string
             let force = this.gravity * Math.sin(this.angle);
+            // console.log(this.angle);
             
             this.angleAcc = (-1 * force);
             //relative to mass
@@ -110,7 +111,7 @@ class Chimes{
         }
         
         isChiming(){
-           this.impactSound.play();
+        //    this.impactSound.play();
         }
 
         } //end of class

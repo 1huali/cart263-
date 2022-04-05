@@ -23,7 +23,11 @@ window.onload = function () {
   let chimesArray = [];
   let userForce = 0;
 
-
+let resistanceSlider = document.getElementById(`resistanceSlider`);
+let resistanceLevel;
+resistanceSlider.max = 1.2 *100;
+resistanceSlider.min= -1.2*100 ;
+resistanceSlider.steps=1;
 
   //el is the getElementbyId thing visual
   let userModeSwitch = document.getElementById(`triggerButton`);
@@ -128,6 +132,10 @@ window.onload = function () {
     }
   });
 
+  resistanceSlider.addEventListener("change", function (event) {
+console.log(this.value);
+  });
+
   userModeSwitch.addEventListener("click", function (event) {
     // switch state to voiceInput or mouseInput
     toggle = !toggle;
@@ -157,7 +165,9 @@ window.onload = function () {
       }
    // }
 
-    for (let i = 0; i < chimesArray.length; i++) {
+    // for (let i = 0; i < chimesArray.length; i++) {
+      for (let i = 0; i < 1 ; i++) {
+
       chimesArray[i].show();
       chimesArray[i].update(true);
     }
@@ -172,10 +182,9 @@ window.onload = function () {
     //mode button
     if (toggle === false) {
 
-
+//maps userforce to mic input data
       windForce = userForce;
-      // userForce/10;
-
+//
 
 //user input force becomes the wind
       for (let i = 0; i < chimesArray.length; i++) {
@@ -190,11 +199,10 @@ window.onload = function () {
         //sets the wind effect relative for each chime to the mouse position (rather than global pos)
         let chimeX = chimesArray[i].pos.x;
         let difference = mx - chimeX;
-        // console.log(difference);
 
         if (difference > 0) {
           wind = new p5.Vector(-windForce, 0);
-          // console.log(wind)
+
           chimesArray[i].windX = wind.x;
           setTimeout(function () {
             startDrag = true;
@@ -211,8 +219,6 @@ window.onload = function () {
 
       
         }
-
-      //copy mouseDown userforce thing here // random position
 
     }
 
@@ -267,7 +273,7 @@ bang();
               sum += frequencyData[i];
             }
             userForce = (sum / frequencyData.length)/100;
-            console.log(userForce)
+            // console.log(userForce)
 
 
             requestAnimationFrame(callBackLoop);
@@ -280,6 +286,10 @@ bang();
       });
   }
 
+  function slider(){
+
+  }
+
   function bang(){
 
 
@@ -287,34 +297,25 @@ bang();
     // chimesArray[i].impact= false;
 if (chimesArray[i].isColliding === true){
   if (chimesArray[i].impactSound.paused){
-    console.log(`DONE`);
+    // console.log(`DONE`);
     chimesArray[i].isColliding = false;
   }
-  // console.log(`bang`)
 }
     }
 
     
-    // for one to chime by itself ; isMoving = false/true same as isColliding
+    // sound , for one to chime by itself ; isMoving = false/true same as isColliding
 
 
 
     for (let i = 0; i < chimesArray.length; i++) {
-    // for (let j =0;j < chimesArray.length-1;j++) {
           for (let j =0;j < chimesArray.length;j++) {
       let chimeX = chimesArray[i].pos.x;
-      // console.log(chimeX);
       // how to get an other X position of chime?
       if (chimesArray[i] !== chimesArray[j]){
         let otherChimeX = (chimesArray[j].pos.x);
-        // let difference = Math.abs(otherChimeX - chimeX);
-      //  let difference = p5.dist(chimesArray[j].pos.x,chimesArray[j].pos.y,chimesArray[i].pos.x,chimesArray[i].pos.y);
-
        let difference = Math.sqrt( Math.pow((chimesArray[j].pos.x-chimesArray[i].pos.x), 2) + Math.pow((chimesArray[j].pos.y-chimesArray[i].pos.y), 2) );
 
-      //  let difference = dist(chimesArray[j].pos.x,chimesArray[j].pos.y);
-
-      //  console.log(difference);
 
         if (difference < 100) {
           chimesArray[i].impact= true;
@@ -334,20 +335,6 @@ if (chimesArray[i].isColliding === true){
 
         }
       }
-           
-      // think they sometimes choose the same chime
-      // console.log(i);
-      //       console.log(j);
-
-      // let difference = otherChimeX - chimeX;
-      // if (difference > 0) {
-      //   impact= true;
-      //   console.log(impact);
-
-        // impactSound.play();
-    // } else{
-    //   impact= false;
-    // }
   }
 }
 }
