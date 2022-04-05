@@ -65,15 +65,15 @@ drag(c){
     checkEdges(){
 
         //left-right
-        if(this.pos.x > this.initialPos.x+50){
-            this.pos.x =this.initialPos.x+50;
+        if(this.pos.x > this.initialPos.x+120){
+            this.pos.x =this.initialPos.x+120;
             this.vel.x *=-1;
             // console.log("test right boundary");
 
         }
 
-        else if(this.pos.x < (this.initialPos.x-50)){
-            this.pos.x = this.initialPos.x-50;
+        else if(this.pos.x < (this.initialPos.x-120)){
+            this.pos.x = this.initialPos.x-120;
             this.vel.x*=-1;
             // console.log("test left boundary");
 

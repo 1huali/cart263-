@@ -16,7 +16,7 @@ window.onload = function () {
   // NEW! Start mic input at the beginning only ONCE
   micInput();
 
-  let windchimeBox = document.getElementById(`windchimeBox`)
+  let windchimeBox = document.getElementById(`windchimeBox`);
 // console.log(windchimeBox.width);
   let clicks = 0;
   let windForce;
@@ -175,15 +175,12 @@ print();
     //for (let i=0; i < 1; i++){
       if (chimesArray[0].angleVel > 0){
            topPlate.applyForce(wind);
-          //  console.log(wind);
         topPlate.update(true);
      
-       //console.log("test");
       }
    // }
 
     for (let i = 0; i < chimesArray.length; i++) {
-      // for (let i = 0; i < 1 ; i++) {
 
       chimesArray[i].show();
       chimesArray[i].update(true);
