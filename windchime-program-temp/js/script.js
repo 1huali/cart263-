@@ -81,6 +81,10 @@ window.onload = function () {
   window.requestAnimationFrame(animate)
   //new properties adapted to diff events and contexts.
 
+  window.addEventListener("mousemove", function (event){
+        mx = event.clientX;
+      });
+
   window.addEventListener("mousedown", function (event) {
 
     //switch for user input
@@ -185,8 +189,7 @@ window.onload = function () {
       //userForce applied to wind X position
         wind = new p5.Vector(userForce, 0);
           chimesArray[i].windX = wind.x;
-          console.log(wind.x)
-        // mx = event.clientX;
+          // console.log(wind.x)
 
 
         //sets the wind effect relative for each chime to the mouse position (rather than global pos)
@@ -248,6 +251,7 @@ bang();
           microphoneIn.connect(filter);
           //use the analyzer object to get some properties ....
           filter.connect(analyser);
+          console.log(`micInput`);
 
           //we do not need a destination (out)
           //analyser.connect(audioContext.destination); is the translation of waves into pixel
@@ -262,15 +266,14 @@ bang();
           function callBackLoop() {
             analyser.getByteFrequencyData(frequencyData);
             //takes the average of the collection
-            //    let average =0;
+              //  let average =0;
             let sum = 0;
             for (let i = 0; i < frequencyData.length; i++) {
               sum += frequencyData[i];
             }
-            userForce = (sum / frequencyData.length) * 0.001;
-            // userForce = (sum / frequencyData.length);
+            userForce = (sum / frequencyData.length)/100;
+            console.log(userForce)
 
-            // console.log(userForce);
 
             requestAnimationFrame(callBackLoop);
           }

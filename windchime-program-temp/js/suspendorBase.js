@@ -24,7 +24,7 @@ class suspendorBase{
         this.vel.add(this.acc);
         this.vel.limit(this.topSpeed);
         this.pos.add(this.vel);
-        console.log(this.pos);
+        // console.log(this.pos);
         
 // represent the origin of the string eventually maybe
         this.stringChime.style.left= `${this.pos.x}px`;

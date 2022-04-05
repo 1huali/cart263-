@@ -10,6 +10,7 @@ class Chimes{
                 this.minSpeed = -0.1;
                 this.maxSpeed = 0.1;
                 this.windX= 0;
+                this.frequencyX=0;
 
                 this.velVec = new p5.Vector(0,0);
                 this.accVec = new p5.Vector(0,0);
