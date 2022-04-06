@@ -47,7 +47,7 @@ angleVelSlider.steps=1;
 
   //variable data 
   let forceLevelTextZone = document.getElementById(`forceLevelBox`);
-  let currentForceLevelText= `0`;
+  let currentForceLevelText= ``;
 
   //changing chime appearence
   let chimeLookArray =[];
@@ -102,6 +102,7 @@ angleVelSlider.steps=1;
   let windButton;
 
 
+
   window.requestAnimationFrame(animate)
   //new properties adapted to diff events and contexts.
 
@@ -110,6 +111,10 @@ angleVelSlider.steps=1;
       });
 
   window.addEventListener("mousedown", function (event) {
+let windchimeBox = document.getElementById(`windchimeBox`).getBoundingClientRect();
+console.log(windchimeBox);
+if (event.clientY < (windchimeBox.height-windchimeBox.y)){
+  
 
     //switch for user input
     if (toggle === true) {
@@ -130,11 +135,16 @@ angleVelSlider.steps=1;
         let difference = mx - chimeX;
         // console.log(difference);
 
-        // 
         if (difference > 0) {
           wind = new p5.Vector(-windForce, 0);
           // console.log(wind)
           chimesArray[i].windX = wind.x;
+          chimesArray[i].applyForce(wind);
+
+          if (i===0){
+            topPlate.applyForce(wind);
+          };
+
           this.setTimeout(function () {
             startDrag = true;
           }, 2000);
@@ -143,6 +153,12 @@ angleVelSlider.steps=1;
       } else if (difference < 0) {
           wind = new p5.Vector(windForce, 0);
           chimesArray[i].windX = wind.x;
+          chimesArray[i].applyForce(wind);
+
+          if (i===0){
+            topPlate.applyForce(wind);
+          };
+
           this.setTimeout(function () {
             startDrag = true;
           }, 2000);
@@ -150,6 +166,8 @@ angleVelSlider.steps=1;
 
       }
     }
+
+}
   });
 
   angleVelSlider.addEventListener("change", function (event) {
@@ -206,21 +224,17 @@ if (currentLookIndex === chimeLookArray.length){
 
     //a vertical vectorial movement
     let gravity = new p5.Vector(0, 0.009);
-    
-    //for (let i=0; i < 1; i++){
-      if (chimesArray[0].angleVel > 0){
-           topPlate.applyForce(wind);
-        topPlate.update(true);
-     
-      }
-   // }
+   
 
     for (let i = 0; i < chimesArray.length; i++) {
+      chimesArray[i].updateVectors(true);
 
       chimesArray[i].show();
       chimesArray[i].update(true);
+      chimesArray[i].checkEdges();
     }
 
+    topPlate.update(true);
     topPlate.show();
     topPlate.checkEdges();
 

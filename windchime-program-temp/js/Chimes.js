@@ -57,27 +57,25 @@ class Chimes{
         
             //element remains in the canvas
             checkEdges(){
-                if(this.pos.x > this.initialPos.x+150){
-                    this.pos.x =this.initialPos.x+150;
+                if(this.movingPos.x > this.initialPos.x+50){
+                    this.movingPos.x =this.initialPos.x+50;
                     this.vel.x *=-1;
-                    console.log("test right boundary");
         
                 }
         
-                else if(this.pos.x < (this.initialPos.x-150)){
-                    this.pos.x = this.initialPos.x-150;
+                else if(this.movingPos.x < (this.initialPos.x-50)){
+                    this.movingPos.x = this.initialPos.x-50;
                     this.vel.x*=-1;
-                    console.log("test left boundary");
         
                 }
-                if(this.pos.y > 500){
-                    this.pos.y =500;
-                    this.vel.y *=-1;
-                }
-                if(this.pos.y < 0){
-                    this.pos.y =0;
-                    this.vel.y *=+1;
-                }
+                // if(this.movingPos.y > 500){
+                //     this.movingPos.y =500;
+                //     this.vel.y *=-1;
+                // }
+                // if(this.movingPos.y < 0){
+                //     this.movingPos.y =0;
+                //     this.vel.y *=-1;
+                // }
             }
         
         update(resetAcc){
@@ -94,7 +92,6 @@ class Chimes{
             // console.log(this.angle);
 
             this.angle += this.angleVel;
-            console.log(this.currentAngleVel);
 
             if (this.angle > this.currentAngleVel/100){
                 this.angle = this.currentAngleVel/100;

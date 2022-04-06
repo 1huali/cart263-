@@ -31,9 +31,10 @@
     }
 
     #windchimeBox{
-      /* border: 4px; */
-      /* border-style: dotted; */
+      border: 4px; 
+    border-style: dotted;
       stroke: black; 
+    height: 600px;
     }
 
     #dataBox{
@@ -41,8 +42,18 @@
       border-style: dotted;
       stroke: black; 
       position: absolute;
+      display: flex;
+      /* boxes wrap to the next line. space taken by content set in width% */
+      flex-wrap: wrap;
 
     }
+.dataContentBox{
+  /* orders in line */
+display: inline-block;
+background-color: fuchsia;
+width: 15%;
+margin: 2px;
+}
 
     .strings{
       position: absolute;
@@ -104,55 +115,54 @@ height: 40px;
 
   <body>
     <h2>A windchime case study : The prototype</h2>
-    <section>
-      <div id="dataBox">
-        <br>
-        <button title="user wind input" id="triggerButton">User force</button>
-        <p>Level : <span id="forceLevelBox"></span></p>
-        <br>
-        <p>Force mode : <span id="currentForceMode"></span></p>
-        <p> Instruction: <span id="forceInstruction"></span></p>
-        <br>
-        <p> Sensitivity : 
-          <input type="range" min="1" max="100" value="50" class="slider" id="angleVelSlider">
-        <p>level: <span id="sensitivityLevel"></span></p>
-        <br>
-        <button title="chimes visual" id="lookButton">Look</button><br><br>
-        <button title="impact sound" id="soundButton">Sound</button>
-        <br>
-        </div>
+
+    <section id="windchimeBox">
+    <p id="plate" class="mass">--------------</p>
+    <br>
+    <p id="stringBase" class="strings">string</p>
+    <br>
+    <p id="string1" class="strings">string</p>
+    <br>
+    <p id="chime1" class="mass"> <span id="chimeLook">chime1</span></p>
+    <br>
+    <p id="string0" class="strings">string</p>
+    <br>
+    <h2><p id="chime0" class="mass">the core</h2></p>
+    <br>
+    <p id="string2" class="strings">string</p>
+    <br>
+    <p id="chime2" class="mass"><span id="chimeLook">chime2</span></p>
+    <br>
+    <br>
+    <p id="string3" class="strings">string</p>
+    <br>
+    <p id="chime3" class="mass">chime3</p>
+    <br>
+    <br>
+    <p id="string4" class="strings">string</p>
+    <br>
+    <p id="chime4" class="mass">chime4</p>
+    <br>
     </section>
 
-<section id="windchime">
-  <div id="windchimeBox">
-<p id="plate" class="mass">--------------</p>
-<br>
-<p id="stringBase" class="strings">string</p>
-<br>
-<p id="string1" class="strings">string</p>
-<br>
-<p id="chime1" class="mass"> <span id="chimeLook">chime1</span></p>
-<br>
-<p id="string0" class="strings">string</p>
-<br>
-<h2><p id="chime0" class="mass">the core</h2></p>
-<br>
-<p id="string2" class="strings">string</p>
-<br>
-<p id="chime2" class="mass"><span id="chimeLook">chime2</span></p>
-<br>
-<br>
-<p id="string3" class="strings">string</p>
-<br>
-<p id="chime3" class="mass">chime3</p>
-<br>
-<br>
-<p id="string4" class="strings">string</p>
-<br>
-<p id="chime4" class="mass">chime4</p>
-<br>
-</div>
-</section>
+    <section id="dataBox">
+       
+        <button class="dataContentBox" title="user wind input" id="triggerButton">User force</button>
+        <p class="dataContentBox">Level : <span id="forceLevelBox"></span></p>
+        
+        <p class="dataContentBox">Force mode : <span id="currentForceMode"></span></p>
+        <p class="dataContentBox"> Instruction: <span id="forceInstruction"></span></p>
+        
+        <p class="dataContentBox"> Sensitivity : 
+          <input type="range" min="1" max="100" value="50" class="slider" id="angleVelSlider">
+        <p class="dataContentBox">level: <span id="sensitivityLevel"></span></p>
+        
+        <button class="dataContentBox" title="chimes visual" id="lookButton">Look</button>
+        <button class="dataContentBox" title="impact sound" id="soundButton">Sound</button>
+       
+    </section>
+
+
     <!-- My script(s) -->
     <script src="js/Chimes.js"> </script>
     <script src="js/suspendorBase.js"> </script>
