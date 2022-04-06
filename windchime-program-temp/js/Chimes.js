@@ -1,7 +1,7 @@
 class Chimes{
     //https://www.youtube.com/watch?v=NBWMtlbbOag
 
-            constructor(stringChime,el,x,y,impactSound){
+            constructor(stringChime,el,x,y,impactSound,currentLook, chimeText){
                 
                 //needs to be in vector, not a unidimensional parameter
                 this.pos = new p5.Vector(x,y);
@@ -33,7 +33,12 @@ class Chimes{
                 this.impactSound= impactSound;
                 this.isColliding= false;
 
-                let img;
+                this.chimeText = chimeText;
+                this.currentLook = currentLook;
+                this.element.classList.add(this.currentLook);
+                this.element.textContent=this.chimeText;
+
+
                 let self = this;
                 //triggers the function if the sound is playing
                 // this.impactSound.addEventListener('playing',function() { 
@@ -118,8 +123,6 @@ class Chimes{
         
             this.element.style.left = `${this.pos.x}px`;
             this.element.style.top = `${this.pos.y}px`;
-
-            //somthing about the picture chosen
         }
         
         isChiming(){

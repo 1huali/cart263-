@@ -52,9 +52,13 @@ angleVelSlider.steps=1;
 
   //changing chime appearence
   let chimeLookArray =[];
-  let currentLook=0;
-  chimeLook.push( document.getElementById(`chimeLook`));
-  chimeLook.push("assets/images/fleur.png");
+  let currentLookIndex=0;
+  let currentLook= "chimeLook1";
+  chimeLookArray.push("chimeLook1");
+  chimeLookArray.push("chimeLook2");
+  chimeLookArray.push("chimeLook3");
+  chimeLookArray.push("chimeLook4");
+
   let changeChimesLookButton = document.getElementById(`lookButton`);
   print();
 
@@ -74,11 +78,11 @@ angleVelSlider.steps=1;
   stringChimeArray.push(stringchime3);
   console.log(stringChimeArray);
 
-  let chime1 = new Chimes(stringchime1, document.getElementById(`chime1`), window.outerWidth / 2 - 200, 400, document.getElementById(`impactSound1`));
-  let chime0 = new Chimes(stringchime0, document.getElementById(`chime0`), window.outerWidth / 2, 200, document.getElementById(`impactSound0`));
-  let chime2 = new Chimes(stringchime2, document.getElementById(`chime2`), window.outerWidth / 2 + 100, 250, document.getElementById(`impactSound2`));
-  let chime3 = new Chimes(stringchime3, document.getElementById(`chime3`), window.outerWidth / 2 - 100, 250, document.getElementById(`impactSound3`));
-  let chime4 = new Chimes(stringchime4, document.getElementById(`chime4`), window.outerWidth / 2 + 200, 400, document.getElementById(`impactSound4`));
+  let chime1 = new Chimes(stringchime1, document.getElementById(`chime1`), window.outerWidth / 2 - 200, 400, document.getElementById(`impactSound1`), currentLook,"CHIME");
+  let chime0 = new Chimes(stringchime0, document.getElementById(`chime0`), window.outerWidth / 2, 200, document.getElementById(`impactSound0`),currentLook,"CHIME");
+  let chime2 = new Chimes(stringchime2, document.getElementById(`chime2`), window.outerWidth / 2 + 100, 250, document.getElementById(`impactSound2`), currentLook,"CHIME");
+  let chime3 = new Chimes(stringchime3, document.getElementById(`chime3`), window.outerWidth / 2 - 100, 250, document.getElementById(`impactSound3`), currentLook,"CHIME");
+  let chime4 = new Chimes(stringchime4, document.getElementById(`chime4`), window.outerWidth / 2 + 200, 400, document.getElementById(`impactSound4`), currentLook,"CHIME");
 
   chimesArray.push(chime0);
   chimesArray.push(chime1);
@@ -175,15 +179,25 @@ print();
 
 changeChimesLookButton.addEventListener("click", function (event) {
 
+  for (let i=0; i < chimesArray.length; i++){
+    chimesArray[i].element.classList.remove(chimeLookArray[currentLookIndex]);
+  };
+    currentLookIndex++;
+    
+if (currentLookIndex === chimeLookArray.length){
+  currentLookIndex = 0;
+}
 
-    if (currentLook >= chimeLookArray.length - 1) {
-      currentLook = 0;
-      chimeLook.src = chimeLook[currentLook]
-    } else {
-     currentLook =currentLook + 1;
-      chimeLook.src = chimeLook[currentLook]
+    for (let i=0; i < chimesArray.length; i++){
+  chimesArray[i].element.classList.add(chimeLookArray[currentLookIndex]);
+
+  if (currentLookIndex===3){
+    chimesArray[i].element.textContent="";
+  } else {
+    chimesArray[i].element.textContent=chimesArray[i].chimeText;
+  }
+
     }
-    console.log("change look click")
 
 });
 
