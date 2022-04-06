@@ -26,7 +26,7 @@ window.onload = function () {
   let userForce = 0;
 
   let forceInstructionText = document.getElementById("forceInstruction");
-  let currentForceInstructionText = `You can implement the wind by clicking on the windchime.`;
+  let currentForceInstructionText = `You can implement the wind by clicking on the chime.`;
   let angleVelLevelText = document.getElementById(`sensitivityLevel`)
   let currentAngleVelText = ``;
   let angleVelSlider = document.getElementById(`angleVelSlider`);
@@ -40,14 +40,22 @@ angleVelSlider.steps=1;
   //el is the getElementbyId thing visual
   let userModeSwitch = document.getElementById(`triggerButton`);
 
-
+//buttons 
   let toggle = true;
   console.log("Toggle true")
   let currentForceModeTextZone = document.getElementById(`currentForceMode`);
   let forceMode = `mouse input`;
 
+  //variable data 
   let forceLevelTextZone = document.getElementById(`forceLevelBox`);
   let currentForceLevelText= `0`;
+
+  //changing chime appearence
+  let chimeLookArray =[];
+  let currentLook=0;
+  chimeLook.push( document.getElementById(`chimeLook`));
+  chimeLook.push("assets/images/fleur.png");
+  let changeChimesLookButton = document.getElementById(`lookButton`);
   print();
 
 
@@ -152,7 +160,7 @@ print();
     toggle = !toggle;
     if (toggle) {
       forceMode = `mouse force input`;
-      currentForceInstructionText = `You can implement the wind by clicking on the windchime.`;
+      currentForceInstructionText = `You can implement the wind by clicking on the chimes.`;
       currentAngleVelText = ``;
       currentForceLevelText = `0`;
       print();
@@ -164,6 +172,20 @@ print();
       print();
     }
   });
+
+changeChimesLookButton.addEventListener("click", function (event) {
+
+
+    if (currentLook >= chimeLookArray.length - 1) {
+      currentLook = 0;
+      chimeLook.src = chimeLook[currentLook]
+    } else {
+     currentLook =currentLook + 1;
+      chimeLook.src = chimeLook[currentLook]
+    }
+    console.log("change look click")
+
+});
 
   function animate() {
     //applications of the properties adapted to diff events and contexts

@@ -83,6 +83,7 @@ h2{
     <h2>A windchime case study : The prototype</h2>
     <section>
       <div id="dataBox">
+        <br>
         <button title="user wind input" id="triggerButton">User force</button>
         <p>Level : <span id="forceLevelBox"></span></p>
         <br>
@@ -93,18 +94,21 @@ h2{
           <input type="range" min="1" max="100" value="50" class="slider" id="angleVelSlider">
         <p>level: <span id="sensitivityLevel"></span></p>
         <br>
+        <button title="chimes visual" id="lookButton">Look</button><br><br>
+        <button title="impact sound" id="soundButton">Sound</button>
+        <br>
         </div>
     </section>
 
 <section id="windchime">
   <div id="windchimeBox">
-<p id="plate" class="mass">--------------------the plate--------------------</p>
+<p id="plate" class="mass">--------------</p>
 <br>
 <p id="stringBase" class="strings">string</p>
 <br>
 <p id="string1" class="strings">string</p>
 <br>
-<p id="chime1" class="mass">chime1</p>
+<p id="chime1" class="mass"> <span id="chimeLook">chime1</span></p>
 <br>
 <p id="string0" class="strings">string</p>
 <br>
@@ -112,7 +116,7 @@ h2{
 <br>
 <p id="string2" class="strings">string</p>
 <br>
-<p id="chime2" class="mass">chime2</p>
+<p id="chime2" class="mass"><span id="chimeLook">chime2</span></p>
 <br>
 <br>
 <p id="string3" class="strings">string</p>

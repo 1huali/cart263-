@@ -33,6 +33,7 @@ class Chimes{
                 this.impactSound= impactSound;
                 this.isColliding= false;
 
+                let img;
                 let self = this;
                 //triggers the function if the sound is playing
                 // this.impactSound.addEventListener('playing',function() { 
@@ -117,6 +118,8 @@ class Chimes{
         
             this.element.style.left = `${this.pos.x}px`;
             this.element.style.top = `${this.pos.y}px`;
+
+            //somthing about the picture chosen
         }
         
         isChiming(){
