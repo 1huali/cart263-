@@ -30,8 +30,7 @@ window.onload = function () {
   let angleVelLevelText = document.getElementById(`sensitivityLevel`)
   let currentAngleVelText = ``;
   let angleVelSlider = document.getElementById(`angleVelSlider`);
-let angleVelLevel;
-console.log(angleVelLevel);
+let angleVelLevel = 0;
 angleVelSlider.max = 1.2 *100;
 angleVelSlider.min= 0.1*100 ;
 angleVelSlider.steps=1;
@@ -281,7 +280,7 @@ bang();
 
     currentForceModeTextZone.innerHTML = forceMode;
     angleVelLevelText.innerHTML = angleVelLevel;
-    // angleVelLevelText.innerHTML = ${`angleVelLevel`};
+    console.log(angleVelLevel);
     forceInstructionText.innerHTML = currentForceInstructionText;
     angleVelLevelText.innerHTML = angleVelLevel;
     forceLevelTextZone.innerHTML = windForce;

@@ -15,6 +15,7 @@ class Chimes{
                 this.velVec = new p5.Vector(0,0);
                 this.accVec = new p5.Vector(0,0);
                 
+                this.movingPos = new p5.Vector(x,y);
                 this.initialPos = new p5.Vector(x,y);
         
                 this.angle = Math.PI/4;
@@ -45,7 +46,11 @@ class Chimes{
                 //     console.log(`is playing`);
                 //  },false);
 
-        
+                //vector force
+                this.vel = new p5.Vector(0,0);
+                this.acc = new p5.Vector(0,0);
+                this.topSpeed = 20;
+
             }
         
 
@@ -96,26 +101,35 @@ class Chimes{
 
             }
 
+
 // console.log(wind.x);          
             this.angleVel *= 0.99;
             this.pos.x = this.stringLength * Math.sin (this.angle);
             this.pos.y = this.stringLength * Math.cos (this.angle);
-            this.pos.add(this.initialPos);
+            //position as an offset from movingPos (center)
+            this.pos.add(this.movingPos);
 
-// max and min so that they dont flip
-            // if (this.angleAcc > this.maxSpeed){
-            //     console.log(`max speed reached`);
-            //     this.angleAcc = this.maxSpeed;
-            //             }
-            //             if (this.angleAcc < this.minSpeed){
-            //                 this.angleAcc = this.minSpeed;
-            //                         }
 
         }
 
-        // micUpdate(){
+        updateVectors(resetAcc){
+            this.vel.add(this.acc);
+            this.vel.limit(this.topSpeed);
+            this.movingPos.add(this.vel);
 
-        // }
+            if (resetAcc === true){
+                this.acc.mult(0);
+        }
+
+        };
+
+        applyForce(force){
+
+            let f = p5.Vector.div(force,this.mass);
+            this.acc.add(f);    
+    
+        }
+    
 
         show(){
             this.stringChime.style.left= `${this.pos.x}px`;
