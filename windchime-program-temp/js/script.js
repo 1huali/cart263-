@@ -109,7 +109,6 @@ let impactSoundArray = [];
 
 let currentSelfSoundMode = `dust`;
 let currentImpactSoundMode = `dust`;
-let currentSoundModeIndex= 0;
 let changeSoundButton = document.getElementById(`soundButton`);
 
 let dustSound = document.getElementById(`dustSound`);
@@ -121,6 +120,8 @@ selfSoundArray.push(dustSound);
 impactSoundArray.push(dustSound2);
 selfSoundArray.push(bambooSound);
 impactSoundArray.push(bambooSound2);
+let currentSoundModeIndex= 0;
+
 
 
 
@@ -251,18 +252,19 @@ if (currentLookIndex === chimeLookArray.length){
 
 changeSoundButton.addEventListener("click", function (event) {
 
+  currentSoundModeIndex++;
   
+  if (currentSoundModeIndex === selfSoundArray.length){
+    currentSoundModeIndex = 0;
+  }
+
    for (let i=0; i < chimesArray.length; i++){
-    currentLookIndex++;
-     for (let j=0; j< selfSoundArray.length; j++){
     chimesArray[i].selfSound = selfSoundArray[currentSoundModeIndex];
-  }
-  for (let k=0; k< impactSoundArray.length; k++){
     chimesArray[i].impactSound = impactSoundArray[currentSoundModeIndex];
-  }
   }
   console.log(currentImpactSoundMode);
 
+  
 
 });
 
@@ -418,7 +420,6 @@ for (let i=0;i< chimesArray.length; i++){
 
 //self sound activation at movement ??
 for (let i = 0; i < chimesArray.length; i++) {
-  // console.log(chimesArray[i].angleVel)
   if (chimesArray[i].angleVel > Math.abs(0.003)){
   chimesArray[i].isChiming();
 }
