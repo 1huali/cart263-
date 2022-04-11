@@ -138,11 +138,11 @@ class Chimes{
         }
         
         isChiming(){
-            this.selfSound.play();
+            // this.selfSound.play();
         }
 
         inCollision(){
-            this.impactSound.play();
+            // this.impactSound.play();
         }
 
         } //end of class

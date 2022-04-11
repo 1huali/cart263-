@@ -132,7 +132,7 @@ impactSoundArray.push(bambooSound2);
 
         mx = event.clientX;
 
-        
+
       });
 
   window.addEventListener("mousedown", function (event) {
@@ -418,7 +418,7 @@ for (let i=0;i< chimesArray.length; i++){
 
 //self sound activation at movement ??
 for (let i = 0; i < chimesArray.length; i++) {
-  if (chimesArray[i].vel > 2){
+  if (chimesArray[i].vel > 5){
   chimesArray[i].isChiming();
 }
 }
