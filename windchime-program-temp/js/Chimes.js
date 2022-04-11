@@ -144,7 +144,7 @@ class Chimes{
         }
 
         inCollision(){
-            // this.impactSound.play();
+            this.impactSound.play();
         }
 
         } //end of class
