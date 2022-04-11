@@ -5,7 +5,9 @@ Wawa Li
 
 Program incarnating a wind chime : initial state, disturbed state. Input disturbances, interval disturbance, voice responsive disturbance?
 Eventually think of an impact consequence (visual noise? audio sound?)
-
+https://thecodingtrain.com/learning/nature-of-code/2.1-simulating-forces.html
+https://thecodingtrain.com/learning/nature-of-code/2.2-mass-acceleration.html
+https://thecodingtrain.com/learning/nature-of-code/2.4-drag.html
 */
 
 
@@ -77,11 +79,11 @@ angleVelSlider.steps=1;
   stringChimeArray.push(stringchime3);
   console.log(stringChimeArray);
 
-  let chime1 = new Chimes(stringchime1, document.getElementById(`chime1`), window.outerWidth / 2 - 200, 400, document.getElementById(`impactSound1`), currentLook,"CHIME");
-  let chime0 = new Chimes(stringchime0, document.getElementById(`chime0`), window.outerWidth / 2, 200, document.getElementById(`impactSound0`),currentLook,"CHIME");
-  let chime2 = new Chimes(stringchime2, document.getElementById(`chime2`), window.outerWidth / 2 + 100, 250, document.getElementById(`impactSound2`), currentLook,"CHIME");
-  let chime3 = new Chimes(stringchime3, document.getElementById(`chime3`), window.outerWidth / 2 - 100, 250, document.getElementById(`impactSound3`), currentLook,"CHIME");
-  let chime4 = new Chimes(stringchime4, document.getElementById(`chime4`), window.outerWidth / 2 + 200, 400, document.getElementById(`impactSound4`), currentLook,"CHIME");
+  let chime0 = new Chimes(stringchime0, document.getElementById(`chime0`), window.outerWidth / 2, 200,document.getElementById(`dustSound`), document.getElementById(`dustSound2`),currentLook,"CHIME");
+  let chime1 = new Chimes(stringchime1, document.getElementById(`chime1`), window.outerWidth / 2 - 150, 300,document.getElementById(`dustSound`), document.getElementById(`dustSound`), currentLook,"CHIME");
+  let chime2 = new Chimes(stringchime2, document.getElementById(`chime2`), window.outerWidth / 2 + 100, 250,document.getElementById(`dustSound`), document.getElementById(`dustSound2`), currentLook,"CHIME");
+  let chime3 = new Chimes(stringchime3, document.getElementById(`chime3`), window.outerWidth / 2 - 100, 250,document.getElementById(`dustSound`), document.getElementById(`dustSound`), currentLook,"CHIME");
+  let chime4 = new Chimes(stringchime4, document.getElementById(`chime4`), window.outerWidth / 2 + 150, 300,document.getElementById(`dustSound`), document.getElementById(`dustSound2`), currentLook,"CHIME");
 
   chimesArray.push(chime0);
   chimesArray.push(chime1);
@@ -101,16 +103,41 @@ angleVelSlider.steps=1;
   let repelWindForce = 0.01;
   let windButton;
 
+//sound button
+let selfSoundArray = [];
+let impactSoundArray = [];
+
+let currentSelfSoundMode = `dust`;
+let currentImpactSoundMode = `dust`;
+let currentSoundModeIndex= 0;
+let changeSoundButton = document.getElementById(`soundButton`);
+
+let dustSound = document.getElementById(`dustSound`);
+let dustSound2 = document.getElementById(`dustSound2`);
+let bambooSound = document.getElementById(`bambooSound`);
+let bambooSound2 = document.getElementById(`bambooSound2`);
+
+selfSoundArray.push(dustSound);
+impactSoundArray.push(dustSound2);
+selfSoundArray.push(bambooSound);
+impactSoundArray.push(bambooSound2);
+
 
 
   window.requestAnimationFrame(animate)
   //new properties adapted to diff events and contexts.
 
   window.addEventListener("mousemove", function (event){
+
+
         mx = event.clientX;
+
+        
       });
 
   window.addEventListener("mousedown", function (event) {
+
+
 let windchimeBox = document.getElementById(`windchimeBox`).getBoundingClientRect();
 console.log(windchimeBox);
 if (event.clientY < (windchimeBox.height-windchimeBox.y)){
@@ -192,9 +219,12 @@ print();
       //value should change with the wind force
       print();
     }
+
+
   });
 
 changeChimesLookButton.addEventListener("click", function (event) {
+
 
   for (let i=0; i < chimesArray.length; i++){
     chimesArray[i].element.classList.remove(chimeLookArray[currentLookIndex]);
@@ -216,7 +246,28 @@ if (currentLookIndex === chimeLookArray.length){
 
     }
 
+
 });
+
+changeSoundButton.addEventListener("click", function (event) {
+
+  
+   for (let i=0; i < chimesArray.length; i++){
+    currentLookIndex++;
+     for (let j=0; j< selfSoundArray.length; j++){
+    chimesArray[i].selfSound = selfSoundArray[currentSoundModeIndex];
+  }
+  for (let k=0; k< impactSoundArray.length; k++){
+    chimesArray[i].impactSound = impactSoundArray[currentSoundModeIndex];
+  }
+  }
+  console.log(currentImpactSoundMode);
+
+
+});
+
+
+
 
   function animate() {
     //applications of the properties adapted to diff events and contexts
@@ -365,6 +416,12 @@ for (let i=0;i< chimesArray.length; i++){
 
   function bang(){
 
+//self sound activation at movement ??
+for (let i = 0; i < chimesArray.length; i++) {
+  if (chimesArray[i].vel > 2){
+  chimesArray[i].isChiming();
+}
+}
 
     for (let i = 0; i < chimesArray.length; i++) {
     // chimesArray[i].impact= false;
@@ -395,12 +452,12 @@ if (chimesArray[i].isColliding === true){
           chimesArray[j].impact= true;
           
           if (chimesArray[j].isColliding === false){
-            chimesArray[j].isChiming();
+            chimesArray[j].inCollision();
             chimesArray[j].isColliding = true;
           }
 
           if (chimesArray[i].isColliding === false){
-            chimesArray[i].isChiming();
+            chimesArray[i].inCollision();
             chimesArray[i].isColliding = true;
           }
 

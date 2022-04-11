@@ -4,22 +4,25 @@
     <meta charset="utf-8">
     <meta name="viewport" width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0>
 
-    <title>A wind chime behavioural system</title>
+    <title>A wind chime behavioural system study</title>
    
-    <audio controls hidden id="impactSound0">
-      <source src="assets/sounds/bark.wav" type="audio/wav">
+    <audio controls hidden id="bambooSound">
+      <source src="assets/sounds/bamboo-chime.mp3" type="audio/mpeg">
     </audio>
-    <audio controls hidden id="impactSound1">
-      <source src="assets/sounds/bark.wav" type="audio/wav">
+    <audio controls hidden id="bambooSound2">
+      <source src="assets/sounds/bamboo2-chime.mp3" type="audio/mpeg">
     </audio>
-    <audio controls hidden id="impactSound2">
-      <source src="assets/sounds/bark.wav" type="audio/wav">
+    <audio controls hidden id="coinSound">
+      <source src="assets/sounds/coin-chime.mp3" type="audio/mpeg">
     </audio>
-    <audio controls hidden id="impactSound3">
-      <source src="assets/sounds/bark.wav" type="audio/wav">
+    <audio controls hidden id="coinSound2">
+      <source src="assets/sounds/coin2-chime.mp3" type="audio/mpeg">
     </audio>
-    <audio controls hidden id="impactSound4">
-      <source src="assets/sounds/bark.wav" type="audio/wav">
+    <audio controls hidden id="dustSound">
+      <source src="assets/sounds/dust-chime.mp3" type="audio/mpeg">
+    </audio>
+    <audio controls hidden id="dustSound2">
+      <source src="assets/sounds/dust2-chime.mp3" type="audio/mpeg">
     </audio>
 
 <style>
@@ -153,12 +156,15 @@ height: 40px;
         <p class="dataContentBox">Force mode : <span id="currentForceMode"></span></p>
         <p class="dataContentBox"> Instruction: <span id="forceInstruction"></span></p>
         
-        <p class="dataContentBox"> Sensitivity : 
+        <p class="dataContentBox"> Sensitivity/Drag Force : 
           <input type="range" min="1" max="100" value="50" class="slider" id="angleVelSlider">
         <p class="dataContentBox">level: <span id="sensitivityLevel"></span></p>
         
         <button class="dataContentBox" title="chimes visual" id="lookButton">Look</button>
+        <br>
         <button class="dataContentBox" title="impact sound" id="soundButton">Sound</button>
+        <p class="dataContentBox">Sound : <span id="currentSound"></span></p>
+
        
     </section>
 

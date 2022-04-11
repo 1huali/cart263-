@@ -1,6 +1,6 @@
 class suspendorBase{
 
-    constructor(stringChime,el,x,y){
+    constructor(stringChime,el,x,y,impactSound){
         this.pos = new p5.Vector(x,y);
         this.vel = new p5.Vector(0,0);
         this.acc = new p5.Vector(0,0);
@@ -13,6 +13,7 @@ class suspendorBase{
         this.stringChime = stringChime;
         this.mass = 1;
         this.r = 0;
+        this.impactSound= impactSound;
 
     }
 

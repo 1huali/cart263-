@@ -1,7 +1,7 @@
 class Chimes{
     //https://www.youtube.com/watch?v=NBWMtlbbOag
 
-            constructor(stringChime,el,x,y,impactSound,currentLook, chimeText){
+            constructor(stringChime,el,x,y,selfSound,impactSound,currentLook, chimeText){
                 
                 //needs to be in vector, not a unidimensional parameter
                 this.pos = new p5.Vector(x,y);
@@ -32,6 +32,7 @@ class Chimes{
                 this.gravity= 0.01;
                 this.impact= false;
                 this.impactSound= impactSound;
+                this.selfSound= selfSound;
                 this.isColliding= false;
 
                 this.chimeText = chimeText;
@@ -137,7 +138,11 @@ class Chimes{
         }
         
         isChiming(){
-        //    this.impactSound.play();
+            this.selfSound.play();
+        }
+
+        inCollision(){
+            this.impactSound.play();
         }
 
         } //end of class
