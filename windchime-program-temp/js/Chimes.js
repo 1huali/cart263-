@@ -1,7 +1,8 @@
 class Chimes{
     //https://www.youtube.com/watch?v=NBWMtlbbOag
 
-            constructor(stringChime,el,x,y,selfSound,impactSound,currentLook, chimeText){
+
+            constructor(stringChime,el,x,y,selfSound,impactSound,currentLook, chimeText,delayInterval){
                 
                 //needs to be in vector, not a unidimensional parameter
                 this.pos = new p5.Vector(x,y);
@@ -34,18 +35,12 @@ class Chimes{
                 this.impactSound= impactSound;
                 this.selfSound= selfSound;
                 this.isColliding= false;
+                this.delayInterval= delayInterval;
 
                 this.chimeText = chimeText;
                 this.currentLook = currentLook;
                 this.element.classList.add(this.currentLook);
                 this.element.textContent=this.chimeText;
-
-
-                let self = this;
-                //triggers the function if the sound is playing
-                // this.impactSound.addEventListener('playing',function() { 
-                //     console.log(`is playing`);
-                //  },false);
 
                 //vector force
                 this.vel = new p5.Vector(0,0);
@@ -138,6 +133,13 @@ class Chimes{
         }
         
         isChiming(){
+            let self = this;
+            setTimeout(function (){
+
+                self.selfSound.play()
+                //console.log(self);
+                //console.log(self.delayInterval);
+            }, self.delayInterval);
             // this.selfSound.play();
         }
 
