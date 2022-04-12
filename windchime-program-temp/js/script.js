@@ -15,13 +15,14 @@ https://thecodingtrain.com/learning/nature-of-code/2.4-drag.html
 "use strict";
 window.onload = function () {
 
-  // NEW! Start mic input at the beginning only ONCE
   micInput();
 
   let windchimeBox = document.getElementById(`windchimeBox`);
-// console.log(windchimeBox.width);
   let clicks = 0;
   let windForce;
+
+  //to control the mic event
+  let timeoutWind =false;
 
   let stringChimeArray = [];
   let chimesArray = [];
@@ -92,7 +93,7 @@ angleVelSlider.steps=1;
   chimesArray.push(chime4);
   console.log(chimesArray);
 
-  let topPlate = new suspendorBase(stringBase, document.getElementById(`plate`), window.outerWidth / 2, 100);
+  let topPlate = new suspendorBase(stringBase, document.getElementById(`plate`), window.outerWidth / 2 -100, 100);
 
   let startDrag = false;
   let mx = 0;
@@ -146,8 +147,9 @@ if (event.clientY < (windchimeBox.height-windchimeBox.y)){
 
     //switch for user input
     if (toggle === true) {
-      // console.log(`mouse input rn`);
       clicks += 1;
+      let windisActive =false;
+
       //windForce set here :
       windForce = clicks * 0.3;
       //
@@ -156,7 +158,8 @@ if (event.clientY < (windchimeBox.height-windchimeBox.y)){
         clicks = 0;
       }
 
-      // reaches X position of each chimes
+      let newWindForce = new p5.Vector(.9, 0);
+
       for (let i = 0; i < chimesArray.length; i++) {
         mx = event.clientX;
         let chimeX = chimesArray[i].pos.x;
@@ -167,33 +170,39 @@ if (event.clientY < (windchimeBox.height-windchimeBox.y)){
           wind = new p5.Vector(-windForce, 0);
           // console.log(wind)
           chimesArray[i].windX = wind.x;
-          chimesArray[i].applyForce(wind);
+          chimesArray[i].applyForce(newWindForce);
+
 
           if (i===0){
-            topPlate.applyForce(wind);
-          };
+            topPlate.applyForce(newWindForce);
+            //sabine set
+            windisActive =true;
+          }
 
-          this.setTimeout(function () {
-            startDrag = true;
-          }, 2000);
 
-        //
       } else if (difference < 0) {
           wind = new p5.Vector(windForce, 0);
           chimesArray[i].windX = wind.x;
-          chimesArray[i].applyForce(wind);
+          chimesArray[i].applyForce(newWindForce);
 
           if (i===0){
-            topPlate.applyForce(wind);
-          };
+            topPlate.applyForce(newWindForce);
+            //sabine set
+            windisActive =true;
+          }
+        } 
 
-          this.setTimeout(function () {
+      } //end for loop
+
+//drag force applying on the entirety of the chimes
+      if(windisActive ===true){
+        setTimeout(function () {
             startDrag = true;
-          }, 2000);
-        };
-
+         }, 2000);
       }
-    }
+
+    } //end if toggle
+
 
 }
   });
@@ -202,7 +211,7 @@ if (event.clientY < (windchimeBox.height-windchimeBox.y)){
     angleVelLevel= this.value;
     slider();
 print();
-  });
+  }); //end of mousedown
 
   userModeSwitch.addEventListener("click", function (event) {
     // switch state to voiceInput or mouseInput
@@ -293,50 +302,69 @@ changeSoundButton.addEventListener("click", function (event) {
 
 
 
-              //1. threshold ; 2. avec mx et userForce comme windX ; afficher userForce et donner un lvl 
-
     //mode button
     if (toggle === false) {
 
 //maps userforce to mic input data
       windForce = userForce;
+
+      let windisActive =false;
+      let newWindForce = new p5.Vector(.9, 0);
 //
 
 //user input force becomes the wind
-      for (let i = 0; i < chimesArray.length; i++) {
+for (let i = 0; i < chimesArray.length; i++) {
+
+  let chimeX = chimesArray[i].pos.x;
+  let difference = mx - chimeX;
+
+  if (difference > 0) {
+    wind = new p5.Vector(-windForce, 0);
+    chimesArray[i].windX = wind.x;
+    chimesArray[i].applyForce(newWindForce);
 
 
-      //userForce applied to wind X position
-        wind = new p5.Vector(userForce, 0);
-          chimesArray[i].windX = wind.x;
-          // console.log(wind.x)
+    if (i===0){
+      topPlate.applyForce(newWindForce);
+      windisActive =true;
+    }
 
 
-        //sets the wind effect relative for each chime to the mouse position (rather than global pos)
-        let chimeX = chimesArray[i].pos.x;
-        let difference = mx - chimeX;
-
-        if (difference > 0) {
-          wind = new p5.Vector(-windForce, 0);
-
-          chimesArray[i].windX = wind.x;
-          setTimeout(function () {
-            startDrag = true;
-          }, 2000);
-
-        //
-      } else if (difference < 0) {
-          wind = new p5.Vector(windForce, 0);
-          chimesArray[i].windX = wind.x;
-          setTimeout(function () {
-            startDrag = true;
-          }, 2000);
-        };
-
-      
-        }
+} else if (difference < 0) {
+    wind = new p5.Vector(windForce, 0);
+    chimesArray[i].windX = wind.x;
+    
+    if(timeoutWind===false){
+      chimesArray[i].applyForce(newWindForce);
 
     }
+    
+
+    if (i===0 && timeoutWind===false){
+      topPlate.applyForce(newWindForce);
+      windisActive =true;
+    }
+
+  } //diff
+
+} //end of for loop
+
+if(windisActive ===true && timeoutWind===false){
+ 
+  setTimeout(function () {
+      startDrag = true;
+   }, 2000);
+
+
+ setTimeout(function () {
+  timeoutWind = false;
+    console.log("time out wind");
+ }, 5000);
+
+ timeoutWind =true;
+
+}
+    } //end of if Toggle
 
 bang();
     window.requestAnimationFrame(animate)

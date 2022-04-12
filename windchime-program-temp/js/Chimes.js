@@ -122,6 +122,23 @@ class Chimes{
             this.acc.add(f);    
     
         }
+
+
+        drag(constForce){
+
+
+        
+            let drag = this.vel.copy();
+            drag.normalize();
+            drag.mult(-1);
+            //magnitude
+            let speedSq = this.vel.magSq();
+            drag.setMag(constForce*speedSq);
+        
+            this.applyForce(drag);
+        
+
+        }
     
 
         show(){

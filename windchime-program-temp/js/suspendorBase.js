@@ -9,7 +9,6 @@ class suspendorBase{
         this.initialPos = new p5.Vector(x,y);
 
         this.element = el;
-        // this.stringLength = 100;
         this.stringChime = stringChime;
         this.mass = 1;
         this.r = 0;
@@ -66,15 +65,15 @@ drag(c){
     checkEdges(){
 
         //left-right
-        if(this.pos.x > this.initialPos.x+120){
-            this.pos.x =this.initialPos.x+120;
+        if(this.pos.x > this.initialPos.x+50){
+            this.pos.x =this.initialPos.x+50;
             this.vel.x *=-1;
             // console.log("test right boundary");
 
         }
 
-        else if(this.pos.x < (this.initialPos.x-120)){
-            this.pos.x = this.initialPos.x-120;
+        else if(this.pos.x < (this.initialPos.x-50)){
+            this.pos.x = this.initialPos.x-50;
             this.vel.x*=-1;
             // console.log("test left boundary");
 
