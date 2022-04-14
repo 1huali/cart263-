@@ -2,7 +2,7 @@ class Chimes{
     //https://www.youtube.com/watch?v=NBWMtlbbOag
 
 
-            constructor(stringChime,el,x,y,selfSound,impactSound,currentLook, chimeText,delayInterval){
+            constructor(stringChime,el,x,y,selfSound,impactSound,currentLook, chimeText,delayInterval,stringLength){
                 
                 //needs to be in vector, not a unidimensional parameter
                 this.pos = new p5.Vector(x,y);
@@ -25,7 +25,7 @@ class Chimes{
                 this.currentAngleVel=120;
         
                 this.element = el;
-                this.stringLength = 100;
+                this.stringLength = stringLength;
                 this.stringChime = stringChime;
                 this.mass = 1;
                 this.r = 90;
@@ -47,31 +47,26 @@ class Chimes{
                 this.acc = new p5.Vector(0,0);
                 this.topSpeed = 20;
 
+                this.windowOffset = window.innerWidth/10;
+                // this.windowOffsetL = window.innerWidth-this.initialPos;
+
             }
         
 
         
             //element remains in the canvas
             checkEdges(){
-                if(this.movingPos.x > this.initialPos.x+50){
-                    this.movingPos.x =this.initialPos.x+50;
+                if(this.movingPos.x > this.initialPos.x+this.windowOffset){
+                    this.movingPos.x =this.initialPos.x+this.windowOffset;
                     this.vel.x *=-1;
         
                 }
         
-                else if(this.movingPos.x < (this.initialPos.x-50)){
-                    this.movingPos.x = this.initialPos.x-50;
+                else if(this.movingPos.x < (this.initialPos.x-this.windowOffset)){
+                    this.movingPos.x = this.initialPos.x-this.windowOffset;
                     this.vel.x*=-1;
         
                 }
-                // if(this.movingPos.y > 500){
-                //     this.movingPos.y =500;
-                //     this.vel.y *=-1;
-                // }
-                // if(this.movingPos.y < 0){
-                //     this.movingPos.y =0;
-                //     this.vel.y *=-1;
-                // }
             }
         
         update(resetAcc){

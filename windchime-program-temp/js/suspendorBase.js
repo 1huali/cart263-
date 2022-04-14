@@ -5,6 +5,7 @@ class suspendorBase{
         this.vel = new p5.Vector(0,0);
         this.acc = new p5.Vector(0,0);
         this.topSpeed = 20;
+        console.log(y)
 
         this.initialPos = new p5.Vector(x,y);
 
@@ -14,6 +15,7 @@ class suspendorBase{
         this.r = 0;
         this.impactSound= impactSound;
 
+        this.windowOffset= window.innerWidth/10;
     }
 
 
@@ -65,30 +67,19 @@ drag(c){
     checkEdges(){
 
         //left-right
-        if(this.pos.x > this.initialPos.x+50){
-            this.pos.x =this.initialPos.x+50;
+        if(this.pos.x > this.initialPos.x+this.windowOffset){
+            this.pos.x =this.initialPos.x+this.windowOffset;
             this.vel.x *=-1;
             // console.log("test right boundary");
 
         }
 
-        else if(this.pos.x < (this.initialPos.x-50)){
-            this.pos.x = this.initialPos.x-50;
+        else if(this.pos.x < (this.initialPos.x-this.windowOffset)){
+            this.pos.x = this.initialPos.x-this.windowOffset;
             this.vel.x*=-1;
             // console.log("test left boundary");
 
         }
-
-     //top-bottom
-        if(this.pos.y > 200){
-            this.pos.y =200;
-            // this.vel.y *=-1;
-        }
-        if(this.pos.y < 0){
-            this.pos.y =0;
-            // this.vel.y *=-1;
-        }
-
 
     }
 
