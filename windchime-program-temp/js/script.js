@@ -22,7 +22,7 @@ window.onload = function () {
   let windForce;
 
   //to control the mic event
-  let timeoutWind =false;
+  let timeoutWind = false;
 
   let stringChimeArray = [];
   let chimesArray = [];
@@ -33,29 +33,29 @@ window.onload = function () {
   let angleVelLevelText = document.getElementById(`sensitivityLevel`)
   let currentAngleVelText = ``;
   let angleVelSlider = document.getElementById(`angleVelSlider`);
-let angleVelLevel = 0;
-angleVelSlider.max = 1.2 *100;
-angleVelSlider.min= 0.1*100 ;
-angleVelSlider.steps=1;
+  let angleVelLevel = 0;
+  angleVelSlider.max = 1.2 * 100;
+  angleVelSlider.min = 0.1 * 100;
+  angleVelSlider.steps = 1;
 
 
   //el is the getElementbyId thing visual
   let userModeSwitch = document.getElementById(`triggerButton`);
 
-//buttons 
+  //buttons
   let toggle = true;
   console.log("Toggle true")
   let currentForceModeTextZone = document.getElementById(`currentForceMode`);
   let forceMode = `mouse input`;
 
-  //variable data 
+  //variable data
   let forceLevelTextZone = document.getElementById(`forceLevelBox`);
-  let currentForceLevelText= ``;
+  let currentForceLevelText = ``;
 
   //changing chime appearence
-  let chimeLookArray =[];
-  let currentLookIndex=0;
-  let currentLook= "chimeLook1";
+  let chimeLookArray = [];
+  let currentLookIndex = 0;
+  let currentLook = "chimeLook1";
   chimeLookArray.push("chimeLook1");
   chimeLookArray.push("chimeLook2");
   chimeLookArray.push("chimeLook3");
@@ -65,9 +65,9 @@ angleVelSlider.steps=1;
   print();
 
   //implementation of form variations (chime elements)
-  let changeLookButton= document.getElementById('lookButton');
-  let chimeFormArray=[];
-  let chimeFormIndex= 0;
+  let changeLookButton = document.getElementById('lookButton');
+  let chimeFormArray = [];
+  let chimeFormIndex = 0;
   //change to chimeText wtv
   let currentChimeForm = `ch!me`
   chimeFormArray.push(`✿`);
@@ -94,20 +94,20 @@ angleVelSlider.steps=1;
   stringChimeArray.push(stringchime3);
   console.log(stringChimeArray);
 
-//window resizing
-let windowRatio5th= window.innerWidth/5;
-let windowRatio12th = window.innerWidth/12;
+  //window resizing
+  let windowRatio5th = window.innerWidth / 5;
+  let windowRatio12th = window.innerWidth / 12;
 
-let stringUnit= window.innerHeight/20;
-let topY=window.innerHeight/5;
-//
+  let stringUnit = window.innerHeight / 20;
+  let topY = window.innerHeight / 5;
+  //
 
 
-  let chime0 = new Chimes(stringchime0, document.getElementById(`chime0`), window.innerWidth / 2, topY+stringUnit*2,document.getElementById(`dustSound`), document.getElementById(`dustSound2`),currentLook,currentChimeForm,0, stringUnit*2);
-  let chime1 = new Chimes(stringchime1, document.getElementById(`chime1`), window.innerWidth / 2 - windowRatio5th, topY+stringUnit*4,document.getElementById(`dustSound`), document.getElementById(`dustSound`), currentLook,currentChimeForm,1000, stringUnit*4);
-  let chime2 = new Chimes(stringchime2, document.getElementById(`chime2`), window.innerWidth / 2 + windowRatio12th, topY+stringUnit*2.5,document.getElementById(`dustSound`), document.getElementById(`dustSound2`), currentLook,currentChimeForm,500, stringUnit*2.5);
-  let chime3 = new Chimes(stringchime3, document.getElementById(`chime3`), window.innerWidth / 2 - windowRatio12th, topY+stringUnit*2.5,document.getElementById(`dustSound`), document.getElementById(`dustSound`), currentLook,currentChimeForm,500, stringUnit*2.5);
-  let chime4 = new Chimes(stringchime4, document.getElementById(`chime4`), window.innerWidth / 2 + windowRatio5th, topY+stringUnit*4,document.getElementById(`dustSound`), document.getElementById(`dustSound2`), currentLook,currentChimeForm,1000, stringUnit*4);
+  let chime0 = new Chimes(stringchime0, document.getElementById(`chime0`), window.innerWidth / 2, topY + stringUnit * 2, document.getElementById(`dustSound`), document.getElementById(`dustSound2`), currentLook, currentChimeForm, 0, stringUnit * 2);
+  let chime1 = new Chimes(stringchime1, document.getElementById(`chime1`), window.innerWidth / 2 - windowRatio5th, topY + stringUnit * 4, document.getElementById(`dustSound`), document.getElementById(`dustSound`), currentLook, currentChimeForm, 1000, stringUnit * 4);
+  let chime2 = new Chimes(stringchime2, document.getElementById(`chime2`), window.innerWidth / 2 + windowRatio12th, topY + stringUnit * 2.5, document.getElementById(`dustSound`), document.getElementById(`dustSound2`), currentLook, currentChimeForm, 500, stringUnit * 2.5);
+  let chime3 = new Chimes(stringchime3, document.getElementById(`chime3`), window.innerWidth / 2 - windowRatio12th, topY + stringUnit * 2.5, document.getElementById(`dustSound`), document.getElementById(`dustSound`), currentLook, currentChimeForm, 500, stringUnit * 2.5);
+  let chime4 = new Chimes(stringchime4, document.getElementById(`chime4`), window.innerWidth / 2 + windowRatio5th, topY + stringUnit * 4, document.getElementById(`dustSound`), document.getElementById(`dustSound2`), currentLook, currentChimeForm, 1000, stringUnit * 4);
 
   chimesArray.push(chime0);
   chimesArray.push(chime1);
@@ -127,111 +127,112 @@ let topY=window.innerHeight/5;
   let repelWindForce = 0.01;
   let windButton;
 
-//sound button
-let selfSoundArray = [];
-let impactSoundArray = [];
+  //sound button
+  let selfSoundArray = [];
+  let impactSoundArray = [];
 
-let currentSelfSoundMode = `dust`;
-let currentImpactSoundMode = `dust`;
-let changeSoundButton = document.getElementById(`soundButton`);
+  let currentSelfSoundMode = `dust`;
+  let currentImpactSoundMode = `dust`;
+  let changeSoundButton = document.getElementById(`soundButton`);
 
-let dustSound = document.getElementById(`dustSound`);
-let dustSound2 = document.getElementById(`dustSound2`);
-let bambooSound = document.getElementById(`bambooSound`);
-let bambooSound2 = document.getElementById(`bambooSound2`);
+  let dustSound = document.getElementById(`dustSound`);
+  let dustSound2 = document.getElementById(`dustSound2`);
+  let bambooSound = document.getElementById(`bambooSound`);
+  let bambooSound2 = document.getElementById(`bambooSound2`);
 
-selfSoundArray.push(dustSound);
-impactSoundArray.push(dustSound2);
-selfSoundArray.push(bambooSound);
-impactSoundArray.push(bambooSound2);
-let currentSoundModeIndex= 0;
+  selfSoundArray.push(dustSound);
+  impactSoundArray.push(dustSound2);
+  selfSoundArray.push(bambooSound);
+  impactSoundArray.push(bambooSound2);
+  let currentSoundModeIndex = 0;
 
 
   window.requestAnimationFrame(animate)
   //new properties adapted to diff events and contexts.
 
-  window.addEventListener("mousemove", function (event){
+  window.addEventListener("mousemove", function (event) {
 
 
-        mx = event.clientX;
+    mx = event.clientX;
 
 
-      });
+  });
 
   window.addEventListener("mousedown", function (event) {
 
 
-let windchimeBox = document.getElementById(`windchimeBox`).getBoundingClientRect();
-// console.log(windchimeBox);
-if (event.clientY < (windchimeBox.height-windchimeBox.y)){
-  
-
-    //switch for user input
-    if (toggle === true) {
-      clicks += 1;
-      let windisActive =false;
-
-      //windForce set here :
-      windForce = clicks * 0.3;
-      //
-      if (windForce > 0.7) {
-        windForce = 0;
-        clicks = 0;
-      }
-
-      let newWindForce = new p5.Vector(.9, 0);
-
-      for (let i = 0; i < chimesArray.length; i++) {
-        mx = event.clientX;
-        let chimeX = chimesArray[i].pos.x;
-        let difference = mx - chimeX;
-        // console.log(difference);
-
-        if (difference > 0) {
-          wind = new p5.Vector(-windForce, 0);
-          // console.log(wind)
-          chimesArray[i].windX = wind.x;
-          chimesArray[i].applyForce(newWindForce);
+    let windchimeBox = document.getElementById(`windchimeBox`)
+      .getBoundingClientRect();
+    // console.log(windchimeBox);
+    if (event.clientY < (windchimeBox.height - windchimeBox.y)) {
 
 
-          if (i===0){
-            topPlate.applyForce(newWindForce);
-            //sabine set
-            windisActive =true;
+      //switch for user input
+      if (toggle === true) {
+        clicks += 1;
+        let windisActive = false;
+
+        //windForce set here :
+        windForce = clicks * 0.3;
+        //
+        if (windForce > 0.7) {
+          windForce = 0;
+          clicks = 0;
+        }
+
+        let newWindForce = new p5.Vector(.9, 0);
+
+        for (let i = 0; i < chimesArray.length; i++) {
+          mx = event.clientX;
+          let chimeX = chimesArray[i].pos.x;
+          let difference = mx - chimeX;
+          // console.log(difference);
+
+          if (difference > 0) {
+            wind = new p5.Vector(-windForce, 0);
+            // console.log(wind)
+            chimesArray[i].windX = wind.x;
+            chimesArray[i].applyForce(newWindForce);
+
+
+            if (i === 0) {
+              topPlate.applyForce(newWindForce);
+              //sabine set
+              windisActive = true;
+            }
+
+
+          } else if (difference < 0) {
+            wind = new p5.Vector(windForce, 0);
+            chimesArray[i].windX = wind.x;
+            chimesArray[i].applyForce(newWindForce);
+
+            if (i === 0) {
+              topPlate.applyForce(newWindForce);
+              //sabine set
+              windisActive = true;
+            }
           }
 
+        } //end for loop
 
-      } else if (difference < 0) {
-          wind = new p5.Vector(windForce, 0);
-          chimesArray[i].windX = wind.x;
-          chimesArray[i].applyForce(newWindForce);
-
-          if (i===0){
-            topPlate.applyForce(newWindForce);
-            //sabine set
-            windisActive =true;
-          }
-        } 
-
-      } //end for loop
-
-//drag force applying on the entirety of the chimes
-      if(windisActive ===true){
-        setTimeout(function () {
+        //drag force applying on the entirety of the chimes
+        if (windisActive === true) {
+          setTimeout(function () {
             startDrag = true;
-         }, 2000);
-      }
+          }, 2000);
+        }
 
-    } //end if toggle
+      } //end if toggle
 
 
-}
+    }
   });
 
   angleVelSlider.addEventListener("change", function (event) {
-    angleVelLevel= this.value;
+    angleVelLevel = this.value;
     slider();
-print();
+    print();
   }); //end of mousedown
 
   userModeSwitch.addEventListener("click", function (event) {
@@ -257,71 +258,59 @@ print();
   changeChimesFormButton.addEventListener("click", function (event) {
 
 
-  for (let i=0; i < chimesArray.length; i++){
-    chimesArray[i].element.classList.remove(chimeLookArray[currentLookIndex]);
-  };
+    for (let i = 0; i < chimesArray.length; i++) {
+      chimesArray[i].element.classList.remove(chimeLookArray[currentLookIndex]);
+    };
     currentLookIndex++;
-    
-if (currentLookIndex === chimeLookArray.length){
-  currentLookIndex = 0;
-}
 
-    for (let i=0; i < chimesArray.length; i++){
-  chimesArray[i].element.classList.add(chimeLookArray[currentLookIndex]);
+    if (currentLookIndex === chimeLookArray.length) {
+      currentLookIndex = 0;
+    }
 
-  //for text element
-  if (currentLookIndex===3){
-    chimesArray[i].element.textContent="";
-  } else {
-    chimesArray[i].element.textContent=chimesArray[i].chimeText;
-  }
+    for (let i = 0; i < chimesArray.length; i++) {
+      chimesArray[i].element.classList.add(chimeLookArray[currentLookIndex]);
+
+      //for text element
+      if (currentLookIndex === 3) {
+        chimesArray[i].element.innerHTML = "";
+      } else {
+        chimesArray[i].element.innerHTML = chimesArray[i].chimeText;
+      }
 
     }
 
 
-});
+  });
 
-changeSoundButton.addEventListener("click", function (event) {
+  changeSoundButton.addEventListener("click", function (event) {
 
-  currentSoundModeIndex++;
-  
-  if (currentSoundModeIndex === selfSoundArray.length){
-    currentSoundModeIndex = 0;
-  }
+    currentSoundModeIndex++;
 
-   for (let i=0; i < chimesArray.length; i++){
-    chimesArray[i].selfSound = selfSoundArray[currentSoundModeIndex];
-    chimesArray[i].impactSound = impactSoundArray[currentSoundModeIndex];
-  }
-  
+    if (currentSoundModeIndex === selfSoundArray.length) {
+      currentSoundModeIndex = 0;
+    }
 
-});
+    for (let i = 0; i < chimesArray.length; i++) {
+      chimesArray[i].selfSound = selfSoundArray[currentSoundModeIndex];
+      chimesArray[i].impactSound = impactSoundArray[currentSoundModeIndex];
+    }
+    console.log(currentImpactSoundMode);
 
-changeLookButton.addEventListener("click", function (event) {
+
+
+  });
+
+  changeLookButton.addEventListener("click", function (event) {
 
     chimeFormIndex++;
-//loops
-if (chimeFormIndex === chimeFormArray.length){
+    if (chimeFormIndex === chimeFormArray.length) {
       chimeFormIndex = 0;
     }
 
-//setting the appropriate property of the array
-console.log(chimeFormIndex);
-for (let j=0; j < chimesArray.length; j++){
-chimesArray[j].setChimeLook(chimeFormArray[chimeFormIndex]);
-  };
-
-
-//   // if (currentLookIndex===3){
-//   //   chimesArray[i].element.textContent="";
-//   // } else {
-//   //   chimesArray[i].element.textContent=chimesArray[i].chimeText;
-//   // }
-
-//     }
-
-
-});
+    for (let j = 0; j < chimesArray.length; j++) {
+      chimesArray[j].setChimeLook(chimeFormArray[chimeFormIndex]);
+    };
+  });
 
 
   function animate() {
@@ -330,7 +319,7 @@ chimesArray[j].setChimeLook(chimeFormArray[chimeFormIndex]);
 
     //a vertical vectorial movement
     let gravity = new p5.Vector(0, 0.009);
-   
+
 
     for (let i = 0; i < chimesArray.length; i++) {
       chimesArray[i].updateVectors(true);
@@ -349,68 +338,68 @@ chimesArray[j].setChimeLook(chimeFormArray[chimeFormIndex]);
     //mode button
     if (toggle === false) {
 
-//maps userforce to mic input data
+      //maps userforce to mic input data
       windForce = userForce;
 
-      let windisActive =false;
+      let windisActive = false;
       let newWindForce = new p5.Vector(.9, 0);
-//
+      //
 
-//user input force becomes the wind
-for (let i = 0; i < chimesArray.length; i++) {
+      //user input force becomes the wind
+      for (let i = 0; i < chimesArray.length; i++) {
 
-  let chimeX = chimesArray[i].pos.x;
-  let difference = mx - chimeX;
+        let chimeX = chimesArray[i].pos.x;
+        let difference = mx - chimeX;
 
-  if (difference > 0) {
-    wind = new p5.Vector(-windForce, 0);
-    chimesArray[i].windX = wind.x;
-    chimesArray[i].applyForce(newWindForce);
-
-
-    if (i===0){
-      topPlate.applyForce(newWindForce);
-      windisActive =true;
-    }
+        if (difference > 0) {
+          wind = new p5.Vector(-windForce, 0);
+          chimesArray[i].windX = wind.x;
+          chimesArray[i].applyForce(newWindForce);
 
 
-} else if (difference < 0) {
-    wind = new p5.Vector(windForce, 0);
-    chimesArray[i].windX = wind.x;
-    
-    if(timeoutWind===false){
-      chimesArray[i].applyForce(newWindForce);
-
-    }
-    
-
-    if (i===0 && timeoutWind===false){
-      topPlate.applyForce(newWindForce);
-      windisActive =true;
-    }
-
-  } //diff
-
-} //end of for loop
-
-if(windisActive ===true && timeoutWind===false){
- 
-  setTimeout(function () {
-      startDrag = true;
-   }, 2000);
+          if (i === 0) {
+            topPlate.applyForce(newWindForce);
+            windisActive = true;
+          }
 
 
- setTimeout(function () {
-  timeoutWind = false;
-    console.log("time out wind");
- }, 5000);
+        } else if (difference < 0) {
+          wind = new p5.Vector(windForce, 0);
+          chimesArray[i].windX = wind.x;
 
- timeoutWind =true;
+          if (timeoutWind === false) {
+            chimesArray[i].applyForce(newWindForce);
 
-}
+          }
+
+
+          if (i === 0 && timeoutWind === false) {
+            topPlate.applyForce(newWindForce);
+            windisActive = true;
+          }
+
+        } //diff
+
+      } //end of for loop
+
+      if (windisActive === true && timeoutWind === false) {
+
+        setTimeout(function () {
+          startDrag = true;
+        }, 2000);
+
+
+        setTimeout(function () {
+          timeoutWind = false;
+          console.log("time out wind");
+        }, 5000);
+
+        timeoutWind = true;
+
+      }
     } //end of if Toggle
 
-bang();
+    bang();
     window.requestAnimationFrame(animate)
   }
 
@@ -463,12 +452,12 @@ bang();
           function callBackLoop() {
             analyser.getByteFrequencyData(frequencyData);
             //takes the average of the collection
-              //  let average =0;
+            //  let average =0;
             let sum = 0;
             for (let i = 0; i < frequencyData.length; i++) {
               sum += frequencyData[i];
             }
-            userForce = (sum / frequencyData.length)/100;
+            userForce = (sum / frequencyData.length) / 100;
             // console.log(userForce)
 
 
@@ -482,65 +471,65 @@ bang();
       });
   }
 
-  function slider(){
-for (let i=0;i< chimesArray.length; i++){
-  chimesArray[i].currentAngleVel= angleVelLevel;
-}
-  }
-
-  function bang(){
-
-//self sound activation at movement ??
-for (let i = 0; i < chimesArray.length; i++) {
-  if (chimesArray[i].angleVel > Math.abs(0.003)){
-  chimesArray[i].isChiming();
-}
-}
-
+  function slider() {
     for (let i = 0; i < chimesArray.length; i++) {
-    // chimesArray[i].impact= false;
-if (chimesArray[i].isColliding === true){
-  if (chimesArray[i].impactSound.paused){
-    // console.log(`DONE`);
-    chimesArray[i].isColliding = false;
+      chimesArray[i].currentAngleVel = angleVelLevel;
+    }
   }
-}
+
+  function bang() {
+
+    //self sound activation at movement ??
+    for (let i = 0; i < chimesArray.length; i++) {
+      if (chimesArray[i].angleVel > Math.abs(0.003)) {
+        chimesArray[i].isChiming();
+      }
     }
 
-    
+    for (let i = 0; i < chimesArray.length; i++) {
+      // chimesArray[i].impact= false;
+      if (chimesArray[i].isColliding === true) {
+        if (chimesArray[i].impactSound.paused) {
+          // console.log(`DONE`);
+          chimesArray[i].isColliding = false;
+        }
+      }
+    }
+
+
     // sound , for one to chime by itself ; isMoving = false/true same as isColliding
 
 
 
     for (let i = 0; i < chimesArray.length; i++) {
-          for (let j =0;j < chimesArray.length;j++) {
-      let chimeX = chimesArray[i].pos.x;
-      // how to get an other X position of chime?
-      if (chimesArray[i] !== chimesArray[j]){
-        let otherChimeX = (chimesArray[j].pos.x);
-       let difference = Math.sqrt( Math.pow((chimesArray[j].pos.x-chimesArray[i].pos.x), 2) + Math.pow((chimesArray[j].pos.y-chimesArray[i].pos.y), 2) );
+      for (let j = 0; j < chimesArray.length; j++) {
+        let chimeX = chimesArray[i].pos.x;
+        // how to get an other X position of chime?
+        if (chimesArray[i] !== chimesArray[j]) {
+          let otherChimeX = (chimesArray[j].pos.x);
+          let difference = Math.sqrt(Math.pow((chimesArray[j].pos.x - chimesArray[i].pos.x), 2) + Math.pow((chimesArray[j].pos.y - chimesArray[i].pos.y), 2));
 
 
-        if (difference < 100) {
-          chimesArray[i].impact= true;
-          chimesArray[j].impact= true;
-          
-          if (chimesArray[j].isColliding === false){
-            chimesArray[j].inCollision();
-            chimesArray[j].isColliding = true;
+          if (difference < 100) {
+            chimesArray[i].impact = true;
+            chimesArray[j].impact = true;
+
+            if (chimesArray[j].isColliding === false) {
+              chimesArray[j].inCollision();
+              chimesArray[j].isColliding = true;
+            }
+
+            if (chimesArray[i].isColliding === false) {
+              chimesArray[i].inCollision();
+              chimesArray[i].isColliding = true;
+            }
+
+
+
           }
-
-          if (chimesArray[i].isColliding === false){
-            chimesArray[i].inCollision();
-            chimesArray[i].isColliding = true;
-          }
-
-
-
         }
       }
+    }
   }
-}
-}
 
 } //end window on load
