@@ -40,7 +40,7 @@ class Chimes{
                 this.chimeText = chimeText;
                 this.currentLook = currentLook;
                 this.element.classList.add(this.currentLook);
-                this.element.textContent=this.chimeText;
+                this.element.textContent = this.chimeText;
 
                 //vector force
                 this.vel = new p5.Vector(0,0);
@@ -157,6 +157,14 @@ class Chimes{
 
         inCollision(){
             this.impactSound.play();
+        }
+
+        setChimeLook(form) {
+
+            this.chimeText = form;
+            console.log(form,this.element.innerText);
+            this.element.textContent= form;
+
         }
 
         } //end of class

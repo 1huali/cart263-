@@ -65,14 +65,15 @@ angleVelSlider.steps=1;
   print();
 
   //implementation of form variations (chime elements)
-  let formButton= document.getElementById('formButton');
-  let chimeTextFormArray=[];
+  let changeLookButton= document.getElementById('lookButton');
+  let chimeFormArray=[];
   let chimeFormIndex= 0;
-  let currentChimeForm = `chime`
-  chimeTextFormArray.push(`✿`);
-  chimeTextFormArray.push(`❀`);
-  chimeTextFormArray.push(`♡`);
-  chimeTextFormArray.push(`✧`);
+  //change to chimeText wtv
+  let currentChimeForm = `ch!me`
+  chimeFormArray.push(`✿`);
+  chimeFormArray.push(`❀`);
+  chimeFormArray.push(`♡`);
+  chimeFormArray.push(`✧`);
 
 
 
@@ -161,7 +162,7 @@ let currentSoundModeIndex= 0;
 
 
 let windchimeBox = document.getElementById(`windchimeBox`).getBoundingClientRect();
-console.log(windchimeBox);
+// console.log(windchimeBox);
 if (event.clientY < (windchimeBox.height-windchimeBox.y)){
   
 
@@ -253,7 +254,7 @@ print();
 
   });
 
-changeChimesLookButton.addEventListener("click", function (event) {
+  changeChimesFormButton.addEventListener("click", function (event) {
 
 
   for (let i=0; i < chimesArray.length; i++){
@@ -268,6 +269,7 @@ if (currentLookIndex === chimeLookArray.length){
     for (let i=0; i < chimesArray.length; i++){
   chimesArray[i].element.classList.add(chimeLookArray[currentLookIndex]);
 
+  //for text element
   if (currentLookIndex===3){
     chimesArray[i].element.textContent="";
   } else {
@@ -297,17 +299,18 @@ changeSoundButton.addEventListener("click", function (event) {
 
 });
 
-changeChimesFormButton.addEventListener("click", function (event) {
+changeLookButton.addEventListener("click", function (event) {
 
     chimeFormIndex++;
+if (chimeFormIndex === chimeFormArray.length){
+      chimeFormIndex = 0;
+    }
 
-//   for (let i=0; i < chimeTextFormArray.length; i++){
+console.log(chimeFormIndex);
+for (let j=0; j < chimesArray.length; j++){
+chimesArray[j].chimeText = chimeFormArray[chimeFormIndex];
+  };
 
-//   };
-    
-if (currentChimeForm === chimeTextFormArray.length){
-  currentChimeForm = 0;
-}
 
 //   // if (currentLookIndex===3){
 //   //   chimesArray[i].element.textContent="";
