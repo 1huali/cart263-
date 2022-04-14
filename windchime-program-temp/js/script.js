@@ -61,8 +61,21 @@ angleVelSlider.steps=1;
   chimeLookArray.push("chimeLook3");
   chimeLookArray.push("chimeLook4");
 
-  let changeChimesLookButton = document.getElementById(`lookButton`);
+  let changeChimesFormButton = document.getElementById(`formButton`);
   print();
+
+  //implementation of form variations (chime elements)
+  let formButton= document.getElementById('formButton');
+  let chimeTextFormArray=[];
+  let chimeFormIndex= 0;
+  let currentChimeForm = `chime`
+  chimeTextFormArray.push(`✿`);
+  chimeTextFormArray.push(`❀`);
+  chimeTextFormArray.push(`♡`);
+  chimeTextFormArray.push(`✧`);
+
+
+
 
 
   let stringchime0 = document.getElementById(`string0`);
@@ -89,11 +102,11 @@ let topY=window.innerHeight/5;
 //
 
 
-  let chime0 = new Chimes(stringchime0, document.getElementById(`chime0`), window.innerWidth / 2, topY+stringUnit*2,document.getElementById(`dustSound`), document.getElementById(`dustSound2`),currentLook,"CHIME",0, stringUnit*2);
-  let chime1 = new Chimes(stringchime1, document.getElementById(`chime1`), window.innerWidth / 2 - windowRatio5th, topY+stringUnit*4,document.getElementById(`dustSound`), document.getElementById(`dustSound`), currentLook,"CHIME",1000, stringUnit*4);
-  let chime2 = new Chimes(stringchime2, document.getElementById(`chime2`), window.innerWidth / 2 + windowRatio12th, topY+stringUnit*2.5,document.getElementById(`dustSound`), document.getElementById(`dustSound2`), currentLook,"CHIME",500, stringUnit*2.5);
-  let chime3 = new Chimes(stringchime3, document.getElementById(`chime3`), window.innerWidth / 2 - windowRatio12th, topY+stringUnit*2.5,document.getElementById(`dustSound`), document.getElementById(`dustSound`), currentLook,"CHIME",500, stringUnit*2.5);
-  let chime4 = new Chimes(stringchime4, document.getElementById(`chime4`), window.innerWidth / 2 + windowRatio5th, topY+stringUnit*4,document.getElementById(`dustSound`), document.getElementById(`dustSound2`), currentLook,"CHIME",1000, stringUnit*4);
+  let chime0 = new Chimes(stringchime0, document.getElementById(`chime0`), window.innerWidth / 2, topY+stringUnit*2,document.getElementById(`dustSound`), document.getElementById(`dustSound2`),currentLook,currentChimeForm,0, stringUnit*2);
+  let chime1 = new Chimes(stringchime1, document.getElementById(`chime1`), window.innerWidth / 2 - windowRatio5th, topY+stringUnit*4,document.getElementById(`dustSound`), document.getElementById(`dustSound`), currentLook,currentChimeForm,1000, stringUnit*4);
+  let chime2 = new Chimes(stringchime2, document.getElementById(`chime2`), window.innerWidth / 2 + windowRatio12th, topY+stringUnit*2.5,document.getElementById(`dustSound`), document.getElementById(`dustSound2`), currentLook,currentChimeForm,500, stringUnit*2.5);
+  let chime3 = new Chimes(stringchime3, document.getElementById(`chime3`), window.innerWidth / 2 - windowRatio12th, topY+stringUnit*2.5,document.getElementById(`dustSound`), document.getElementById(`dustSound`), currentLook,currentChimeForm,500, stringUnit*2.5);
+  let chime4 = new Chimes(stringchime4, document.getElementById(`chime4`), window.innerWidth / 2 + windowRatio5th, topY+stringUnit*4,document.getElementById(`dustSound`), document.getElementById(`dustSound2`), currentLook,currentChimeForm,1000, stringUnit*4);
 
   chimesArray.push(chime0);
   chimesArray.push(chime1);
@@ -102,7 +115,7 @@ let topY=window.innerHeight/5;
   chimesArray.push(chime4);
   console.log(chimesArray);
 
-  let topPlate = new suspendorBase(stringBase, document.getElementById(`plate`), window.innerWidth / 2 -windowRatio12th, topY);
+  let topPlate = new suspendorBase(stringBase, document.getElementById(`plate`), 0, topY);
 
   let startDrag = false;
   let mx = 0;
@@ -131,8 +144,6 @@ impactSoundArray.push(dustSound2);
 selfSoundArray.push(bambooSound);
 impactSoundArray.push(bambooSound2);
 let currentSoundModeIndex= 0;
-
-
 
 
   window.requestAnimationFrame(animate)
@@ -286,7 +297,28 @@ changeSoundButton.addEventListener("click", function (event) {
 
 });
 
+changeChimesFormButton.addEventListener("click", function (event) {
 
+    chimeFormIndex++;
+
+//   for (let i=0; i < chimeTextFormArray.length; i++){
+
+//   };
+    
+if (currentChimeForm === chimeTextFormArray.length){
+  currentChimeForm = 0;
+}
+
+//   // if (currentLookIndex===3){
+//   //   chimesArray[i].element.textContent="";
+//   // } else {
+//   //   chimesArray[i].element.textContent=chimesArray[i].chimeText;
+//   // }
+
+//     }
+
+
+});
 
 
   function animate() {

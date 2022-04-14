@@ -41,6 +41,7 @@
     border-style: dotted;
       stroke: black; 
     height: 80vh;
+    position: relative;
     }
 
     #dataBox{
@@ -71,9 +72,11 @@ h2{
 
 #plate{
   /* text-align: center; */
+  /* background-color: aqua; */
   position:absolute;
-  width: 400px;
+  width: 100vw;
   color: crimson;
+  text-align: center;
 }
 
 .slideContainer{
@@ -91,7 +94,7 @@ h2{
 }
 
 .chimeLook1{
-  background:rgb(166, 225, 240);
+  background:rgba(255, 255, 255, 0);
 
 }
 
@@ -128,9 +131,9 @@ height: 40px;
 
     <h2>A windchime case study : The prototype</h2>
     <section id="windchimeBox">
-     
-    <p id="plate">----------------------------------------------</p>
-      <p id="stringBase" style="margin-left:80px;" class="strings">string</p>
+     <b>
+    <p id="plate">-------------------------------------------------------------------------------------------------------------------</p>
+      <p id="stringBase"  style="text-align: center; position: relative;" class="strings">?</p></b>
 
     <br>
     <!-- <p id="stringBase" class="strings">string</p> -->
@@ -175,7 +178,8 @@ height: 40px;
         <br>
         <button class="dataContentBox" title="impact sound" id="soundButton">Sound</button>
         <p class="dataContentBox">Sound : <span id="currentSound"></span></p>
-
+        <br>
+        <button class="dataContentBox" title="chime form character" id="formButton">Form</button>
     </section>
   </main>
 
