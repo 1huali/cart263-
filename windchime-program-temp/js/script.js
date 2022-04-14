@@ -80,11 +80,16 @@ angleVelSlider.steps=1;
   stringChimeArray.push(stringchime3);
   console.log(stringChimeArray);
 
-  let chime0 = new Chimes(stringchime0, document.getElementById(`chime0`), window.outerWidth / 2, 200,document.getElementById(`dustSound`), document.getElementById(`dustSound2`),currentLook,"CHIME",0);
-  let chime1 = new Chimes(stringchime1, document.getElementById(`chime1`), window.outerWidth / 2 - 150, 300,document.getElementById(`dustSound`), document.getElementById(`dustSound`), currentLook,"CHIME",1000);
-  let chime2 = new Chimes(stringchime2, document.getElementById(`chime2`), window.outerWidth / 2 + 100, 250,document.getElementById(`dustSound`), document.getElementById(`dustSound2`), currentLook,"CHIME",500);
-  let chime3 = new Chimes(stringchime3, document.getElementById(`chime3`), window.outerWidth / 2 - 100, 250,document.getElementById(`dustSound`), document.getElementById(`dustSound`), currentLook,"CHIME",500);
-  let chime4 = new Chimes(stringchime4, document.getElementById(`chime4`), window.outerWidth / 2 + 150, 300,document.getElementById(`dustSound`), document.getElementById(`dustSound2`), currentLook,"CHIME",1000);
+//window resizing
+let windowRatio5th= window.innerWidth/5;
+let windowRatio12th = window.innerWidth/12;
+
+
+  let chime0 = new Chimes(stringchime0, document.getElementById(`chime0`), window.innerWidth / 2, 200,document.getElementById(`dustSound`), document.getElementById(`dustSound2`),currentLook,"CHIME",0);
+  let chime1 = new Chimes(stringchime1, document.getElementById(`chime1`), window.innerWidth / 2 - windowRatio5th, 300,document.getElementById(`dustSound`), document.getElementById(`dustSound`), currentLook,"CHIME",1000);
+  let chime2 = new Chimes(stringchime2, document.getElementById(`chime2`), window.innerWidth / 2 + windowRatio12th, 250,document.getElementById(`dustSound`), document.getElementById(`dustSound2`), currentLook,"CHIME",500);
+  let chime3 = new Chimes(stringchime3, document.getElementById(`chime3`), window.innerWidth / 2 - windowRatio12th, 250,document.getElementById(`dustSound`), document.getElementById(`dustSound`), currentLook,"CHIME",500);
+  let chime4 = new Chimes(stringchime4, document.getElementById(`chime4`), window.innerWidth / 2 + windowRatio5th, 300,document.getElementById(`dustSound`), document.getElementById(`dustSound2`), currentLook,"CHIME",1000);
 
   chimesArray.push(chime0);
   chimesArray.push(chime1);
@@ -93,7 +98,7 @@ angleVelSlider.steps=1;
   chimesArray.push(chime4);
   console.log(chimesArray);
 
-  let topPlate = new suspendorBase(stringBase, document.getElementById(`plate`), window.outerWidth / 2 -100, 100);
+  let topPlate = new suspendorBase(stringBase, document.getElementById(`plate`), window.innerWidth / 2 -windowRatio12th, 100);
 
   let startDrag = false;
   let mx = 0;

@@ -28,16 +28,19 @@
 <style>
     .mass{
         background-color: rgb(166, 225, 240);
+        font-size: 2em;
         position:absolute;
-        height: 40px;
-        width: 40px;
+        height: 10vw;
+        width: 10vw;
     }
-
+#mainBox{
+  height: 100vh;
+}
     #windchimeBox{
       border: 4px; 
     border-style: dotted;
       stroke: black; 
-    height: 600px;
+    height: 80vh;
     }
 
     #dataBox{
@@ -121,8 +124,9 @@ height: 40px;
   </head>
 
   <body>
-    <h2>A windchime case study : The prototype</h2>
+    <main id="mainBox">
 
+    <h2>A windchime case study : The prototype</h2>
     <section id="windchimeBox">
      
     <p id="plate">----------------------------------------------</p>
@@ -172,8 +176,8 @@ height: 40px;
         <button class="dataContentBox" title="impact sound" id="soundButton">Sound</button>
         <p class="dataContentBox">Sound : <span id="currentSound"></span></p>
 
-       
     </section>
+  </main>
 
 
     <!-- My script(s) -->
