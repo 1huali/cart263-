@@ -44,7 +44,6 @@ window.onload = function () {
 
   //buttons
   let toggle = true;
-  console.log("Toggle true")
   let currentForceModeTextZone = document.getElementById(`currentForceMode`);
   let forceMode = `mouse input`;
 
@@ -61,7 +60,7 @@ window.onload = function () {
   chimeLookArray.push("chimeLook3");
   chimeLookArray.push("chimeLook4");
 
-  let changeChimesFormButton = document.getElementById(`formButton`);
+  // let changeChimesFormButton = document.getElementById(`formButton`);
   print();
 
   //implementation of form variations (chime elements)
@@ -94,7 +93,8 @@ window.onload = function () {
   stringChimeArray.push(stringchime3);
   console.log(stringChimeArray);
 
-  //window resizing
+
+  //window resizing - responsive design
   let windowRatio5th = window.innerWidth / 5;
   let windowRatio12th = window.innerWidth / 12;
 
@@ -145,6 +145,11 @@ window.onload = function () {
   selfSoundArray.push(bambooSound);
   impactSoundArray.push(bambooSound2);
   let currentSoundModeIndex = 0;
+//
+
+//mute sound feature
+let muteButton = document.getElementById(`muteButton`);
+let mute= false;
 
 
   window.requestAnimationFrame(animate)
@@ -255,32 +260,32 @@ window.onload = function () {
 
   });
 
-  changeChimesFormButton.addEventListener("click", function (event) {
+  // changeChimesFormButton.addEventListener("click", function (event) {
 
 
-    for (let i = 0; i < chimesArray.length; i++) {
-      chimesArray[i].element.classList.remove(chimeLookArray[currentLookIndex]);
-    };
-    currentLookIndex++;
+  //   for (let i = 0; i < chimesArray.length; i++) {
+  //     chimesArray[i].element.classList.remove(chimeLookArray[currentLookIndex]);
+  //   };
+  //   currentLookIndex++;
 
-    if (currentLookIndex === chimeLookArray.length) {
-      currentLookIndex = 0;
-    }
+  //   if (currentLookIndex === chimeLookArray.length) {
+  //     currentLookIndex = 0;
+  //   }
 
-    for (let i = 0; i < chimesArray.length; i++) {
-      chimesArray[i].element.classList.add(chimeLookArray[currentLookIndex]);
+  //   for (let i = 0; i < chimesArray.length; i++) {
+  //     chimesArray[i].element.classList.add(chimeLookArray[currentLookIndex]);
 
-      //for text element
-      if (currentLookIndex === 3) {
-        chimesArray[i].element.innerHTML = "";
-      } else {
-        chimesArray[i].element.innerHTML = chimesArray[i].chimeText;
-      }
+  //     //for text element
+  //     if (currentLookIndex === 3) {
+  //       chimesArray[i].element.innerHTML = "";
+  //     } else {
+  //       chimesArray[i].element.innerHTML = chimesArray[i].chimeText;
+  //     }
 
-    }
+  //   }
 
 
-  });
+  // });
 
   changeSoundButton.addEventListener("click", function (event) {
 
@@ -312,6 +317,27 @@ window.onload = function () {
     };
   });
 
+muteButton.addEventListener("click", function (event){
+  mute = !mute;
+console.log(mute)
+  if (mute === true) {
+    // document.getElementById(`dustSound`).volume=0;
+for (let i=0;i < chimesArray.length; i++){
+chimesArray[i].selfSound.stop();
+chimesArray[i].impactSound.stop();
+} 
+//delet
+  // if (mute === false) {
+    // document.getElementById(`dustSound`).volume=1;
+
+//   chimesArray[i].inCollision.play();
+// chimesArray[i].isChiming.play();
+}
+//
+  // }
+
+
+}); //end mute button
 
   function animate() {
     //applications of the properties adapted to diff events and contexts

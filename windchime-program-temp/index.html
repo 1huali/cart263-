@@ -37,9 +37,9 @@
   height: 100vh;
 }
     #windchimeBox{
-      border: 4px; 
-    border-style: dotted;
-      stroke: black; 
+      /* border: 4px;  */
+    /* border-style: dotted; */
+      /* stroke: black;  */
     height: 80vh;
     position: relative;
     }
@@ -130,6 +130,8 @@ height: 40px;
     <main id="mainBox">
 
     <h2>A windchime case study : The prototype</h2>
+
+
     <section id="windchimeBox">
      <b>
     <p id="plate">-------------------------------------------------------------------------------------------------------------------</p>
@@ -161,27 +163,29 @@ height: 40px;
     <p id="chime4" class="mass">chime4</p>
     <br>
     </section>
-
     <section id="dataBox">
        
-        <button class="dataContentBox" title="user wind input" id="triggerButton">User force</button>
-        <p class="dataContentBox">Level : <span id="forceLevelBox"></span></p>
-        
-        <p class="dataContentBox">Force mode : <span id="currentForceMode"></span></p>
-        <p class="dataContentBox"> Instruction: <span id="forceInstruction"></span></p>
-        
-        <p class="dataContentBox"> Sensitivity/Drag Force : 
-          <input type="range" min="1" max="100" value="50" class="slider" id="angleVelSlider">
-        <p class="dataContentBox">level: <span id="sensitivityLevel"></span></p>
-        
-        <button class="dataContentBox" title="chimes visual" id="lookButton">Look</button>
-        <br>
-        <button class="dataContentBox" title="impact sound" id="soundButton">Sound</button>
-        <p class="dataContentBox">Sound : <span id="currentSound"></span></p>
-        <br>
-        <button class="dataContentBox" title="mute sound" id="muteButton">Mute</button>
-        <!-- <button class="dataContentBox" title="chime form character" id="formButton">Form</button> -->
-    </section>
+      <button class="dataContentBox" title="user wind input" id="triggerButton">User force</button>
+      <p class="dataContentBox">Level : <span id="forceLevelBox"></span></p>
+      
+      <p class="dataContentBox">Force mode : <span id="currentForceMode"></span></p>
+      <p class="dataContentBox"> Instruction: <span id="forceInstruction"></span></p>
+      
+      <p class="dataContentBox"> Sensitivity/Drag Force : 
+        <input type="range" min="1" max="100" value="50" class="slider" id="angleVelSlider">
+      <p class="dataContentBox">level: <span id="sensitivityLevel"></span></p>
+      
+      <button class="dataContentBox" title="chimes visual" id="lookButton">Look</button>
+      <br>
+      <button class="dataContentBox" title="impact sound" id="soundButton">Sound</button>
+      <p class="dataContentBox">Sound : <span id="currentSound"></span></p>
+      <br>
+      <button class="dataContentBox" title="mute sound" id="muteButton">Mute</button>
+      <!-- <button class="dataContentBox" title="chime form character" id="formButton">Form</button> -->
+      <button class="dataContentBox" title="wind chime pattern" id="patternButton">Change pattern</button>
+      <button class="dataContentBox" title="border decoration" id="borderButton">Change border</button>
+
+  </section>
   </main>
 
 
