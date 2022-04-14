@@ -293,8 +293,6 @@ changeSoundButton.addEventListener("click", function (event) {
     chimesArray[i].selfSound = selfSoundArray[currentSoundModeIndex];
     chimesArray[i].impactSound = impactSoundArray[currentSoundModeIndex];
   }
-  console.log(currentImpactSoundMode);
-
   
 
 });
@@ -302,13 +300,15 @@ changeSoundButton.addEventListener("click", function (event) {
 changeLookButton.addEventListener("click", function (event) {
 
     chimeFormIndex++;
+//loops
 if (chimeFormIndex === chimeFormArray.length){
       chimeFormIndex = 0;
     }
 
+//setting the appropriate property of the array
 console.log(chimeFormIndex);
 for (let j=0; j < chimesArray.length; j++){
-chimesArray[j].chimeText = chimeFormArray[chimeFormIndex];
+chimesArray[j].setChimeLook(chimeFormArray[chimeFormIndex]);
   };
 
 
