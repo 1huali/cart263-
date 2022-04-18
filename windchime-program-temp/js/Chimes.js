@@ -159,6 +159,8 @@ class Chimes{
             this.impactSound.play();
         }
 
+
+        //this allows color on the chimes
         setChimeLook(form) {
 
             this.chimeText = form;
