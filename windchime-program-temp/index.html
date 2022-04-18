@@ -27,7 +27,7 @@
 
 <style>
     .mass{
-        background-color: rgb(166, 225, 240);
+        color: rgb(0, 0, 0);
         font-size: 2em;
         position:absolute;
         height: 10vw;
@@ -45,10 +45,10 @@
     }
 
     #dataBox{
-      border: 4px;
-      border-style: dotted;
-      stroke: black; 
-      position: absolute;
+      /* border: 4px; */
+      /* border-style: dotted; */
+      /* stroke: black;  */
+      position: fixed;
       display: flex;
       /* boxes wrap to the next line. space taken by content set in width% */
       flex-wrap: wrap;
@@ -57,7 +57,7 @@
 .dataContentBox{
   /* orders in line */
 display: inline-block;
-background-color: fuchsia;
+/* background-color: fuchsia; */
 width: 15%;
 margin: 2px;
 }
@@ -94,27 +94,33 @@ h2{
 }
 
 .chimeLook1{
-  background:rgba(255, 255, 255, 0);
+  color:rgb(0, 0, 0);
 
 }
 
 .chimeLook2{
-  background:rgb(240, 166, 218);
+  color:rgb(240, 166, 218);
 
 }
 
 .chimeLook3{
-  background:rgb(249, 67, 67);
+  color:rgb(249, 67, 67);
 
 }
 
 .chimeLook4{
-background-image: url("assets/images/fleur.png");
+/* background-image: url("assets/images/fleur.png");
 background-size: 100%;
 width: 40px;
-height: 40px;
+height: 40px; */
 }
 
+#title{
+  position: fixed;
+  font-size:x-large;
+  text-align:center;
+  /* ?? why is it not centered, and size doesnt change should I put it back to h2?  */
+}
 </style>
     <!-- CSS stylesheet(s) -->
     <link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
@@ -129,7 +135,32 @@ height: 40px;
   <body>
     <main id="mainBox">
 
-    <h2>A windchime case study : The prototype</h2>
+    <p id="title">Study of a <b>wind chime</b> system as a pretext to study physics algorithms in html</p>
+
+    <section id="dataBox">
+       
+      <button class="dataContentBox" title="user wind input" id="triggerButton">User force</button>
+      <p class="dataContentBox">Level : <span id="forceLevelBox"></span></p>
+      
+      <p class="dataContentBox">Force mode : <span id="currentForceMode"></span></p>
+      <p class="dataContentBox"> Instruction: <span id="forceInstruction"></span></p>
+      
+      <p class="dataContentBox"> Sensitivity/Drag Force : 
+        <input type="range" min="1" max="100" value="50" class="slider" id="angleVelSlider">
+      <p class="dataContentBox">level: <span id="sensitivityLevel"></span></p>
+      
+      <button class="dataContentBox" title="chimes visual" id="lookButton">Look</button>
+      <br>
+      <button class="dataContentBox" title="impact sound" id="soundButton">Sound</button>
+      <p class="dataContentBox">Sound : <span id="currentSound"></span></p>
+      <br>
+      <button class="dataContentBox" title="mute sound" id="muteButton">Mute</button>
+      <!-- <button class="dataContentBox" title="chime form character" id="formButton">Form</button> -->
+      <button class="dataContentBox" title="wind chime pattern" id="patternButton">Change pattern</button>
+      <button class="dataContentBox" title="border decoration" id="plateButton">Change border</button>
+
+  </section>
+  <!-- ??Q why does it freezes, doesnt respond when the data box is as the top? and why the title is overlayed  -->
 
     <section id="windchimeBox">
      <b>
@@ -163,29 +194,6 @@ height: 40px;
     <br>
     </section>
 
-    <section id="dataBox">
-       
-      <button class="dataContentBox" title="user wind input" id="triggerButton">User force</button>
-      <p class="dataContentBox">Level : <span id="forceLevelBox"></span></p>
-      
-      <p class="dataContentBox">Force mode : <span id="currentForceMode"></span></p>
-      <p class="dataContentBox"> Instruction: <span id="forceInstruction"></span></p>
-      
-      <p class="dataContentBox"> Sensitivity/Drag Force : 
-        <input type="range" min="1" max="100" value="50" class="slider" id="angleVelSlider">
-      <p class="dataContentBox">level: <span id="sensitivityLevel"></span></p>
-      
-      <button class="dataContentBox" title="chimes visual" id="lookButton">Look</button>
-      <br>
-      <button class="dataContentBox" title="impact sound" id="soundButton">Sound</button>
-      <p class="dataContentBox">Sound : <span id="currentSound"></span></p>
-      <br>
-      <button class="dataContentBox" title="mute sound" id="muteButton">Mute</button>
-      <!-- <button class="dataContentBox" title="chime form character" id="formButton">Form</button> -->
-      <button class="dataContentBox" title="wind chime pattern" id="patternButton">Change pattern</button>
-      <button class="dataContentBox" title="border decoration" id="plateButton">Change border</button>
-
-  </section>
 
   </main>
 

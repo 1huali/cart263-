@@ -167,6 +167,7 @@ let mute= false;
   window.requestAnimationFrame(animate)
   //new properties adapted to diff events and contexts.
 
+
   window.addEventListener("mousemove", function (event) {
 
 
@@ -240,11 +241,14 @@ let mute= false;
           }, 2000);
         }
 
+
       } //end if toggle
 
 
     }
   });
+
+
 
   angleVelSlider.addEventListener("change", function (event) {
     angleVelLevel = this.value;
