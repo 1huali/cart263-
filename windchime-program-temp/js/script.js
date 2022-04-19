@@ -472,7 +472,6 @@ print();
 
     currentForceModeTextZone.innerHTML = forceMode;
     angleVelLevelText.innerHTML = angleVelLevel;
-    //??Q why it doesnt print (there's an error message about soundModeText)
     soundModeText.innerHTML = currentSelfSoundMode;
     console.log(currentSelfSoundMode)
     forceInstructionText.innerHTML = currentForceInstructionText;
