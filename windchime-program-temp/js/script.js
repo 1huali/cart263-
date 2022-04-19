@@ -80,8 +80,8 @@ let changePlateLookButton = document.getElementById(`plateButton`);
 let currentPlateLook = `-------------------------------------------top-plate--------------------------------------------------`;
 let plateLookArray=[];
 let plateLookIndex= 0;
-plateLookArray.push(`━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━༺✧༻━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`);
-plateLookArray.push(`━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━⭑*•̩̩͙♩⊱••••✿••••̩̩͙⊰•♪*⭑━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`)
+plateLookArray.push(`━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━༺✧༻━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`);
+plateLookArray.push(`━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━⭑*•̩̩͙♩⊱••••✿••••̩̩͙⊰•♪*⭑━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`)
 
 
 
@@ -337,24 +337,15 @@ console.log(`we get there`);
 
 muteButton.addEventListener("click", function (event){
   mute = !mute;
-console.log(mute)
+ 
   if (mute === true) {
     // document.getElementById(`dustSound`).volume=0;
 
 for (let i=0;i < chimesArray.length; i++){
-chimesArray[i].selfSound.stop();
-chimesArray[i].impactSound.stop();
+chimesArray[i].selfSound.pause();
+chimesArray[i].impactSound.pause();
 } 
-//delet
-  // if (mute === false) {
-    // document.getElementById(`dustSound`).volume=1;
-
-//   chimesArray[i].selfSound.play();
-// chimesArray[i].impactSound.play();
-}
-// Q: ELSE IMPACSOUND.PLAY()?
-  // }
-
+  }
 }); //end mute button
 
 
@@ -572,7 +563,9 @@ topPlate.element.innerHTML= topPlate.currentLook;
 
 
 //activation of selfSound by movement (calculated w velocity)
-    for (let i = 0; i < chimesArray.length; i++) {
+if (mute === false){
+
+for (let i = 0; i < chimesArray.length; i++) {
       if (chimesArray[i].angleVel > Math.abs(0.003)) {
         chimesArray[i].isChiming();
       }
@@ -619,5 +612,6 @@ topPlate.element.innerHTML= topPlate.currentLook;
       }
     }
   }
+} 
 
 } //end window on load

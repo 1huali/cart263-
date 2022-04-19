@@ -152,6 +152,8 @@ class Chimes{
                 //console.log(self);
                 //console.log(self.delayInterval);
             }, self.delayInterval);
+
+    
             // this.selfSound.play();
         }
 
