@@ -122,8 +122,8 @@ plateLookArray.push(`━━━━━━━━━━━━━━━━━━━�
   chimesArray.push(chime2);
   chimesArray.push(chime3);
   chimesArray.push(chime4);
-  console.log(chimesArray);
 
+  console.log(currentPlateLook)
   let topPlate = new suspendorBase(stringBase, document.getElementById(`plate`), 0, topY,currentPlateLook);
 
   let startDrag = false;

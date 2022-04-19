@@ -1,6 +1,6 @@
 class suspendorBase{
 
-    constructor(stringChime,el,x,y,impactSound, currentLook){
+    constructor(stringChime,el,x,y, currentLook){
         this.pos = new p5.Vector(x,y);
         this.vel = new p5.Vector(0,0);
         this.acc = new p5.Vector(0,0);
@@ -13,8 +13,9 @@ class suspendorBase{
         this.stringChime = stringChime;
         this.mass = 1;
         this.r = 0;
-        this.impactSound= impactSound;
+        // this.impactSound= impactSound;
         this.currentLook = currentLook;
+        this.element.innerHTML = this.currentLook;
 
         this.windowOffset= window.innerWidth/10;
     }
