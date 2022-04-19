@@ -182,8 +182,9 @@ let mute= false;
     let windchimeBox = document.getElementById(`windchimeBox`)
       .getBoundingClientRect();
     // console.log(windchimeBox);
-    if (event.clientY < (windchimeBox.height - windchimeBox.y)) {
-
+    let dataBox = document.getElementById(`dataBox`).getBoundingClientRect();
+  let yPos = dataBox.height+dataBox.y;
+if (event.clientY > yPos){
 
       //switch for user input
       if (toggle === true) {
@@ -305,7 +306,7 @@ let mute= false;
   // });
 
   changeSoundButton.addEventListener("click", function (event) {
-
+console.log(`we get there`);
     currentSoundModeIndex++;
 
     if (currentSoundModeIndex === selfSoundArray.length) {

@@ -45,10 +45,8 @@
     }
 
     #dataBox{
-      /* border: 4px; */
-      /* border-style: dotted; */
-      /* stroke: black;  */
-      position: fixed;
+      /* position: fixed; */
+      width: 100vw;
       display: flex;
       /* boxes wrap to the next line. space taken by content set in width% */
       flex-wrap: wrap;
@@ -116,7 +114,7 @@ height: 40px; */
 }
 
 #title{
-  position: fixed;
+  width: 100vw;
   font-size:x-large;
   text-align:center;
   /* ?? why is it not centered, and size doesnt change should I put it back to h2?  */
@@ -133,34 +131,34 @@ height: 40px; */
   </head>
 
   <body>
-    <main id="mainBox">
 
     <p id="title">Study of a <b>wind chime</b> system as a pretext to study physics algorithms in html</p>
 
-    <section id="dataBox">
-       
-      <button class="dataContentBox" title="user wind input" id="triggerButton">User force</button>
-      <p class="dataContentBox">Level : <span id="forceLevelBox"></span></p>
-      
-      <p class="dataContentBox">Force mode : <span id="currentForceMode"></span></p>
-      <p class="dataContentBox"> Instruction: <span id="forceInstruction"></span></p>
-      
-      <p class="dataContentBox"> Sensitivity/Drag Force : 
-        <input type="range" min="1" max="100" value="50" class="slider" id="angleVelSlider">
-      <p class="dataContentBox">level: <span id="sensitivityLevel"></span></p>
-      
-      <button class="dataContentBox" title="chimes visual" id="lookButton">Look</button>
-      <br>
-      <button class="dataContentBox" title="impact sound" id="soundButton">Sound</button>
-      <p class="dataContentBox">Sound : <span id="currentSound"></span></p>
-      <br>
-      <button class="dataContentBox" title="mute sound" id="muteButton">Mute</button>
-      <!-- <button class="dataContentBox" title="chime form character" id="formButton">Form</button> -->
-      <button class="dataContentBox" title="wind chime pattern" id="patternButton">Change pattern</button>
-      <button class="dataContentBox" title="border decoration" id="plateButton">Change border</button>
+    <main id="mainBox">
 
-  </section>
-  <!-- ??Q why does it freezes, doesnt respond when the data box is as the top? and why the title is overlayed  -->
+  <section id="dataBox" style="background-color: aqua;">
+       
+    <button class="dataContentBox" title="user wind input" id="triggerButton">User force</button>
+    <p class="dataContentBox">Level : <span id="forceLevelBox"></span></p>
+    
+    <p class="dataContentBox">Force mode : <span id="currentForceMode"></span></p>
+    <p class="dataContentBox"> Instruction: <span id="forceInstruction"></span></p>
+    
+    <p class="dataContentBox"> Sensitivity/Drag Force : 
+      <input type="range" min="1" max="100" value="50" class="slider" id="angleVelSlider">
+    <p class="dataContentBox">level: <span id="sensitivityLevel"></span></p>
+    
+    <button class="dataContentBox" title="chimes visual" id="lookButton">Look</button>
+    <br>
+    <button class="dataContentBox" title="impact sound" id="soundButton">Sound</button>
+    <p class="dataContentBox">Sound : <span id="currentSound"></span></p>
+    <br>
+    <button class="dataContentBox" title="mute sound" id="muteButton">Mute</button>
+    <!-- <button class="dataContentBox" title="chime form character" id="formButton">Form</button> -->
+    <button class="dataContentBox" title="wind chime pattern" id="patternButton">Change pattern</button>
+    <button class="dataContentBox" title="border decoration" id="plateButton">Change border</button>
+
+</section>
 
     <section id="windchimeBox">
      <b>
@@ -193,7 +191,6 @@ height: 40px; */
     <p id="chime4" class="mass">chime4</p>
     <br>
     </section>
-
 
   </main>
 
