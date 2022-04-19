@@ -77,11 +77,11 @@ window.onload = function () {
 
 //   (plate look)
 let changePlateLookButton = document.getElementById(`plateButton`);
-let currentPlateLook = `--------------------------------------------------top-plate---------------------------------------------------------`;
+let currentPlateLook = `-------------------------------------------top-plate--------------------------------------------------`;
 let plateLookArray=[];
 let plateLookIndex= 0;
-plateLookArray.push(`━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━༺✧༻━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`);
-plateLookArray.push(`━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━⭑*•̩̩͙♩⊱••••✿••••̩̩͙⊰•♪*⭑━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`)
+plateLookArray.push(`━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━༺✧༻━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`);
+plateLookArray.push(`━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━⭑*•̩̩͙♩⊱••••✿••••̩̩͙⊰•♪*⭑━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`)
 
 
 
@@ -361,16 +361,17 @@ chimesArray[i].impactSound.stop();
 
 //??Q
 changePlateLookButton.addEventListener("click", function (event) {
-
+console.log(`im here@!!!!!`)
   plateLookIndex++;
 
-  if (currentPlateLook === plateLookArray.length){
-    currentPlateLook =0;
+  if (plateLookIndex === plateLookArray.length){
+    plateLookIndex =0;
   };
 
-for (let i=0;i< plateLookArray.length; i++){
-  plateLookArray[i].currentLook = plateLookArray[plateLookIndex];
-};
+// for (let i=0;i< plateLookArray.length; i++){
+  topPlate.currentLook = plateLookArray[plateLookIndex];
+// };
+topPlate.element.innerHTML= topPlate.currentLook;
 
 });//end change border button
 
