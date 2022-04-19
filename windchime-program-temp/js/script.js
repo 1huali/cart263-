@@ -61,7 +61,6 @@ window.onload = function () {
   chimeLookArray.push("chimeLook4");
 
   // let changeChimesFormButton = document.getElementById(`formButton`);
-  print();
 
   //implementation of look variations 
   //   (chime elements)
@@ -306,7 +305,6 @@ if (event.clientY > yPos){
   // });
 
   changeSoundButton.addEventListener("click", function (event) {
-console.log(`we get there`);
     currentSoundModeIndex++;
 
     if (currentSoundModeIndex === selfSoundArray.length) {
@@ -317,9 +315,9 @@ console.log(`we get there`);
       chimesArray[i].selfSound = selfSoundArray[currentSoundModeIndex];
       chimesArray[i].impactSound = impactSoundArray[currentSoundModeIndex];
     }
-    console.log(currentImpactSoundMode);
+currentSelfSoundMode = selfSoundArray[currentSoundModeIndex].id;
 
-
+print();
 
   });
 
@@ -333,6 +331,9 @@ console.log(`we get there`);
     for (let j = 0; j < chimesArray.length; j++) {
       chimesArray[j].setChimeLook(chimeFormArray[chimeFormIndex]);
     };
+
+    print();
+
   });
 
 muteButton.addEventListener("click", function (event){
@@ -350,7 +351,6 @@ chimesArray[i].impactSound.pause();
 
 
 
-//??Q
 changePlateLookButton.addEventListener("click", function (event) {
 console.log(`im here@!!!!!`)
   plateLookIndex++;
@@ -366,6 +366,7 @@ topPlate.element.innerHTML= topPlate.currentLook;
 
 });//end change border button
 
+print();
 
 
 
@@ -472,7 +473,8 @@ topPlate.element.innerHTML= topPlate.currentLook;
     currentForceModeTextZone.innerHTML = forceMode;
     angleVelLevelText.innerHTML = angleVelLevel;
     //??Q why it doesnt print (there's an error message about soundModeText)
-    // soundModeText.innerHTML = currentSelfSoundMode;
+    soundModeText.innerHTML = currentSelfSoundMode;
+    console.log(currentSelfSoundMode)
     forceInstructionText.innerHTML = currentForceInstructionText;
     angleVelLevelText.innerHTML = angleVelLevel;
     forceLevelTextZone.innerHTML = windForce;
