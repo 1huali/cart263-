@@ -97,6 +97,14 @@ plateLookArray.push(`━━━━━━━━━━━━━━━━━━━�
   let stringchime8 = document.getElementById(`string8`);
   let stringchime9 = document.getElementById(`string9`);
   let stringchime10 = document.getElementById(`string10`);
+  let stringchime11 = document.getElementById(`string11`);
+  let stringchime12 = document.getElementById(`string12`);
+  let stringchime13 = document.getElementById(`string13`);
+  let stringchime14 = document.getElementById(`string14`);
+  let stringchime15 = document.getElementById(`string15`);
+  let stringchime16 = document.getElementById(`string16`);
+
+
   
   let stringElements = document.getElementsByClassName("strings");
   let chimesElements = document.getElementsByClassName("mass");
@@ -144,14 +152,15 @@ let windBoxRatio12th = windchimeWidth / 12;
   let chime8 = new Chimes (stringchime8, document.getElementById(`chime8`),startX+ offsetX,startY+stringUnit,document.getElementById(`dustSound`), document.getElementById(`dustSound2`), currentLook,currentChimeForm,1000,stringUnit*5);
   let chime9 = new Chimes (stringchime9, document.getElementById(`chime9`),startX+ offsetX,startY - stringUnit,document.getElementById(`dustSound`), document.getElementById(`dustSound2`), currentLook,currentChimeForm,1000,stringUnit*5);
 
-  let chime10 = new Chimes (stringchime10, document.getElementById(`chime10`),startX+(offsetX*1.5),startY+stringUnit*2,document.getElementById(`dustSound`), document.getElementById(`dustSound2`), currentLook,currentChimeForm,1000,stringUnit);
-  let chime11;
+  let chime10 = new Chimes (stringchime10, document.getElementById(`chime10`),startX+ (2*offsetX),startY+(2*stringUnit),document.getElementById(`dustSound`), document.getElementById(`dustSound2`), currentLook,currentChimeForm,1000,stringUnit);
+  let chime11= new Chimes (stringchime11, document.getElementById(`chime11`),startX+ (2*offsetX),startY-(2*stringUnit),document.getElementById(`dustSound`), document.getElementById(`dustSound2`), currentLook,currentChimeForm,1000,stringUnit);
 
-  let chime12;
-  let chime13;
+  let chime12 = new Chimes (stringchime11, document.getElementById(`chime12`),startX+ (3*offsetX),startY+(3*stringUnit),document.getElementById(`dustSound`), document.getElementById(`dustSound2`), currentLook,currentChimeForm,1000,stringUnit);
+  let chime13 = new Chimes (stringchime11, document.getElementById(`chime13`),startX+ (3*offsetX),startY-(3*stringUnit),document.getElementById(`dustSound`), document.getElementById(`dustSound2`), currentLook,currentChimeForm,1000,stringUnit);
 
-  let chime14;
-  let chime15;
+  let chime14 = new Chimes (stringchime14, document.getElementById(`chime14`),startX+ (4*offsetX),startY+(4*stringUnit),document.getElementById(`dustSound`), document.getElementById(`dustSound2`), currentLook,currentChimeForm,1000,stringUnit);
+  let chime15 = new Chimes (stringchime15, document.getElementById(`chime15`),startX+ (4*offsetX),startY-(4*stringUnit),document.getElementById(`dustSound`), document.getElementById(`dustSound2`), currentLook,currentChimeForm,1000,stringUnit);
+  let chime16 = new Chimes (stringchime16, document.getElementById(`chime16`),startX+ (2.5*offsetX),startY+(6*stringUnit),document.getElementById(`dustSound`), document.getElementById(`dustSound2`), currentLook,currentChimeForm,1000,stringUnit);
 
 
   function pattern1(){
@@ -193,16 +202,30 @@ let windBoxRatio12th = windchimeWidth / 12;
     stringChimeArray =[];
     stringChimeArray.push(stringchime5);
     stringChimeArray.push(stringchime6);
+    stringChimeArray.push(stringchime7);
+    stringChimeArray.push(stringchime8);
+    stringChimeArray.push(stringchime9);
+    stringChimeArray.push(stringchime10);
+    stringChimeArray.push(stringchime11);
+    stringChimeArray.push(stringchime12);
+    stringChimeArray.push(stringchime13);
+    stringChimeArray.push(stringchime14);
+    stringChimeArray.push(stringchime15);
+    stringChimeArray.push(stringchime16);
+
     chimesArray=[];
     chimesArray.push(chime7);
     chimesArray.push(chime8);
     chimesArray.push(chime9);
-    // chimesArray.push(chime10);
-    // chimesArray.push(chime11);
-    // chimesArray.push(chime12);
-    // chimesArray.push(chime13);
-    // chimesArray.push(chime14);
-    // chimesArray.push(chime15);
+    chimesArray.push(chime10);
+    chimesArray.push(chime11);
+    chimesArray.push(chime12);
+    chimesArray.push(chime13);
+    chimesArray.push(chime14);
+    chimesArray.push(chime15);
+    chimesArray.push(chime16);
+
+
     
 
     

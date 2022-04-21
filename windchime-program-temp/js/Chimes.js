@@ -140,7 +140,7 @@ class Chimes{
 
         show(){
             this.element.style.display= "block";
-            // this.stringChime.style.display = "block";
+            this.stringChime.style.display = "block";
 
             this.stringChime.style.left= `${this.pos.x}px`;
             this.stringChime.style.top = `${this.pos.y-100}px`;
