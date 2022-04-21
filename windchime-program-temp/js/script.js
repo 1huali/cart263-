@@ -76,11 +76,11 @@ window.onload = function () {
 
 //   (plate look)
 let changePlateLookButton = document.getElementById(`plateButton`);
-let currentPlateLook = `---------------------------------top-plate----------------------------------------`;
+let currentPlateLook = `----------------------------top-plate-----------------------------------`;
 let plateLookArray=[];
 let plateLookIndex= 0;
-plateLookArray.push(`━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━༺✧༻━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`);
-plateLookArray.push(`━━━━━━━━━━━━━━━━━━━━━━━━⭑*•̩̩͙♩⊱••••✿••••̩̩͙⊰•♪*⭑━━━━━━━━━━━━━━━━━━━━━━━━`)
+plateLookArray.push(`━━━━━━━━━━━━━༺✧༻━━━━━━━━━━━━━`);
+plateLookArray.push(`━━━━━━━⭑*•̩̩͙♩⊱••••✿••••̩̩͙⊰•♪*⭑━━━━━━━`)
 
 
 
@@ -117,8 +117,8 @@ plateLookArray.push(`━━━━━━━━━━━━━━━━━━━�
 
 
   //window resizing - responsive design
-  let stringUnit = window.innerHeight / 15;
-  let topY = window.innerHeight /30;
+  let stringUnit = window.innerHeight / 20;
+  let topY = window.innerHeight /70;
   // let winchimeBox = document.getElementById(`windchimeBox`);
   let windchimeBoxM = windchimeBox.getBoundingClientRect();
   let windchimeWidth = windchimeBoxM.width;
@@ -281,7 +281,7 @@ let patternChangeButton = document.getElementById(`patternButton`);
 // 
 
   console.log(currentPlateLook)
-  let topPlate = new suspendorBase(stringBase, document.getElementById(`plate`), 0, topY+stringUnit,currentPlateLook);
+  let topPlate = new suspendorBase(stringBase, document.getElementById(`plate`), 0, topY+10,currentPlateLook);
 
   let startDrag = false;
   let mx = 0;
@@ -336,7 +336,7 @@ let mute= false;
 
 
     // let windchimeBox = document.getElementById(`windchimeBox`).getBoundingClientRect();
-    let dataBox = document.getElementById(`dataBox`).getBoundingClientRect();
+    let dataBox = document.getElementById(`instructionDiv`).getBoundingClientRect();
   let yPos = dataBox.height+dataBox.y;
 if (event.clientY > yPos){
 
