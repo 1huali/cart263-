@@ -25,110 +25,105 @@
       <source src="assets/sounds/dust2-chime.mp3" type="audio/mpeg">
     </audio>
 
-<style>
-    .mass{
-        color: rgb(0, 0, 0);
-        font-size: 2em;
-        position:absolute;
-        height: 10vw;
-        width: 10vw;
-    }
-#mainBox{
-  /* height: 100vh; */
-  background:orange;
-
+    <style>
+      .mass{
+          color: rgb(0, 0, 0);
+          font-size: 2em;
+          position:absolute;
+          height: 10vw;
+          width: 10vw;
+      }
+#windchimeBox{ 
+  height: 80vh;
+    position: fixed;
+    min-width:100vw;
 }
-    #windchimeBox{
-      /* border: 4px;  */
-    /* border-style: dotted; */
-      /* stroke: black;  */
-    height: 80vh;
-    position: relative;
-    width:100vw;
-    }
+  
+      #dataBox{
+        position: sticky;
+        width: 100vw;
+        display: flex;
+        / boxes wrap to the next line. space taken by content set in width% /
+        flex-wrap: wrap;
+        height:200px;
+  
+      }
+  .dataContentBox{
+    / orders in line /
+  display: inline-block;
+  / background-color: fuchsia; /
+  width: 10%;
+  margin: 2px;
+  }
+  
+      .strings{
+        position: absolute;
+      }
+  h2{
+    text-align: center;
+  }
+  
+  
+  #plate{
+    position:absolute;
+    width: 120vw; 
+    color: crimson;
+    text-align: center;
+    max-width: 100vw;
+  }
+  
+  .slideContainer{
+    -webkit-appearance: none;
+    width: 100%;
+    height: 25px;
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+  }
+  .slider:hover {
+    opacity: 1;
+  }
+  
+  .chimeLook1{
+    color:rgb(0, 0, 0);
+  
+  }
+  
+  .chimeLook2{
+    color:rgb(240, 166, 218);
+  
+  }
+  
+  .chimeLook3{
+    color:rgb(249, 67, 67);
+  
+  }
+  
+  .chimeLook4{
+  / background-image: url("assets/images/fleur.png");
+  background-size: 100%;
+  width: 40px;
+  height: 40px; /
+  }
+  
+  #title{
+    width: 100vw;
+    font-size:x-large;
+    text-align:center;
+  }
+  
+  body{
+    height: 100vh;
+    width: 100vw;
+    / background-color: blueviolet; */
+    position:absolute;
+    overflow: hidden;
+  }
+  
+  </style>
 
-    #dataBox{
-      position: sticky;
-      width: 100vw;
-      display: flex;
-      /* boxes wrap to the next line. space taken by content set in width% */
-      flex-wrap: wrap;
-      height:200px;
-
-    }
-.dataContentBox{
-  /* orders in line */
-display: inline-block;
-/* background-color: fuchsia; */
-width: 10%;
-margin: 2px;
-}
-
-    .strings{
-      position: absolute;
-    }
-h2{
-  text-align: center;
-}
-
-
-#plate{
-  position:absolute;
-  width: 100vw;
-  color: crimson;
-  text-align: center;
-}
-
-.slideContainer{
-  -webkit-appearance: none;
-  width: 100%;
-  height: 25px;
-  background: #d3d3d3;
-  outline: none;
-  opacity: 0.7;
-  -webkit-transition: .2s;
-  transition: opacity .2s;
-}
-.slider:hover {
-  opacity: 1;
-}
-
-.chimeLook1{
-  color:rgb(0, 0, 0);
-
-}
-
-.chimeLook2{
-  color:rgb(240, 166, 218);
-
-}
-
-.chimeLook3{
-  color:rgb(249, 67, 67);
-
-}
-
-.chimeLook4{
-/* background-image: url("assets/images/fleur.png");
-background-size: 100%;
-width: 40px;
-height: 40px; */
-}
-
-#title{
-  width: 100vw;
-  font-size:x-large;
-  text-align:center;
-}
-
-body{
-  height: 100vh;
-  width: 100vw;
-  background-color: blueviolet;
-  position:absolute;
-}
-
-</style>
     <!-- CSS stylesheet(s) -->
     <!-- <link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css"> -->
     <link rel="stylesheet" type="text/css" href="css/style.css" />
@@ -200,6 +195,31 @@ body{
     <br>
     <p id="chime4" class="mass">chime4</p>
     <br>
+    <p id="string5" class="strings">string</p>
+    <br>
+    <p id="chime5" class="mass">chime5</p>
+    <br>
+    <p id="string6" class="strings">string</p>
+    <br>
+    <p id="chime6" class="mass">chime6</p>
+    <br>
+    <p id="string7" class="strings">string</p>
+    <br>
+    <p id="chime7" class="mass">chime7</p>
+    <br>
+    <p id="string8" class="strings">string</p>
+    <br>
+    <p id="chime8" class="mass">chime8</p>
+    <br>
+    <p id="string9" class="strings">string</p>
+    <br>
+    <p id="chime9" class="mass">chime9</p>
+    <br>
+    <p id="string10" class="strings">string</p>
+    <br>
+    <p id="chime10" class="mass">chime10</p>
+    <br>
+    
     </section>
 
   </main>

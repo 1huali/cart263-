@@ -76,11 +76,11 @@ window.onload = function () {
 
 //   (plate look)
 let changePlateLookButton = document.getElementById(`plateButton`);
-let currentPlateLook = `-------------------------------------------top-plate--------------------------------------------------`;
+let currentPlateLook = `---------------------------------top-plate----------------------------------------`;
 let plateLookArray=[];
 let plateLookIndex= 0;
-plateLookArray.push(`━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━༺✧༻━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`);
-plateLookArray.push(`━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━⭑*•̩̩͙♩⊱••••✿••••̩̩͙⊰•♪*⭑━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`)
+plateLookArray.push(`━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━༺✧༻━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`);
+plateLookArray.push(`━━━━━━━━━━━━━━━━━━━━━━━━⭑*•̩̩͙♩⊱••••✿••••̩̩͙⊰•♪*⭑━━━━━━━━━━━━━━━━━━━━━━━━`)
 
 
 
@@ -91,13 +91,19 @@ plateLookArray.push(`━━━━━━━━━━━━━━━━━━━�
   let stringchime2 = document.getElementById(`string2`);
   let stringchime3 = document.getElementById(`string3`);
   let stringchime4 = document.getElementById(`string4`);
+  let stringchime5 = document.getElementById(`string5`);
+  let stringchime6 = document.getElementById(`string6`);
+  let stringchime7 = document.getElementById(`string7`);
+  let stringchime8 = document.getElementById(`string8`);
+  let stringchime9 = document.getElementById(`string9`);
+  let stringchime10 = document.getElementById(`string10`);
 
-  //maybe dont need this
+
+
   stringChimeArray.push(stringchime0);
   stringChimeArray.push(stringchime1);
   stringChimeArray.push(stringchime2);
   stringChimeArray.push(stringchime3);
-  console.log(stringChimeArray);
 
 
   //window resizing - responsive design
@@ -114,8 +120,15 @@ plateLookArray.push(`━━━━━━━━━━━━━━━━━━━�
   let chime2 = new Chimes(stringchime2, document.getElementById(`chime2`), window.innerWidth / 2 + windowRatio12th, topY + stringUnit * 2.5, document.getElementById(`dustSound`), document.getElementById(`dustSound2`), currentLook, currentChimeForm, 500, stringUnit * 2.5);
   let chime3 = new Chimes(stringchime3, document.getElementById(`chime3`), window.innerWidth / 2 - windowRatio12th, topY + stringUnit * 2.5, document.getElementById(`dustSound`), document.getElementById(`dustSound`), currentLook, currentChimeForm, 500, stringUnit * 2.5);
   let chime4 = new Chimes(stringchime4, document.getElementById(`chime4`), window.innerWidth / 2 + windowRatio5th, topY + stringUnit * 4, document.getElementById(`dustSound`), document.getElementById(`dustSound2`), currentLook, currentChimeForm, 1000, stringUnit * 4);
+  let chime5;
+  let chime6;
+  let chime7;
+  let chime8;
+  let chime9;
+  let chime10;
 
-  // ceration of chimesArray
+
+  // creation of chimesArray
   chimesArray.push(chime0);
   chimesArray.push(chime1);
   chimesArray.push(chime2);
@@ -159,7 +172,12 @@ let soundModeText = document.getElementById(`currentSound`);
 let muteButton = document.getElementById(`muteButton`);
 let mute= false;
 
-
+//pattern mode setup
+let currentPattern = `mountain`;
+//??Q how do I store a pattern or set a new pattern? in the chime creation? chimeMountain1
+let patternArray = [];
+let patternCurrentIndex = 0;
+let patternChangeButton = document.getElementById(`patternButton`);
 
 
 
@@ -352,7 +370,7 @@ chimesArray[i].impactSound.pause();
 
 
 changePlateLookButton.addEventListener("click", function (event) {
-console.log(`im here@!!!!!`)
+
   plateLookIndex++;
 
   if (plateLookIndex === plateLookArray.length){
@@ -365,6 +383,16 @@ console.log(`im here@!!!!!`)
 topPlate.element.innerHTML= topPlate.currentLook;
 
 });//end change border button
+
+patternChangeButton.addEventListener("click", function (event){
+
+  patternCurrentIndex++;
+
+  if (patternCurrentIndex > patternArray.length ){
+    patternArray =0;
+  };
+  // currentPattern = patternArray[patternCurrentIndex];
+});
 
 print();
 
