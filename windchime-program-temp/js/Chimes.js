@@ -41,6 +41,8 @@ class Chimes{
                 this.currentLook = currentLook;
                 this.element.classList.add(this.currentLook);
                 this.element.textContent = this.chimeText;
+                this.element.style.display= "block";
+                this.stringChime.style.display = "block";
 
                 //vector force
                 this.vel = new p5.Vector(0,0);
@@ -137,6 +139,9 @@ class Chimes{
     
 
         show(){
+            this.element.style.display= "block";
+            this.stringChime.style.display = "block";
+
             this.stringChime.style.left= `${this.pos.x}px`;
             this.stringChime.style.top = `${this.pos.y-100}px`;
         
