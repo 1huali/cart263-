@@ -3,7 +3,7 @@
 Wawa Li
 
 
-Program incarnating a wind chime : initial state, disturbed state. Input disturbances, interval disturbance, voice responsive disturbance?
+Program incarnating a physical wind chime : initial state, disturbed state. Input disturbances (wind force through mic or mouse)
 Eventually think of an impact consequence (visual noise? audio sound?)
 https://thecodingtrain.com/learning/nature-of-code/2.1-simulating-forces.html
 https://thecodingtrain.com/learning/nature-of-code/2.2-mass-acceleration.html
@@ -299,8 +299,8 @@ let patternChangeButton = document.getElementById(`patternButton`);
   let selfSoundArray = [];
   let impactSoundArray = [];
 
-  let currentSelfSoundMode = `dust`;
-  let currentImpactSoundMode = `dust`;
+  let currentSelfSoundMode = `dustSound`;
+  let currentImpactSoundMode = `dustSound`;
   let changeSoundButton = document.getElementById(`soundButton`);
 let soundModeText = document.getElementById(`currentSound`);
 
@@ -498,7 +498,6 @@ muteButton.addEventListener("click", function (event){
   mute = !mute;
  
   if (mute === true) {
-    // document.getElementById(`dustSound`).volume=0;
 
 for (let i=0;i < chimesArray.length; i++){
 chimesArray[i].selfSound.pause();
@@ -517,9 +516,7 @@ changePlateLookButton.addEventListener("click", function (event) {
     plateLookIndex =0;
   };
 
-// for (let i=0;i< plateLookArray.length; i++){
   topPlate.currentLook = plateLookArray[plateLookIndex];
-// };
 topPlate.element.innerHTML= topPlate.currentLook;
 
 });//end change border button
@@ -532,7 +529,6 @@ patternChangeButton.addEventListener("click", function (event){
     patternCurrentIndex =0;
   }
   console.log(patternArray[patternCurrentIndex]);
-  // currentPattern = patternArray[patternCurrentIndex];
 });
 
 print();
